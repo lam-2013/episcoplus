@@ -1,4 +1,8 @@
 Episcoplus::Application.routes.draw do
+
+  # default routes for the Users controller
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

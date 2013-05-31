@@ -1,0 +1,11 @@
+<div style="max-width: 900px">
+<%= form_for(@user) do |f| %>
+    <%= f.label :honorific %>
+    <%= f.text_field :honorific %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+    <%= f.submit "Go" %>
+<% end %>
+</div>
