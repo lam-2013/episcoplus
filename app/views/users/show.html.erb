@@ -1,0 +1,12 @@
+<section class="profile">
+  <div class="row">
+    <div class="large-2 small-3 columns"><%= gravatar_for @user %></div>
+    <div class="large-9 columns">
+      <h2><span><%= @user.honorific %></span> <%= @user.name %> <%= @user.surname %></h2>
+      <ul class="main-info no-bullet">
+        <li><%= @user.role %> presso <%= @user.placeForRole %> - Diocesi di <%= @user.diocese %></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</section>
