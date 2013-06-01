@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :surname
       t.string :honorific
       t.string :email
-      t.string :password_digest
       t.date :birth
       t.date :orderDay
       t.string :study

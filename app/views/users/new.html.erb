@@ -1,12 +1,21 @@
 <div style="max-width: 900px">
-<%#  TODO sistemare %>
-<%= form_for(@user) do |f| %>
-    <%= f.label :honorific %>
-    <%= f.text_field :honorific %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :surname %>
-    <%= f.text_field :surname %>
-    <%= f.submit "Go" %>
-<% end %>
+<%#  TODO IMPORTANTE: rifare il migrate partendo dalla prima migrazione %>
+  <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :honorific %>
+      <%= f.text_field :honorific %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :surname %>
+      <%= f.text_field :surname %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, 'Confirmation' %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit "Go" %>
+  <% end %>
 </div>
