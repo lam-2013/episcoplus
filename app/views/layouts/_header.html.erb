@@ -1,0 +1,46 @@
+
+<nav class="top-bar" data-options="is_hover:false">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li>
+      <%= link_to image_tag("logo-episco+.png", :border=>0, :id=> 'logo') %>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="divider"></li>
+      <li><%=link_to "Home", root_path%></li>
+      <li class="divider"></li>
+      <li><%= link_to "About", about_path %></li>
+      <li class="divider"></li>
+
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+      <li><%=link_to "Contact", contact_path %></li>
+      <li class="divider"></li>
+      <li><%=link_to "Contact", contact_path %></li>
+      <li class="divider"></li>
+      <li><%=link_to "Contact", contact_path %></li>
+      <li class="divider"></li>
+      <li class="has-form">
+        <form>
+          <div class="row collapse">
+            <div class="small-8 columns">
+              <input type="text">
+            </div>
+            <div class="small-4 columns">
+              <a href="#" class="alert button">Search</a>
+            </div>
+          </div>
+        </form>
+      </li>
+      <li class="divider show-for-small"></li>
+
+    </ul>
+  </section>
+</nav>
