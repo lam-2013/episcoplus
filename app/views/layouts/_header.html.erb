@@ -1,10 +1,11 @@
-
+<div class="contain-to-grid">
 <nav class="top-bar" data-options="is_hover:false">
   <ul class="title-area">
     <!-- Title Area -->
-    <li>
-      <%= link_to image_tag("logo-episco+.png", :border=>0, :id=> 'logo') %>
+    <li class="name">
+      <h1><%= link_to image_tag("logo-episco+.png", :border=>0, :id=> 'logo') %> </h1>
     </li>
+    <li class="toggle-topbar menu-icon"><a ><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
@@ -20,7 +21,7 @@
 
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="divider hide-for-small"></li>
+      <li class="divider hide-for-small "></li>
       <li><%=link_to "Contact", contact_path %></li>
       <li class="divider"></li>
       <li><%=link_to "Contact", contact_path %></li>
@@ -44,3 +45,4 @@
     </ul>
   </section>
 </nav>
+</div>

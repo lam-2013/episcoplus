@@ -1,4 +1,4 @@
-
+@import "foundation";
 
 /* mixins, variables, etc. */
 
@@ -7,66 +7,80 @@ $grayLight: #2e2e2e;
 $gray: #999999;
 $grayDarker: #eaeaeb;
 
-
-
 /* general */
 
 html {
   overflow-y: scroll;
 }
 
-
-
 /* header */
-header{
+header {
   margin-top: 0;
-  nav.top-bar{
-    height: 120px;
-     background-color: crimson;
-    .title-area{
-      max-width: 300px;
+  font-size: 1em;
+  background-color: crimson;
 
-          }
-
-    section.top-bar-section{
-     margin-top: 75px;
+  .contain-to-grid {
+    background: transparent;
+    nav.top-bar {
       height: 45px;
-/*      width: 850px;*/
-      float: right;
-      background-color: black;
+      max-width: 100em;
+
+      @media only screen and (min-width: 58.75em) {
+        height: 120px;
+      }
+      background-color: transparent;
+      .title-area {
+        @media only screen and (min-width: 58.75em) {
+          max-width: 320px;
+          width: 30%;
+          min-width: 151px;
+          height: 100%;
+        }
+        .name {
+          @media only screen and (min-width: 58.75em) {
+            height: 100%;
+          }
+        }
+      }
+
+      section.top-bar-section {
+        @media only screen and (min-width: 58.75em) {
+          float: right;
+          width: 657px;
+          background-color: black;
+          margin-top: 75px;
+        }
+      }
     }
   }
 
 }
 
 #logo {
-  left: -9999999px;
-  margin: 10px;
-  font-size: 1.7em;
-  color: white;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-
+  padding: 10px 0;
+  max-height: 100%;
 }
 
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
-  a {
-    color: $gray;
-    &:hover {
-      color: $grayDarker;
-    }
-  }
-  small {
-    float: left;
-  }
+  //margin-top: 45px;
+  //padding-top: 5px;
+  //border-top: 1px solid $grayMediumLight;
+  //color: $grayLight;
+  //a {
+  //  color: $gray;
+  //  &:hover {
+  //    color: $grayDarker;
+  //  }
+  //}
+  //small {
+  //  float: left;
+  //}
 
+}
 
+.wrapper {
+  max-width: 1000px;
+  margin: 5em auto;
 }
