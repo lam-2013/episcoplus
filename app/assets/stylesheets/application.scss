@@ -14,7 +14,25 @@
 
 @import "foundation";
 
-.wrapper{
-  max-width: 1000px;
-  margin: 5em auto;
+//clearfix
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
 }

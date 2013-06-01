@@ -1,6 +1,23 @@
 Episcoplus::Application.routes.draw do
+    root to:
+             'pages#home'
 
-  # default routes for the Users controller
+
+    match '/about', to:
+        'pages#about'
+
+
+
+    match '/contact', to:
+        'pages#contact'
+
+    match '/faq', to:
+        'pages#faq'
+
+    match '/new', to:
+        'users#new'
+
+    # default routes for the Users controller
   resources :users
 
   # The priority is based upon order of creation:

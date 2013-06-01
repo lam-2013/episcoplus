@@ -6,12 +6,23 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim'  %>
 </head>
 <body>
+<header>
+  <%= render 'layouts/header'  %>
+</header>
 
 <div class="wrapper">
 <%= yield %>
 </div>
+
+<footer class="footer">
+   <%= render 'layouts/footer' %>
+</footer>
+
+<%= debug(@user) %>
+
 
 </body>
 </html>

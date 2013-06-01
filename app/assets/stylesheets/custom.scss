@@ -1,0 +1,68 @@
+
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #686868;
+$grayLight: #2e2e2e;
+$gray: #999999;
+$grayDarker: #eaeaeb;
+
+
+
+/* general */
+
+html {
+  overflow-y: scroll;
+}
+
+
+
+/* header */
+header{
+  margin-top: 0;
+  nav.top-bar{
+    height: 120px;
+     background-color: crimson;
+    .title-area{
+      max-width: 300px;
+
+          }
+
+/*    section.top-bar-section{
+     margin-top: 75px;
+    }*/
+  }
+
+}
+
+#logo {
+  left: -9999999px;
+  margin: 10px;
+  font-size: 1.7em;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+
+
+}
