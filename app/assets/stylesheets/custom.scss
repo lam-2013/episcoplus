@@ -22,22 +22,20 @@ header{
   margin-top: 0;
   nav.top-bar{
     height: 120px;
-
+     background-color: crimson;
     .title-area{
-      height: 100%;
+      max-width: 300px;
+
           }
 
-    section.top-bar-section{
+    section.top-bar-section.clearfix{
      margin-top: 75px;
-      background-color: crimson;
     }
   }
 
 }
 
 #logo {
-
-  max-width: 300px;
   left: -9999999px;
   margin: 10px;
   font-size: 1.7em;
