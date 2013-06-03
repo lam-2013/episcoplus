@@ -1,6 +1,10 @@
 @import "foundation";
 
 $darkred : #690000;
+$grey : #4c4c4c;
+$darkgrey : #2b2b2b;
+$darkergrey : #1c1c1c;
+$darkerergrey : #131313 ;
 
 /* general */
 
@@ -47,19 +51,23 @@ header {
           }
           h1 a{
             width: 100px;
-            background: #4c4c4c; /* Old browsers */
-            background: -moz-linear-gradient(top, #4c4c4c 0%, #2b2b2b 14%, #1c1c1c 36%, #131313 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(14%,#2b2b2b), color-stop(36%,#1c1c1c), color-stop(100%,#131313)); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(top, #4c4c4c 0%,#2b2b2b 14%,#1c1c1c 36%,#131313 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(top, #4c4c4c 0%,#2b2b2b 14%,#1c1c1c 36%,#131313 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(top, #4c4c4c 0%,#2b2b2b 14%,#1c1c1c 36%,#131313 100%); /* IE10+ */
-            background: linear-gradient(to bottom, #4c4c4c 0%,#2b2b2b 14%,#1c1c1c 36%,#131313 100%); /* W3C */
+            background: $grey; /* Old browsers */
+            background: -moz-linear-gradient(top, $grey 0%, $darkgrey 14%, $darkergrey 36%, $darkerergrey 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grey), color-stop(14%,$darkgrey), color-stop(36%,$darkergrey), color-stop(100%,$darkerergrey)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* IE10+ */
+            background: linear-gradient(to bottom, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* W3C */
             @media only screen and (min-width: 58.75em) {
               background: transparent;
               width: auto;
             }
           }
         }
+      }
+
+      form div div a.alert.button{
+        font-size: 0.8125em;
       }
 
       section.top-bar-section {
@@ -71,6 +79,7 @@ header {
         }
         ul li a{
           font-size: 0.6em;
+
         }
       }
     }
@@ -89,7 +98,14 @@ footer.row{
   max-width: 100%;
   margin-bottom: 0;
   font-size: 1em;
-  background-color: crimson;
+  color: white;
+  background: $grey; /* Old browsers */
+  background: -moz-linear-gradient(top, $grey 0%, $darkgrey 14%, $darkergrey 36%, $darkerergrey 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grey), color-stop(14%,$darkgrey), color-stop(36%,$darkergrey), color-stop(100%,$darkerergrey)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* W3C */
 }
 
 .wrapper {
