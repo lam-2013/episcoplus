@@ -4,8 +4,34 @@
     <div class="large-9 columns">
       <h2><span><%= @user.honorific %></span> <%= @user.name %> <%= @user.surname %></h2>
       <ul class="main-info no-bullet">
-        <li><%= @user.role %> presso <%= @user.placeForRole %> - Diocesi di <%= @user.diocese %></li>
-        <li></li>
+        <li>
+          <% if @user.role != nil %>
+              <%= @user.role %>
+              <% if @user.placeForRole != nil %>
+                  presso <%= @user.placeForRole %>
+              <% end %>
+          <% end %>
+          <% if @user.role != nil && @user.diocese != nil %>
+              <span class="separator">-</span>
+          <% end %>
+          <% if @user.diocese != nil %>
+              Diocesi di <%= @user.diocese %>
+          <% end %>
+        </li>
+        <% if @user.study != nil %>
+            <li>Ha studiato presso <%= @user.study %></li>
+        <% end %>
+        <li>
+          <% if @user.birth != nil %>
+              Anni <%= Time.now.year - @user.birth.year %>
+          <% end %>
+          <% if @user.birth != nil && @user.orderDay != nil %>
+              <span class="separator">-</span>
+          <% end %>
+          <% if @user.orderDay != nil %>
+              Sacerdote da <%= time_ago_in_words(@user.orderDay) %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
