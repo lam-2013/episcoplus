@@ -8,6 +8,7 @@ Episcoplus::Application.routes.draw do
   match '/faq', to: 'pages#faq'
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # default routes for the Users controller
   resources :users
