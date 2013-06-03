@@ -83,17 +83,10 @@ header {
 /* footer */
 
 footer.row{
+  max-width: 100%;
   margin-bottom: 0;
   font-size: 1em;
   background-color: crimson;
-
-  section{
-    @media only screen and (min-width: 58.75em) {
-      float: right;
-      width: 657px;
-      margin-top: 75px;
-    }
-  }
 
 }
 
