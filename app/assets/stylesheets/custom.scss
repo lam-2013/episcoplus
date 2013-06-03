@@ -12,6 +12,10 @@ html {
   overflow-y: scroll;
 }
 
+body{
+  background: url("../assets/background.png") repeat;
+}
+
 /* header */
 header {
   margin-top: 0;
@@ -92,6 +96,28 @@ header {
   max-height: 100%;
 }
 
+/* wrapper */
+
+div.wrapper.columns{
+  padding: 30px;
+  background-color: rgba(233,233,233,0.5);
+  //border:1px solid #e9e9e9;
+  border-radius:25px;
+  max-width: 1000px;
+  margin: 5em auto;
+
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 5px 5px 20px $darkerergrey;
+}
+
+.button.radius{
+  border-radius:5px;
+  background-color: darkred;
+  border: none;
+}
+
+
 /* footer */
 
 footer.row{
@@ -108,7 +134,3 @@ footer.row{
   background: linear-gradient(to bottom, $grey 0%,$darkgrey 14%,$darkergrey 36%,$darkerergrey 100%); /* W3C */
 }
 
-.wrapper {
-  max-width: 1000px;
-  margin: 5em auto;
-}
