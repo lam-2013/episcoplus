@@ -1,6 +1,6 @@
 Episcoplus::Application.routes.draw do
   # route for the homepage
-  root :to => 'pages#home'
+  root :to => 'sessions#new'
 
   # named routes for static pages, signup, login and logout
   match '/about', to: 'pages#about'
