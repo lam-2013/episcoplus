@@ -2,10 +2,7 @@
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #686868;
-$grayLight: #2e2e2e;
-$gray: #999999;
-$grayDarker: #eaeaeb;
+
 
 /* general */
 
@@ -63,20 +60,18 @@ header {
 
 /* footer */
 
-footer {
-  //margin-top: 45px;
-  //padding-top: 5px;
-  //border-top: 1px solid $grayMediumLight;
-  //color: $grayLight;
-  //a {
-  //  color: $gray;
-  //  &:hover {
-  //    color: $grayDarker;
-  //  }
-  //}
-  //small {
-  //  float: left;
-  //}
+footer.row{
+  margin-bottom: 0;
+  font-size: 1em;
+  background-color: crimson;
+
+  section{
+    @media only screen and (min-width: 58.75em) {
+      float: right;
+      width: 657px;
+      margin-top: 75px;
+    }
+  }
 
 }
 
