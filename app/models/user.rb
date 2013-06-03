@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   # put the email in downcase before saving the user
   before_save { |user| user.email = email.downcase }
+  # call the create_remember_token private method before saving the user
+  before_save :create_remember_token
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+.[a-z]+\z/i
   # M/D/YY or M/D/YYYY or MM/DD/YYYY
@@ -19,12 +21,11 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  ## private methods
-  #private
-  #
-  #def create_remember_token
-  #  # create a random string, safe for use in URIs and cookies, for the user remember token
-  #  self.remember_token = SecureRandom.urlsafe_base64
-  #end
+  # private methods
+  private
 
+  def create_remember_token
+    # create a random string, save for use in URIs and cookies, for the user remember token
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
 end

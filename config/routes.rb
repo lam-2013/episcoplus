@@ -1,24 +1,19 @@
 Episcoplus::Application.routes.draw do
-    root to:
-             'pages#home'
+  # route for the homepage
+  root :to => 'pages#home'
 
+  # named routes for static pages, signup, login and logout
+  match '/about', to: 'pages#about'
+  match '/contact', to: 'pages#contact'
+  match '/faq', to: 'pages#faq'
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
 
-    match '/about', to:
-        'pages#about'
-
-
-
-    match '/contact', to:
-        'pages#contact'
-
-    match '/faq', to:
-        'pages#faq'
-
-    match '/new', to:
-        'users#new'
-
-    # default routes for the Users controller
+  # default routes for the Users controller
   resources :users
+  # default routes for the Sessions controller (only new, create and destroy)
+  resources :sessions, only: [:new, :create, :destroy]
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
