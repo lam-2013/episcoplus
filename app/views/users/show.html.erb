@@ -31,6 +31,11 @@
           <% if @user.orderDay != nil %>
               Sacerdote da <%= time_ago_in_words(@user.orderDay) %>
           <% end %>
+
+          <% if @posts != 0 %>
+              <%= time_ago_in_words(@post.created_at) %>
+          <% end %>
+
         </li>
       </ul>
     </div>
