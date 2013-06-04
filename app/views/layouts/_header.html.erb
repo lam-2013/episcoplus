@@ -3,6 +3,7 @@
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
+      <%# TODO inserire alone nel png %>
       <h1><%= link_to image_tag("logo-episco+.png", :border=>0, :id=> 'logo') %> </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a ><span>Menu</span></a></li>
@@ -26,7 +27,7 @@
       <li class="divider"></li>
       <li><%=link_to "Contact", contact_path %></li>
       <li class="divider"></li>
-      <li><%=link_to "Contact", contact_path %></li>
+      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
       <li class="divider"></li>
       <li class="has-form">
         <form>
