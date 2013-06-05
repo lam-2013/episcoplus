@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  has_many(:posts, dependent: :destroy)
+  # each user can have some posts associated and they must be destroyed together with the user
+  has_many :posts, dependent: :destroy
 
   # private methods
   private
