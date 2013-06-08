@@ -1,5 +1,7 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication  %>
 <% provide :title, 'Home' %>
+<% provide :isPreLogin, true %>
+
 
 <% if signed_in? %>
     <div class="row">
