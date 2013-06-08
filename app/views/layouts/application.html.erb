@@ -13,21 +13,33 @@
 </head>
 <body>
 
+<div class="container">
+
 <% if !preLogin?(yield(:isPreLogin)) %>
     <header>
       <%= render 'layouts/header' %>
     </header>
 <% end %>
 
+
 <div class="wrapper columns">
   <%= yield %>
 </div>
+
+<!--clearfooter push the footer to the bottom-->
+  <div class="clearfooter"></div>
+
+<!--end container-->
+</div>
+
 
 <footer class="row">
   <%= render 'layouts/footer' %>
 </footer>
 
-<%= debug(@user) %>
+
+
+<%#= debug(@user) %>
 
 
 </body>

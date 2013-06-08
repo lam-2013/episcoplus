@@ -32,6 +32,16 @@
               Sacerdote da <%= time_ago_in_words(@user.orderDay) %>
           <% end %>
 
+          <div class="large-12 columns">
+            <% if @user.posts.any? %>
+                <h3>Posts (<%= @user.posts.count %>)</h3>
+                <ol class="posts">
+                  <%= render @posts %>
+                </ol>
+                <% # since we are in a Users view, we need to specify that the pagination is for the posts %>
+                <% will_paginate @posts %>
+            <% end %>
+          </div>
 
 
         </li>
