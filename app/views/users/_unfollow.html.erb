@@ -1,0 +1,4 @@
+<% # linked to the destroy action in the Relationship controller %>
+<%= form_for(current_user.relationships.find_by_followed_id(@user), html: { method: :delete }, remote: true ) do |f| %>
+  <%= f.submit 'Unfollow', class: 'btn btn-large' %>
+<% end %>

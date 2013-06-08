@@ -26,4 +26,11 @@ class Post < ActiveRecord::Base
 
   # content must be present and not longer than 400 chars
   validates :content, presence: true, length: {maximum: 400}
+
+  # get user's posts plus all the posts written by her followed users
+  def self.from_users_followed_by(user)
+    followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
+    where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user.id)
+  end
+
 end

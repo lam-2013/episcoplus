@@ -1,0 +1,6 @@
+<% # form_tag is equivalent to form_for, but it is used for generic form, without a model behind
+    # a search form always uses a GET method %>
+<%= form_tag search_users_path, method: 'get', class: 'navbar-search pull-left' do %>
+    <% # text_field_tag: the first parameter is the id/name of the input tag; the second is the value of the tag %>
+    <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: 'Search' %>
+<% end %>

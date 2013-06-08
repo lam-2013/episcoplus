@@ -32,6 +32,14 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# To generate fake data
+gem 'faker', '1.0.1'
+
+# To add pagination capabilities
+gem 'will_paginate', '3.0.3'
+gem 'foundation-will_paginate'
+# TODO Sostituire will_paginate con foundation_paginate
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
