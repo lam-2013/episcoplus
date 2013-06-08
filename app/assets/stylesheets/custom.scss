@@ -10,22 +10,26 @@ $darkerergrey : #131313 ;
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body{
   background: url("../assets/backgrund.png") repeat;
+  height: 100%;
 }
+
 
 /* header */
 header {
   margin-top: 0;
+  margin-bottom: 5em;
   font-size: 1em;
   background: #{$darkred};
   box-shadow: 0 -2px 5px 5px rgb(54, 53, 53);
   -moz-box-shadow: 0 -2px 5px 5px rgb(54, 53, 53);
 
   @media only screen and (min-width: 58.75em) {
-    background: url("../assets/header.jpg") center center no-repeat;
+    background: url("../assets/header.png") center center no-repeat;
     background-size: cover;
   }
 
@@ -105,7 +109,7 @@ div.wrapper.columns{
   //border:1px solid #e9e9e9;
   border-radius:25px;
   max-width: 1000px;
-  margin: 5em auto;
+  margin: 0 auto 5em;
 
   -moz-box-shadow: 5px 5px 20px $darkerergrey;
   -webkit-box-shadow: 5px 5px 20px $darkerergrey;
@@ -119,10 +123,24 @@ div.wrapper.columns{
 }
 
 
+.container {
+  min-height: 100%;
+  margin-bottom: -50px;
+  position: relative;
+}
+.clearfooter {
+  height: 50px;
+  clear: both;
+}
+
+
 /* footer */
 
 footer.row{
   max-width: 100%;
+  height: 50px;
+  position: relative;
+
   margin-bottom: 0;
   font-size: 1em;
   color: white;
