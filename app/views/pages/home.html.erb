@@ -1,0 +1,30 @@
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication %>
+<% provide :title, 'Home' %>
+
+<% if signed_in? %>
+    <div class="row">
+      <aside class="span3">
+        <section>
+          <%= render 'shared/user_info' %>
+        </section>
+        <section>
+          <%= render 'shared/stats' %>
+        </section>
+      </aside>
+      <div class="span9">
+        <%= render 'shared/post_form' %>
+        <h3>Wall</h3>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
+<% else %>
+    <div class="center hero-unit">
+      <h1>Welcome to SWorD</h1>
+
+      <h2>
+        Sign up or login to start using SWorD.
+      </h2>
+
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-large btn-primary' %>
+    </div>
+<% end %>

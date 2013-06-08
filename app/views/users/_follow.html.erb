@@ -1,0 +1,6 @@
+<% # linked to the create action in the Relationship controller %>
+<%= form_for(current_user.relationships.build(followed_id: @user.id), remote: true) do |f| %>
+  <% # the hidden field contains the information needed for following a user %>
+  <div><%= f.hidden_field :followed_id %></div>
+  <%= f.submit 'Follow', class: 'btn btn-large btn-primary' %>
+<% end %>

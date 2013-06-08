@@ -1,6 +1,6 @@
 Episcoplus::Application.routes.draw do
   # route for the homepage
-  root :to => 'sessions#new'
+  root :to => 'pages#home'
 
   # named routes for static pages, signup, login and logout
   match '/about', to: 'pages#about'
@@ -10,11 +10,26 @@ Episcoplus::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  # default routes for the Users controller
-  resources :users
+  # routes for the Users controller (default plus following, followers and search)
+  resources :users do
+    # member: apply the reported actions to each single member (to /users/{:id}, in this case)
+    member do
+      get :following, :followers # ex.: get /users/1/followers
+    end
+    # collection: apply the reported action to the entire collection (to /users/, in this case)
+    collection do
+      get :search
+    end
+  end
+
   # default routes for the Sessions controller (only new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
 
+  # default routes for the Posts controller (only create and destroy - other operations will be done via the Users controlelr)
+  resources :posts, only: [:create, :destroy]
+
+  # default routes for the Relationship controller (only create and destroy) - needed to build follow/unfollow relations
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
