@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f| %>
+    <div class="row collapse">
+      <div class="columns large-6">
+        <%= f.text_field :name, :placeholder => "Nome" %>
+      </div>
+      <div class="columns large-6">
+        <%= f.text_field :surname, :placeholder => "Cognome" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-12">
+
+        <%= f.text_field :email, :placeholder => "Email" %>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-12">
+
+        <%= f.password_field :password, :placeholder => "Password" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-12">
+
+        <%= f.password_field :password_confirmation, :placeholder => "Conferma password" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-12">
+
+        <%= f.submit "Registrati", :class => 'button small' %>
+      </div>
+    </div>
+<% end %>

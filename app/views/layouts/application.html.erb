@@ -19,26 +19,31 @@
     <header>
       <%= render 'layouts/header' %>
     </header>
+    <div class="wrapper columns">
+
 <% end %>
 
 
-<div class="wrapper columns">
-  <%# TODO customizzare CSS (es. per alert-box error %>
-  <div class="flashes">
-    <% # the flash message; it supports different type of communications   %>
-    <% flash.each do |key, value| %>
-        <div class="alert-box <%= key %>"><%= value %></div>
-    <% end %>
-  </div>
-
-  <%= yield %>
+<%# TODO customizzare CSS (es. per alert-box error %>
+<div class="flashes">
+  <% # the flash message; it supports different type of communications      %>
+  <% flash.each do |key, value| %>
+      <div class="alert-box <%= key %>"><%= value %></div>
+  <% end %>
 </div>
 
+<%= yield %>
+
+<% if !preLogin?(yield(:isPreLogin)) %>
+    </div>
+<% end %>
+
+<%# TODO non avevamo legato il footer a fondo pagina? controllare %>
 <footer class="row">
   <%= render 'layouts/footer' %>
 </footer>
 
-<%= debug(@user) %>
+<%#= debug(@user) %>
 
 
 </body>
