@@ -1,8 +1,10 @@
 @import "foundation";
 
 $darkred: #690000;
+$primary-color: $darkred;
 $mediumred: #8c0000;
 $grey: #4c4c4c;
+$lightgrey: #cccccc;
 $darkgrey: #2b2b2b;
 $darkergrey: #1c1c1c;
 $darkerergrey: #131313;
@@ -23,7 +25,7 @@ body {
 /* header */
 header {
   margin-top: 0;
-  margin-bottom: 5em;
+  margin-bottom: 1em;
   font-size: 1em;
   background: #{$darkred};
   box-shadow: 0 -2px 5px 5px rgb(54, 53, 53);
@@ -135,15 +137,18 @@ header {
   max-height: 100%;
 }
 
-/* wrapper */
+/* commons */
+form {
+  margin: 0;
+}
 
-div.wrapper.columns {
-  @media only screen and (min-width: 58.75em) {
-    padding: 30px;
-  }
-  background-color: rgba(255, 255, 255, 0.5);
-  max-width: 1000px;
-  margin: 0 auto 5em;
+textarea {
+  resize: none;
+}
+
+.gravatar {
+  border: 5px solid #eee;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .small.button {
@@ -154,10 +159,35 @@ div.wrapper.columns {
   $disabled: false;
   $is-input: true;
   @include button($padding, $bg, $radius, $full-width, $disabled, $is-input);
+  margin-bottom: 0;
+}
 
-  //border-radius: 5px;
-  //background-color: $darkred;
-  //border: none;
+.small.button.grey {
+  $padding: $button-sml;
+  $bg: $darkgrey;
+  $radius: 5px;
+  $full-width: false;
+  $disabled: false;
+  $is-input: true;
+  @include button($padding, $bg, $radius, $full-width, $disabled, $is-input);
+}
+
+a {
+  color: $mediumred;
+  &:hover {
+    color: darken($primary-color, 5%);
+  }
+}
+
+/* wrapper */
+
+div.wrapper.columns {
+  @media only screen and (min-width: 58.75em) {
+    padding: 30px;
+  }
+  background-color: rgba(255, 255, 255, 0.5);
+  max-width: 1000px;
+  margin: 0 auto 5em;
 }
 
 .container {
@@ -212,9 +242,7 @@ footer.row {
     @media #{$small} {
       margin-top: 1.6em;
     }
-    .button {
-      margin-bottom: 0;
-    }
+
   }
   #signin {
 
@@ -255,4 +283,65 @@ footer.row {
       }
     }
   }
+}
+
+/* Profile */
+.profile {
+  .main-info {
+    text-align: center;
+    .panel {
+      width: 100%;
+    }
+    @media #{$small} {
+      text-align: left;
+      ul {
+        margin: 0;
+        li {
+          &:nth-last-child(2) {
+            float: left;
+          }
+        }
+
+      }
+      .buttons-container {
+        float: right;
+      }
+    }
+  }
+  .image {
+    text-align: center;
+    @media #{$small} {
+      float: left;
+      margin: auto 1em auto 0;
+    }
+  }
+  .new_post {
+    border-bottom: 1px solid $lightgrey;
+  }
+}
+
+/* Post */
+.post.row {
+  padding: 1em 0;
+  margin: 0;
+  border-bottom: 1px solid $lightgrey;
+  &:last-child {
+    border-bottom: none;
+  }
+  .columns {
+    padding: 0;
+  }
+  .user-image {
+    text-align: center;
+  }
+  .user-name {
+    margin-bottom: 0.2em;
+  }
+  .timestamp {
+    color: $grey;
+  }
+}
+
+.no-post {
+  margin: 10px 0;
 }

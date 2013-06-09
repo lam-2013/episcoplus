@@ -1,29 +1,29 @@
 <%= form_for(@user) do |f| %>
     <div class="row collapse">
       <div class="columns large-6">
-        <%= f.text_field :name, :placeholder => "Nome" %>
+        <%= f.text_field :name, :placeholder => "Nome", :required => 'required' %>
       </div>
       <div class="columns large-6">
-        <%= f.text_field :surname, :placeholder => "Cognome" %>
+        <%= f.text_field :surname, :placeholder => "Cognome", :required => 'required' %>
       </div>
     </div>
     <div class="row">
       <div class="columns large-12">
 
-        <%= f.text_field :email, :placeholder => "Email" %>
+        <%= f.email_field :email, :placeholder => "Email", :required => 'required' %>
 
       </div>
     </div>
     <div class="row">
       <div class="columns large-12">
 
-        <%= f.password_field :password, :placeholder => "Password" %>
+        <%= f.password_field :password, :placeholder => "Password", :required => 'required' %>
       </div>
     </div>
     <div class="row">
       <div class="columns large-12">
 
-        <%= f.password_field :password_confirmation, :placeholder => "Conferma password" %>
+        <%= f.password_field :password_confirmation, :placeholder => "Conferma password", :required => 'required' %>
       </div>
     </div>
     <div class="row">

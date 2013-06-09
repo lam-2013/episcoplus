@@ -12,6 +12,8 @@ class UsersController < ApplicationController
 
     # get and paginate the posts associated to the specified user
     @posts = @user.posts.paginate(page: params[:page])
+
+    @post = current_user.posts.build if signed_in? && current_user?(@user)
   end
 
   def new

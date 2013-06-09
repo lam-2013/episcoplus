@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require_tree .
 //= require foundation
-$(document).ready(function(){
+$(document).ready(function () {
     $(document).foundation();
+
+    $('textarea').autosize();
 });
 
