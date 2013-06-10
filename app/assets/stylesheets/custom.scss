@@ -1,4 +1,5 @@
 @import "foundation";
+@import "foundation/components/alert-boxes";
 
 $darkred: #690000;
 $mediumred: #8c0000;
@@ -230,6 +231,14 @@ footer.row {
       position: absolute;
       top: 50%;
     }
+
+   div.alert-box{
+     @include alert-base;
+     @include alert-style;
+     .close { @include alert-close; }
+   }
+
+
     .logo {
       text-indent: -9999px;
       background: $white80 url("logo-episco+.png") center center no-repeat;

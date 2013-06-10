@@ -16,9 +16,14 @@
 <body>
 
 <% if !preLogin?(yield(:isPreLogin)) %>
+    <!--container = blocca il footer a fondo pagina-->
+    <div class="container">
+
     <header>
       <%= render 'layouts/header' %>
     </header>
+
+
     <div class="wrapper columns">
 
 <% end %>
@@ -28,7 +33,7 @@
 <div class="flashes">
   <% # the flash message; it supports different type of communications      %>
   <% flash.each do |key, value| %>
-      <div class="alert-box <%= key %>"><%= value %></div>
+      <div data-alert class="alert-box <%= key %>"><%= value %><%=link_to "x", "#", :class=>"close" %></div>
   <% end %>
 </div>
 
@@ -36,9 +41,12 @@
 
 <% if !preLogin?(yield(:isPreLogin)) %>
     </div>
+
+    <div class="clearfooter"></div>
+    <!--end container-->
+    </div>
 <% end %>
 
-<%# TODO non avevamo legato il footer a fondo pagina? controllare %>
 <footer class="row">
   <%= render 'layouts/footer' %>
 </footer>
