@@ -1,13 +1,13 @@
-<% # handle and show forms errors %>
+<% # handle and show forms errors    %>
 <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <div class="alert alert-error">
-        The form contains <%= pluralize(@user.errors.count, "error") %>.
-      </div>
+    <div data-alert class="alert-box error">
+      Il form contiene <%= pluralize(@user.errors.count, "errore", "errori") %>.
       <ul>
         <% @user.errors.full_messages.each do |message| %>
-            <li>* <%= message %></li>
+            <%# TODO spostare style nel css %>
+            <li style="margin-left: 20px;"><%= message %></li>
         <% end %>
       </ul>
+      <%= link_to image_tag("icon/close.png"), "#", :class => "close" %>
     </div>
 <% end %>

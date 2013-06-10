@@ -1,3 +1,5 @@
+<% provide :title, 'Welcome to episco+' %>
+
 <div style="max-width: 900px">
   <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
@@ -15,6 +17,6 @@
 
       <%= f.label :password_confirmation, 'Confirmation' %>
       <%= f.password_field :password_confirmation %>
-      <%= f.submit "Go", :class => 'button small radius' %>
+      <%= f.submit "Registrati", :class => 'button small radius' %>
   <% end %>
 </div>

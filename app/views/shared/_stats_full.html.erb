@@ -1,0 +1,50 @@
+<% # we are going to use this partial in the home and in the user profile;
+   # in the home @user is nil and needs to be filled                         %>
+<% @user ||= current_user %>
+<div class="stats">
+
+  <%# Followed %>
+  <% fdHref = "href=#{following_user_path(@user)}" if @user.followed_users.count > 0 %>
+  <h4>
+    <a <%= fdHref %> >
+      Sta seguendo
+      <span class="num-follow">
+          <strong id="following" class="stat">
+            <%= @user.followed_users.count %>
+          </strong>
+        <%= pluralize_without_count(@user.followed_users.count, 'persona', 'persone') %>
+      </span>
+    </a>
+  </h4>
+
+  <% @this_followed = @user.followed_users.paginate :page => 1, :per_page => 3, :order => 'RANDOM()' %>
+
+  <ul class="users no-bullet">
+    <% @this_followed.each do |fwd| %>
+        <%= render fwd %>
+    <% end %>
+  </ul>
+
+  <%# Followers %>
+  <% fwHref = "href=#{followers_user_path(@user)}" if @user.followers.count >0 %>
+  <h5>
+    <a <%= fwHref %>>
+      &Eacute; seguito da
+      <span class="num-follow">
+          <strong id="followers" class="stat">
+            <%= @user.followers.count %>
+          </strong>
+        <%= pluralize_without_count(@user.followers.count, 'persona', 'persone') %>
+      </span>
+    </a>
+  </h5>
+
+  <% @this_followers = @user.followers.paginate :page => 1, :per_page => 9, :order => 'RANDOM()' %>
+
+  <div class="user_avatars">
+    <% @this_followers.each do |fwr| %>
+        <%= link_to gravatar_for(fwr, size: 30), fwr %>
+    <% end %>
+  </div>
+
+</div>

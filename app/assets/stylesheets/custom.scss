@@ -11,6 +11,8 @@ $darkergrey: #1c1c1c;
 $darkerergrey: #131313;
 $white80: rgba(255, 255, 255, 0.8);
 
+$lightBorder: 1px solid $lightgrey;
+
 /* general */
 
 html {
@@ -347,7 +349,7 @@ footer.row {
     }
   }
   .new_post {
-    border-bottom: 1px solid $lightgrey;
+    border-bottom: $lightBorder;
   }
 }
 
@@ -355,7 +357,7 @@ footer.row {
 .post.row {
   padding: 1em 0;
   margin: 0;
-  border-bottom: 1px solid $lightgrey;
+  border-bottom: $lightBorder;
   &:last-child {
     border-bottom: none;
   }
@@ -375,4 +377,19 @@ footer.row {
 
 .no-post {
   margin: 10px 0;
+}
+
+/* Users */
+.num-follow {
+  float: right;
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+
+.user {
+  padding: 5px 0 10px;
+  border-bottom: $lightBorder;
+  img {
+    vertical-align: middle;
+  }
 }
