@@ -148,10 +148,12 @@ textarea {
   resize: none;
 }
 
-div.alert-box.error{
+div.alert-box.error {
   @include alert-base;
   @include alert-style(#ff0020);
-  .close { @include alert-close; }
+  .close {
+    @include alert-close;
+  }
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -188,20 +190,23 @@ a {
   }
 }
 
-.motto {
+h2.motto {
   background: $white80;
   text-align: center;
   padding: 10px;
+  @media #{$small} {
     margin-right: -40px;
+  }
 }
 
-.row.relative{
+.row.relative {
   position: relative;
 }
 
-p.center{
+p.center {
   text-align: center;
 }
+
 /* wrapper */
 
 div.wrapper.columns {

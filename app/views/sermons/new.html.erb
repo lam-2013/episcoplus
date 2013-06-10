@@ -1,0 +1,15 @@
+<li class="row sermon">
+  <div class="small-2 columns user-image"><%= link_to gravatar_for(@sermon.user), @sermon.user %></div>
+  <div class="small-10 columns">
+    <h6 class="user-name"><%= @sermon.user.honorific %> <%= @sermon.user.name %> <%= @sermon.user.surname %></h6>
+
+    <div class="content"><%= @sermon.content %></div>
+  <span class="timestamp">
+    <%= time_ago_in_words(@sermon.created_at) %> fa
+  </span>
+    <%# TODO fare un'iconcina per il delete %>
+    <% if current_user?(@sermon.user) %>
+        | <%= link_to 'delete', post, method: :delete, data: {confirm: 'Are you sure?'}, title: post.content %>
+    <% end %>
+  </div>
+</li>

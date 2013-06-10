@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   # each user can have some posts associated and they must be destroyed together with the user
   has_many :posts, dependent: :destroy
 
+  # each user can have some sermons associated and they must be destroyed together with the user
+  has_many :sermons, dependent: :destroy
+
   # each user can have many relationships
   # we need to explicitly define a foreign key since, otherwise, Rails looks for a relationship_id column (that not exists)
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy

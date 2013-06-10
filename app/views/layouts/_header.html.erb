@@ -4,7 +4,9 @@
       <!-- Title Area -->
       <li class="name">
         <h1><%= link_to image_tag("logo-episco+-glow.png", :border => 0, :id => 'logo'), root_path %> </h1></li>
-      <li class="toggle-topbar menu-icon"><a><span>Menu</span></a></li>
+      <% if signed_in? %>
+          <li class="toggle-topbar menu-icon"><a><span>Menu</span></a></li>
+      <% end %>
     </ul>
 
     <% if signed_in? %>
