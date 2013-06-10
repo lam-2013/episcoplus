@@ -53,7 +53,7 @@
             <ul class="posts no-bullet">
               <%= render @posts %>
             </ul>
-            <% # since we are in a Users view, we need to specify that the pagination is for the posts           %>
+            <% # since we are in a Users view, we need to specify that the pagination is for the posts               %>
             <% foundation_paginate @posts %>
         <% else %>
             <p class="no-post">
@@ -68,8 +68,14 @@
     </div>
     <div class="large-5 columns">
       <div class="panel">
-
+        <%= render 'shared/stats' %>
+        <div class="user_avatars">
+          <% @user.followed_users.each do |fwd| %>
+              <%= link_to gravatar_for(fwd, size: 30), fwd %>
+          <% end %>
+        </div>
       </div>
     </div>
-
+  </div>
 </section>
+

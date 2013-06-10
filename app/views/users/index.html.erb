@@ -1,14 +1,12 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication  %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication    %>
 <% provide :title, 'All Users' %>
 
 <h1>All users</h1>
 
-<%= will_paginate %>
+<%= foundation_paginate(@users) %>
 
 <ul class="users">
-  <% @users.each do |user| %>
-      <%= render @users %>
-  <% end %>
+  <%= render @users %>
 </ul>
 
-<%= will_paginate %>
+<%= foundation_paginate(@users) %>
