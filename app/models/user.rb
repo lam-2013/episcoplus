@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :aboutMe, :age, :birth, :confirmed, :diocese, :email, :honorific, :id, :institute, :interests, :name, :orderDay, :password, :password_confirmation, :placeForRole, :role, :study, :surname
+  attr_accessible :aboutMe, :age, :birth, :confirmed, :diocese, :email, :honorific, :id, :institute, :interests, :name, :orderDay, :password, :password_confirmation, :placeForRole, :role, :study, :surname, :admin
 
   has_secure_password
 
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   # each user can have many followers, through reverse relationships
   has_many :followers, through: :reverse_relationships
-    # put the email in downcase before saving the user
+  # put the email in downcase before saving the user
   before_save { |user| user.email = email.downcase }
   # call the create_remember_token private method before saving the user
   before_save :create_remember_token
@@ -29,12 +29,12 @@ class User < ActiveRecord::Base
   VALID_DATE_REGEX = /^((0?[13578]|10|12)(-|\/)(([1-9])|(0[1-9])|([12])([0-9]?)|(3[01]?))(-|\/)((19)([2-9])(\d{1})|(20)([01])(\d{1})|([8901])(\d{1}))|(0?[2469]|11)(-|\/)(([1-9])|(0[1-9])|([12])([0-9]?)|(3[0]?))(-|\/)((19)([2-9])(\d{1})|(20)([01])(\d{1})|([8901])(\d{1})))$/
 
 
-  validates :name, presence: true, length: { maximum: 50 };
-  validates :surname, presence: true, length: { maximum: 50 };
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: {maximum: 50};
+  validates :surname, presence: true, length: {maximum: 50};
+  validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   #validates :birth, format: { with: VALID_DATE_REGEX }
   #validates :orderDay, format: { with: VALID_DATE_REGEX }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
 
 

@@ -1,5 +1,4 @@
 <div style="max-width: 900px">
-<%#  TODO IMPORTANTE: rifare il migrate partendo dalla prima migrazione %>
   <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -16,6 +15,6 @@
 
       <%= f.label :password_confirmation, 'Confirmation' %>
       <%= f.password_field :password_confirmation %>
-      <%= f.submit "Go", :class =>'button small radius' %>
+      <%= f.submit "Go", :class => 'button small radius' %>
   <% end %>
 </div>

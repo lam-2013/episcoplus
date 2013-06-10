@@ -2,9 +2,11 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <%= favicon_link_tag("favicon.ico")  %>
+  <%= favicon_link_tag("favicon.ico") %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
 
@@ -13,31 +15,33 @@
 </head>
 <body>
 
-<div class="container">
-
 <% if !preLogin?(yield(:isPreLogin)) %>
     <header>
       <%= render 'layouts/header' %>
     </header>
+    <div class="wrapper columns">
+
 <% end %>
 
 
-<div class="wrapper columns">
-  <%= yield %>
+<%# TODO customizzare CSS (es. per alert-box error %>
+<div class="flashes">
+  <% # the flash message; it supports different type of communications      %>
+  <% flash.each do |key, value| %>
+      <div class="alert-box <%= key %>"><%= value %></div>
+  <% end %>
 </div>
 
-<!--clearfooter push the footer to the bottom-->
-  <div class="clearfooter"></div>
+<%= yield %>
 
-<!--end container-->
-</div>
+<% if !preLogin?(yield(:isPreLogin)) %>
+    </div>
+<% end %>
 
-
+<%# TODO non avevamo legato il footer a fondo pagina? controllare %>
 <footer class="row">
   <%= render 'layouts/footer' %>
 </footer>
-
-
 
 <%#= debug(@user) %>
 

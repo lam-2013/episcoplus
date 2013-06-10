@@ -20,7 +20,11 @@ module SessionsHelper
   # Get the user corresponding to the remember token (taken from the permanent cookie)
   # only if the current_user instance variable is undefined
   def current_user
-    @current_user ||= User.find_by_remember_token(cookies[:remember_token])
+    if !cookies[:remember_token].nil?
+      @current_user ||= User.find_by_remember_token(cookies[:remember_token])
+    else
+      @current_user = nil
+    end
   end
 
   # Check if the current user is signed in

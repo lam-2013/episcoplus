@@ -5,45 +5,32 @@
       <h2><span><%= @user.honorific %></span> <%= @user.name %> <%= @user.surname %></h2>
       <ul class="main-info no-bullet">
         <li>
-          <% if @user.role != nil %>
+          <% unless @user.role.nil? %>
               <%= @user.role %>
-              <% if @user.placeForRole != nil %>
+              <% unless @user.placeForRole.nil? %>
                   presso <%= @user.placeForRole %>
               <% end %>
           <% end %>
-          <% if @user.role != nil && @user.diocese != nil %>
+          <% unless @user.role.nil? || @user.diocese.nil? %>
               <span class="separator">-</span>
           <% end %>
-          <% if @user.diocese != nil %>
+          <% unless @user.diocese.nil? %>
               Diocesi di <%= @user.diocese %>
           <% end %>
         </li>
-        <% if @user.study != nil %>
+        <% unless @user.study.nil? %>
             <li>Ha studiato presso <%= @user.study %></li>
         <% end %>
         <li>
-          <% if @user.birth != nil %>
+          <% unless @user.birth.nil? %>
               Anni <%= Time.now.year - @user.birth.year %>
           <% end %>
-          <% if @user.birth != nil && @user.orderDay != nil %>
+          <% unless @user.birth.nil? || @user.orderDay.nil? %>
               <span class="separator">-</span>
           <% end %>
-          <% if @user.orderDay != nil %>
+          <% unless @user.orderDay.nil? %>
               Sacerdote da <%= time_ago_in_words(@user.orderDay) %>
           <% end %>
-
-          <div class="large-12 columns">
-            <% if @user.posts.any? %>
-                <h3>Posts (<%= @user.posts.count %>)</h3>
-                <ol class="posts">
-                  <%= render @posts %>
-                </ol>
-                <% # since we are in a Users view, we need to specify that the pagination is for the posts %>
-                <% will_paginate @posts %>
-            <% end %>
-          </div>
-
-
         </li>
       </ul>
     </div>

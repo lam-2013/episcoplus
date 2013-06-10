@@ -1,4 +1,4 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication  %>
 <% provide :title, 'All Users' %>
 
 <h1>All users</h1>
@@ -7,14 +7,7 @@
 
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 52 %>
-      <%= link_to user.name, user %>
-      <% if current_user.admin? && !current_user?(user) %>
-        <% # since browsers cannot send DELETE request, Rails fakes them with javascript... %>
-        | <%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </li>
+      <%= render @users %>
   <% end %>
 </ul>
 
