@@ -1,8 +1,10 @@
-<%= form_for(:session, url: sessions_path) do |f| %>
 
-    <%= f.email_field :email, :placeholder => 'Email', :required => 'required' %>
+  <%= form_for(:session, url: sessions_path) do |f| %>
 
-    <%= f.password_field :password, :placeholder => 'Password', :required => 'required' %>
+      <%= f.email_field :email, :placeholder => 'Email', :required => 'required' %>
 
-    <%= f.submit 'Accedi', :class => 'button small' %>
-<% end %>
+      <%= f.password_field :password, :placeholder => 'Password', :required => 'required' %>
+
+      <%= f.submit 'Accedi', :class => 'button small' %>
+  <% end %>
+

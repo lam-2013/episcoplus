@@ -15,37 +15,35 @@
 </head>
 <body>
 
-<% if !preLogin?(yield(:isPreLogin)) %>
-    <!--container = blocca il footer a fondo pagina-->
-    <div class="container">
+<!--container = blocca il footer a fondo pagina-->
+<div class="container">
 
-    <header>
-      <%= render 'layouts/header' %>
-    </header>
+  <% if !welcome? (yield(:isWelcome)) %>
 
+      <header>
+        <%= render 'layouts/header' %>
+      </header>
 
-    <div class="wrapper columns">
-
-<% end %>
-
-
-<%# TODO customizzare CSS (es. per alert-box error %>
-<div class="flashes">
-  <% # the flash message; it supports different type of communications      %>
-  <% flash.each do |key, value| %>
-      <div data-alert class="alert-box <%= key %>"><%= value %><%=link_to "x", "#", :class=>"close" %></div>
+      <div class="wrapper columns">
   <% end %>
+
+  <div class="flashes">
+    <% # the flash message; it supports different type of communications        %>
+    <% flash.each do |key, value| %>
+        <div data-alert class="alert-box <%= key %>"><%= value %><%= link_to image_tag("icon/close.png"), "#", :class => "close" %></div>
+    <% end %>
+  </div>
+
+  <%= yield %>
+
+  <% if !welcome? (yield(:isWelcome)) %>
+      </div>
+  <% end %>
+
+
+  <div class="clearfooter"></div>
+  <!--end container-->
 </div>
-
-<%= yield %>
-
-<% if !preLogin?(yield(:isPreLogin)) %>
-    </div>
-
-    <div class="clearfooter"></div>
-    <!--end container-->
-    </div>
-<% end %>
 
 <footer class="row">
   <%= render 'layouts/footer' %>

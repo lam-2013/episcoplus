@@ -10,12 +10,13 @@ module ApplicationHelper
     end
   end
 
-  # Return a title on a per-page basis
-  def preLogin?(isPreLogin)
-    if isPreLogin.empty?
-       false
+
+  # Return welcome page
+  def welcome?(isWelcome)
+    if isWelcome.empty?
+      false
     else
-      isPreLogin
+      isWelcome
     end
 
   end

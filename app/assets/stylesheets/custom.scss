@@ -21,6 +21,7 @@ html {
 body {
   background: url("../assets/backgrund.png") repeat;
   height: 100%;
+  max-width: 100%;
 }
 
 /* header */
@@ -147,6 +148,13 @@ textarea {
   resize: none;
 }
 
+div.alert-box.error{
+  @include alert-base;
+  @include alert-style(#ff0020);
+  .close { @include alert-close; }
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+}
+
 .gravatar {
   border: 5px solid #eee;
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
@@ -180,6 +188,20 @@ a {
   }
 }
 
+.motto {
+  background: $white80;
+  text-align: center;
+  padding: 10px;
+    margin-right: -40px;
+}
+
+.row.relative{
+  position: relative;
+}
+
+p.center{
+  text-align: center;
+}
 /* wrapper */
 
 div.wrapper.columns {
@@ -260,12 +282,18 @@ footer.row {
       top: 50%;
     }
 
-   div.alert-box{
-     @include alert-base;
-     @include alert-style;
-     .close { @include alert-close; }
-   }
-
+    .motto {
+      background: $white80;
+      text-align: center;
+      padding: 10px;
+      @media #{$small} {
+        text-align: left;
+        position: absolute;
+        top: 35px;
+        right: -15px;
+        padding: 10px 20px;
+      }
+    }
 
     .logo {
       text-indent: -9999px;
@@ -279,18 +307,7 @@ footer.row {
         bottom: 100px;
       }
     }
-    .motto {
-      background: $white80;
-      text-align: center;
-      padding: 10px;
-      @media #{$small} {
-        text-align: left;
-        position: absolute;
-        top: 35px;
-        right: -15px;
-        padding: 10px 20px;
-      }
-    }
+
   }
 }
 
