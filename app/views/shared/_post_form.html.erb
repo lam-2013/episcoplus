@@ -1,11 +1,11 @@
 <%= form_for(@post) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="row">
-    <div class="field span7">
-      <%= f.text_area :content, placeholder: 'What are you doing?' %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="row">
+      <div class="field large-9 small-8 columns">
+        <%= f.text_area :content, placeholder: 'Cosa stai facendo?', maxlength: '400', required: 'required' %>
+      </div>
+      <div class="large-3 small-4 columns">
+        <%= f.submit 'Pubblica', class: 'small button', style: 'margin:8px 0;' %>
+      </div>
     </div>
-    <div class="span2">
-      <%= f.submit 'Post', class: 'btn btn-primary' %>
-    </div>
-  </div>
 <% end %>
