@@ -1,5 +1,5 @@
 <% # we are going to use this partial in the home and in the user profile;
-   # in the home @user is nil and needs to be filled                       %>
+   # in the home @user is nil and needs to be filled                         %>
 <% @user ||= current_user %>
 <div class="stats">
 
@@ -12,7 +12,7 @@
           <strong id="following" class="stat">
             <%= @user.followed_users.count %>
           </strong>
-          persone
+        <%= pluralize_without_count(@user.followed_users.count, 'persona', 'persone') %>
       </span>
     </a>
   </h4>
@@ -34,7 +34,7 @@
           <strong id="followers" class="stat">
             <%= @user.followers.count %>
           </strong>
-          persone
+        <%= pluralize_without_count(@user.followers.count, 'persona', 'persone') %>
       </span>
     </a>
   </h5>

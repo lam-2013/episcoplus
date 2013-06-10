@@ -18,6 +18,14 @@ module ApplicationHelper
     else
       isWelcome
     end
-
   end
+
+  def pluralize_without_count(count, noun, text = nil)
+    if count == 1
+      noun
+    else
+      text.nil? ? noun.pluralize : text
+    end
+  end
+
 end
