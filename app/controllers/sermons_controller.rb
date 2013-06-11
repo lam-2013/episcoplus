@@ -27,8 +27,8 @@ class SermonsController < ApplicationController
   end
 
   def new
-    # init the user variable to be used in the sign up form
-    @sermon = Sermon.new
+    # init the sermon variable, belonging to current user
+    @sermon = Sermon.new id:current_user.id
   end
 
   private

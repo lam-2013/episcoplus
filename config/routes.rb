@@ -31,6 +31,9 @@ Episcoplus::Application.routes.draw do
   # default routes for the Relationship controller (only create and destroy) - needed to build follow/unfollow relations
   resources :relationships, only: [:create, :destroy]
 
+  # default routes for the Sermon controller (only create and destroy) - needed to build follow/unfollow relations
+  resources :sermons
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

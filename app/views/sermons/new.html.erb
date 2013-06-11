@@ -1,15 +1,20 @@
-<li class="row sermon">
-  <div class="small-2 columns user-image"><%= link_to gravatar_for(@sermon.user), @sermon.user %></div>
-  <div class="small-10 columns">
-    <h6 class="user-name"><%= @sermon.user.honorific %> <%= @sermon.user.name %> <%= @sermon.user.surname %></h6>
+<% provide :title, 'Scrivi omelia' %>
 
-    <div class="content"><%= @sermon.content %></div>
-  <span class="timestamp">
-    <%= time_ago_in_words(@sermon.created_at) %> fa
-  </span>
-    <%# TODO fare un'iconcina per il delete %>
-    <% if current_user?(@sermon.user) %>
-        | <%= link_to 'delete', post, method: :delete, data: {confirm: 'Are you sure?'}, title: post.content %>
-    <% end %>
-  </div>
-</li>
+<div style="max-width: 900px">
+  <%= form_for(@sermon) do |f| %>
+      <%# TODO Costruire un partial apposito o modificare questo %>
+      <%# render 'shared/error_messages' %>
+
+      <%= f.text_field :title, placeholder:'Titolo' %>
+      <%= f.text_field :subtitle, placeholder:'Sottotitolo' %>
+
+      <%= f.label 'Tipo di Liturgia', for:'day' %>
+      <%= f.text_field :type, placeholder:'Tipo di Liturgia' %>
+
+      <%= f.label 'Giorno della Liturgia', for:'day' %>
+      <%= f.text_field :day, type:'date', class:'datepicker' %>
+      <%= f.text_area :content %>
+
+      <%= f.submit "Pubblica", :class => 'button small radius' %>
+  <% end %>
+</div>
