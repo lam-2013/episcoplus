@@ -16,13 +16,18 @@ $lightBorder: 1px solid $lightgrey;
 /* general */
 
 html {
-  overflow-y: scroll;
   height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background: url("../assets/backgrund.png") repeat;
-  height: 100%;
   max-width: 100%;
 }
 
@@ -250,7 +255,7 @@ p.center {
   background-image: url(../assets/background_datepicker.png);
 }
 
-img.ui-datepicker-trigger{
+img.ui-datepicker-trigger {
   position: absolute;
   top: 10px;
   right: 10px;

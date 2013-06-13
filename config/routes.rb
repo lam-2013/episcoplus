@@ -3,6 +3,7 @@ Episcoplus::Application.routes.draw do
   root :to => 'pages#home'
 
   # named routes for static pages, signup, login and logout
+  match '/welcome', to: 'pages#welcome'
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
   match '/faq', to: 'pages#faq'

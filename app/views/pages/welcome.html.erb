@@ -1,0 +1,24 @@
+<% provide :isWelcome, true %>
+
+<div id="pre-login-home" class="row">
+  <div id="welcome" class="large-8 columns">
+    <h1 class="logo">episco+</h1>
+
+    <h3 class="motto">
+      Il social dei sacerdoti,
+      <nobr>per i sacerdoti</nobr>
+    </h3>
+
+  </div>
+  <div id="sign-area" class="large-4 columns">
+    <div id="signin" class="panel">
+      <%= render 'sessions/new' %>
+    </div>
+    <div id='signup' class="panel">
+      <h6>Entra nella community</h6>
+      <h7 class="subheader">Registrati a episco+</h7>
+      <% @user = User.new %>
+      <%= render 'users/new', :object => @user %>
+    </div>
+  </div>
+</div>
