@@ -1,22 +1,17 @@
 <% provide :title, 'Welcome to episco+' %>
 
-<div style="max-width: 900px">
-  <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+<div class="row relative">
 
-      <%= f.label :honorific %>
-      <%= f.text_field :honorific %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :surname %>
-      <%= f.text_field :surname %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+  <div class="columns large-4">
+    <h2 class="motto">Registrati a episco+</h2>
+  </div>
 
-      <%= f.label :password_confirmation, 'Confirmation' %>
-      <%= f.password_field :password_confirmation %>
-      <%= f.submit "Registrati", :class => 'button small radius' %>
-  <% end %>
+  <div class="columns large-8">
+
+    <div class="panel">
+      <%= render 'new' %>
+    </div>
+  </div>
+
+
 </div>

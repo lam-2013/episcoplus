@@ -22,13 +22,7 @@
 
 $(function () {
 
-    function is_mobile() {
-
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            return true;
-        }
-        return false;
-    }
+    var is_mobile=(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
 
 
 
@@ -37,17 +31,14 @@ $(function () {
         $(document).foundation();
         $('textarea').autosize();
 
-        if (!is_mobile()) {
+        if (!is_mobile) {
             $('.datepicker').datepicker({
                 showOn: "button",
                 buttonImage: ('../assets/icon/calendar.png'),
                 buttonImageOnly: true,
                 slideDown: "slow"
-            }).removeAttr("type", "date");
+            }).attr("type", "text");
 
-
-
-            $('.ui-icon-circle-triangle-w').image('../assets/icon/arrow-left-alt1.png')
         }
     });
 

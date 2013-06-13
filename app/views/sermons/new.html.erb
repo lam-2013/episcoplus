@@ -1,23 +1,20 @@
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication   %>
 <% provide :title, 'Scrivi omelia' %>
 
-<div style="max-width: 900px" class="row">
+<div class="row">
 
-  <div class="columns large-8">
-  <%= form_for(@sermon) do |f| %>
-      <%# TODO Costruire un partial apposito o modificare questo %>
-      <%# render 'shared/error_messages' %>
+  <div class="columns large-12">
+    <h2 class="motto full">Scrivi la tua omelia</h2>
+  </div>
 
-      <%= f.text_field :title, placeholder:'Titolo' %>
-      <%= f.text_field :subtitle, placeholder:'Sottotitolo' %>
+  <div class="columns large-12">
 
-      <%= f.label 'Tipo di Liturgia', for:'day' %>
-      <%= f.text_field :type, placeholder:'Tipo di Liturgia' %>
+    <div class="panel">
+      <%= render 'new' %>
+    </div>
+  </div>
 
-      <%= f.label 'Giorno della Liturgia', for:'day' %>
-      <%= f.text_field :day, :type=>'date',  :class =>'datepicker',  placeholder:'gg/mm/aaaa' %>
 
-      <%= f.text_area :content, placeholder:'Scrivi la tua omelia'%>
+</div>
 
-      <%= f.submit "Pubblica", :class => 'button small radius' %>
-  <% end %>
-</div>   </div>
+
