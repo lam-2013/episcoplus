@@ -33,22 +33,21 @@ $(function () {
 
 
     $(document).ready(function () {
+
         $(document).foundation();
-
-
         $('textarea').autosize();
 
-
         if (!is_mobile()) {
-
             $('.datepicker').datepicker({
                 showOn: "button",
                 buttonImage: ('../assets/icon/calendar.png'),
-                buttonImageOnly: true
-            });
+                buttonImageOnly: true,
+                slideDown: "slow"
+            }).removeAttr("type", "date");
 
-        } else {
 
+
+            $('.ui-icon-circle-triangle-w').image('../assets/icon/arrow-left-alt1.png')
         }
     });
 

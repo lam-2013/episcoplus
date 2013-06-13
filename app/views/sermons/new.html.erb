@@ -14,7 +14,7 @@
       <%= f.text_field :type, placeholder:'Tipo di Liturgia' %>
 
       <%= f.label 'Giorno della Liturgia', for:'day' %>
-      <%= f.text_field :day,  class:'datepicker' %>
+      <%= f.text_field :day, :type=>'date',  :class =>'datepicker',  placeholder:'gg/mm/aaaa' %>
 
       <%= f.text_area :content, placeholder:'Scrivi la tua omelia'%>
 
