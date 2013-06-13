@@ -190,6 +190,10 @@ div.alert-box.error {
   @include button($padding, $bg, $radius, $full-width, $disabled, $is-input);
 }
 
+.left-border {
+  border-left: $lightBorder;
+}
+
 a {
   color: $mediumred;
   &:hover {
@@ -443,5 +447,29 @@ footer.row {
   border-bottom: $lightBorder;
   img {
     vertical-align: middle;
+  }
+}
+
+.user-info {
+  .row {
+    margin: 0;
+    &:first-child {
+      border-top: 0;
+    }
+  }
+  .stats {
+    border-top: $lightBorder;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    a, span {
+      display: inline-block;
+      padding: 0.3em;
+      text-align: center;
+      font-size: 0.8em;
+      strong {
+        display: block;
+        font-size: 1.4em;
+      }
+    }
   }
 }

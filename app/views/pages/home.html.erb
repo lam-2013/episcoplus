@@ -1,20 +1,17 @@
 <% if signed_in? %>
-
     <div id="dashboard">
       <div class="row">
-        <aside class="span3">
-          <section>
-            <%= render 'shared/user_info' %>
-          </section>
-          <section>
-            <%= render 'shared/stats' %>
-          </section>
-        </aside>
-        <div class="span9">
+        <div class="columns large-8 push-4">
           <%= render 'shared/post_form' %>
           <h3>Wall</h3>
           <%= render 'shared/feed' %>
         </div>
+
+        <aside class="columns large-4 pull-8">
+          <section>
+            <%= render 'shared/user_info' %>
+          </section>
+        </aside>
       </div>
     </div>
 <% end %>
