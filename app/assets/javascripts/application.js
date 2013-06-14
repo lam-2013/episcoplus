@@ -22,8 +22,7 @@
 
 $(function () {
 
-    var is_mobile=(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
-
+    var is_mobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
 
 
     $(document).ready(function () {
@@ -40,6 +39,7 @@ $(function () {
             }).attr("type", "text");
 
         }
+
     });
 
 });

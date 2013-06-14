@@ -34,7 +34,16 @@
             <% end %>
           </li>
           <li class="right">
-            <div class="buttons-container"><%= render 'follow_form' if signed_in? %>
+            <div class="buttons-container">
+              <% if signed_in? && current_user != @user %>
+                  <section>
+                    <%= link_to 'New message', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
+                    <div class="message"></div>
+                  </section>
+              <% end %>
+
+              <%= render 'follow_form' if signed_in? %>
+            </div>
           </li>
         </ul>
       </div>
@@ -59,7 +68,7 @@
             <ul class="posts no-bullet">
               <%= render @posts %>
             </ul>
-            <% # since we are in a Users view, we need to specify that the pagination is for the posts                %>
+            <% # since we are in a Users view, we need to specify that the pagination is for the posts                 %>
             <% foundation_paginate @posts %>
         <% else %>
             <p class="no-post">

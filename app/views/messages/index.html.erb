@@ -1,0 +1,14 @@
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication      %>
+<% provide :title, 'Messaggi' %>
+
+<div class="panel">
+  <h1>I Miei messaggi</h1>
+
+  <%= foundation_paginate(@messages) %>
+
+  <ul class="users no-bullet">
+    <%= render @messages %>
+  </ul>
+
+  <%= foundation_paginate(@messages) %>
+</div>
