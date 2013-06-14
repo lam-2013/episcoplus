@@ -10,10 +10,10 @@ class SermonsController < ApplicationController
     @sermon = current_user.sermons.build(params[:sermon])
     if @sermon.save
       flash[:success] = 'Sermon created!'
-      redirect_to current_user
+      redirect_to @sermon
     else
-      @feed_items = []
-      render 'pages/home'
+      flash[:error] = 'Sermon not created!'
+      render  'new'
     end
   end
 
@@ -23,12 +23,13 @@ class SermonsController < ApplicationController
   end
 
   def show
-
+    @sermon = Sermon.find(params[:id])
+    @user =  @sermon.user
   end
 
   def new
     # init the sermon variable, belonging to current user
-    @sermon = Sermon.new id:current_user.id
+    @sermon = current_user.sermons.build if signed_in?
   end
 
   private

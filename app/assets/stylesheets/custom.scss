@@ -210,11 +210,40 @@ h2.motto {
   }
 }
 
-h2.motto.full {
+.motto.full {
   background: $white80;
   text-align: center;
   padding: 10px;
   margin-right: 3px;
+}
+
+.panel.panel_avatar_style{
+  background-color: $white80;
+  margin-top: -20px;
+  margin-right: -5px;
+  border-radius: 15px;
+  -moz-box-shadow: 4px 4px 15px $darkerergrey;
+  -webkit-box-shadow: 4px 4px 15px $darkerergrey;
+  box-shadow: 4px 4px 15px $darkerergrey;
+}
+
+
+h5.avatar_style{
+   position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+h7.avatar_style{
+  position: absolute;
+  top: 45px;
+  right: 20px;
+}
+
+.buttons-container.avatar_style{
+  position: absolute;
+  top: 75px;
+  right: 20px;
 }
 
 .row.relative {

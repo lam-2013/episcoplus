@@ -42,16 +42,16 @@ ActiveRecord::Schema.define(:version => 20130614090738) do
   end
 
   create_table "sermons", :force => true do |t|
-    t.string "title"
-    t.string "subtitle"
-    t.integer "user_id"
-    t.string "content"
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "user_id"
+    t.string   "content"
     t.datetime "day"
-    t.string "type"
-    t.string "audio"
-    t.string "video"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "type_of_liturgy"
+    t.string   "audio"
+    t.string   "video"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|

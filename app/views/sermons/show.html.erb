@@ -1,0 +1,58 @@
+<section class="sermon">
+
+  <div class="row">
+
+    <div class="panel">
+
+      <div class="row">
+
+        <div class="large-8 columns">
+          <h2><%= @sermon.title %></h2>
+
+
+          <% if @sermon.subtitle %>
+              <h4><%= @sermon.subtitle %></h4>
+          <% end %>
+
+        </div>
+
+        <div class="panel panel_avatar_style large-4 columns">
+          <div class="image"><%= gravatar_for @user, size: 70 %></div>
+          <h5 class="avatar_style"><%= @user.honorific %> <%= @user.name %> <%= @user.surname %></h5>
+          <% if @user.role %>
+              <h7 class="avatar_style">
+                <%= @user.role %>
+                <% if @user.placeForRole %>
+                    presso <%= @user.placeForRole %>
+                    </h7>
+                <% end %>
+          <% end %>
+
+          <div class="buttons-container avatar_style"><%= render 'users/follow_form' if signed_in? %>  </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <% if @sermon.type_of_liturgy %>
+              <h6>Tipo di liturgia: <%= @sermon.type_of_liturgy %></h6>
+          <% end %>
+        </div>
+        <div class="large-8 columns">
+          <% if @sermon.day %>
+              <h6>Giorno di celebrazione: <%= l @sermon.day, :format => :long %></h6>
+          <% end %>
+        </div>
+
+      </div>
+
+      <p><%= @sermon.content %></p>
+    </div>
+
+
+  </div>
+  </div>
+  </div>
+</section>
+

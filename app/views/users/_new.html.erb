@@ -1,9 +1,12 @@
 <%= form_for(@user) do |f| %>
     <div class="row collapse">
-      <div class="columns large-6">
+      <div class="columns large-2">
+        <%= f.text_field :honorific, :placeholder => "honorific", :required => 'required' %>
+      </div>
+      <div class="columns large-5">
         <%= f.text_field :name, :placeholder => "Nome", :required => 'required' %>
       </div>
-      <div class="columns large-6">
+      <div class="columns large-5">
         <%= f.text_field :surname, :placeholder => "Cognome", :required => 'required' %>
       </div>
     </div>
