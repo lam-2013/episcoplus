@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614090738) do
+ActiveRecord::Schema.define(:version => 20130614152752) do
+
+  create_table "feed_items", :force => true do |t|
+    t.integer "user_id"
+    t.integer "doc_id"
+    t.string "doc_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "feed_items", ["user_id", "updated_at"], :name => "index_feed_items_on_user_id_and_updated_at"
 
   create_table "messages", :force => true do |t|
     t.integer "sender_id"
@@ -27,12 +37,13 @@ ActiveRecord::Schema.define(:version => 20130614090738) do
 
   create_table "posts", :force => true do |t|
     t.string "content"
+    t.integer "feed_item_id"
     t.integer "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
+  add_index "posts", ["feed_item_id"], :name => "index_posts_on_feed_item_id", :unique => true
 
   create_table "relationships", :force => true do |t|
     t.string "follower_id"
@@ -42,17 +53,20 @@ ActiveRecord::Schema.define(:version => 20130614090738) do
   end
 
   create_table "sermons", :force => true do |t|
-    t.string   "title"
-    t.string   "subtitle"
-    t.integer  "user_id"
-    t.string   "content"
+    t.string "title"
+    t.string "subtitle"
+    t.string "content"
+    t.string "user_id"
     t.datetime "day"
-    t.string   "type_of_liturgy"
-    t.string   "audio"
-    t.string   "video"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string "type_of_liturgy"
+    t.string "audio"
+    t.string "video"
+    t.string "feed_item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
+
+  add_index "sermons", ["feed_item_id"], :name => "index_sermons_on_feed_item_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string "name"
@@ -69,11 +83,11 @@ ActiveRecord::Schema.define(:version => 20130614090738) do
     t.string "interests"
     t.string "aboutMe"
     t.boolean "confirmed"
+    t.string "remember_token"
+    t.string "password_digest"
+    t.boolean "admin", :default => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string "password_digest"
-    t.string "remember_token"
-    t.boolean "admin", :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

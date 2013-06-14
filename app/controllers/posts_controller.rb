@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   def create
     # build a new post from the information contained in the "new post" form
     @post = current_user.posts.build(params[:post])
+    @post.build_feed_item(user_id: current_user.id)
+
     if @post.save
       flash[:success] = 'Post created!'
       redirect_to root_url

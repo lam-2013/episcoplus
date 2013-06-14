@@ -1,7 +1,8 @@
 <% if @feed_items.any? %>
     <ul class="posts no-bullet">
-      <% # we need to write in this way the partial rendering for passing the collection  %>
-      <%= render partial: 'shared/feed_item', collection: @feed_items %>
+      <%= render @feed_items %>
     </ul>
     <%= foundation_paginate @feed_items %>
+<% else %>
+    <p>Niente di nuovo, per il momento.</p>
 <% end %>

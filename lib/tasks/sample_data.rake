@@ -10,13 +10,40 @@ namespace :db do
 end
 
 def make_users
+  password = "episcoplus"
+  pasquale = User.create!(name: "Pasquale",
+                          surname: "Lisena",
+                          email: "pasq.lisena@gmail.it",
+                          password: password,
+                          password_confirmation: password_confirmation)
+
+  sigalini = User.create!(honorific: "Mons",
+                          name: "Domenico",
+                          surname: "Sigalini",
+                          email: "d.sigalini@episcoplus.com",
+                          password: password,
+                          password_confirmation: password_confirmation)
+
+  bagnasco = User.create!(honorific: "Card",
+                          name: "Angelo",
+                          surname: "Bagnasco",
+                          email: "a.bagnasco@episcoplus.com",
+                          password: password,
+                          password_confirmation: password_confirmation)
+
+  gallo = User.create!(honorific: "Don",
+                       name: "Andrea",
+                       surname: "Gallo",
+                       email: "a.gallo@episcoplus.com",
+                       password: password,
+                       password_confirmation: password_confirmation)
+
   99.times do |n|
     honorific = "Don"
     name = Faker::Name.first_name
     surname = Faker::Name.last_name
     # take users from the Rails Tutorial book since most of them have a "real" profile pic
     email = "example-#{n+1}@railstutorial.org"
-    password = "episcoplus"
     User.create!(honorific: honorific,
                  name: name,
                  surname: surname,
@@ -64,7 +91,7 @@ def make_private_messages
 end
 
 def make_sermons
-  # generate 50 fake posts for the first 10 users
+  # generate 50 fake sermons for the first 10 users
   users = User.all(limit: 10)
   50.times do
     sermon_title = Faker::Lorem.sentence(8)

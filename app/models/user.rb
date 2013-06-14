@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
 
   # each user can have some posts associated and they must be destroyed together with the user
   has_many :posts, dependent: :destroy
-
-  # each user can have some sermons associated and they must be destroyed together with the user
   has_many :sermons, dependent: :destroy
 
   # each user can have many relationships
@@ -59,7 +57,7 @@ class User < ActiveRecord::Base
 
   # get the post to show in the wall
   def feed
-    Post.from_users_followed_by(self)
+    FeedItem.from_users_followed_by(self)
   end
 
   # get the searched user(s) by (part of her) name

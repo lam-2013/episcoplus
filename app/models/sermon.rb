@@ -3,6 +3,7 @@ class Sermon < ActiveRecord::Base
 
   # each sermon belong to a specific user
   belongs_to :user
+  has_one :feed_item, as: :doc
 
   # user_id must be present while creating a new sermon...
   validates :user_id, presence: true
@@ -12,7 +13,6 @@ class Sermon < ActiveRecord::Base
 
   # content must be present
   validates :content, presence: true
-
 
 
 end
