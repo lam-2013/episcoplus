@@ -1,9 +1,17 @@
-<% # current user gravatar %>
-<a href="<%= user_path(current_user) %>">
-  <%= gravatar_for current_user, size: 52 %>
-</a>
+<div class="panel user-info">
+  <% # current user gravatar      %>
+  <a href="<%= user_path(current_user) %>" class="row">
 
-<% # current user name, link to her profile and her posts number %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to 'View my profile', current_user %></span>
-<span><%= pluralize(current_user.posts.count, 'post') %></span>
+    <%# TODO spostare padding in CSS %>
+    <div class="columns small-2 large-2" style="padding: 0;">
+      <%= gravatar_for current_user, size: 52 %>
+    </div>
+
+    <div class="columns small-10 large-10" style="padding-right: 0;">
+      <h4><%= current_user.honorific %> <%= current_user.name %></h4>
+    </div>
+
+  </a>
+
+  <%= render 'shared/stats' %>
+</div>

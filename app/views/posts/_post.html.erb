@@ -1,8 +1,7 @@
 <li class="row post">
   <div class="small-2 columns user-image"><%= link_to gravatar_for(post.user), post.user %></div>
   <div class="small-10 columns">
-    <h6 class="user-name"><%= post.user.honorific %> <%= post.user.name %> <%= post.user.surname %></h6>
-
+    <%= link_to "#{post.user.honorific}  #{post.user.name} #{post.user.surname}", post.user, class: 'user-name' %>
     <div class="content"><%= post.content %></div>
   <span class="timestamp">
     <%= time_ago_in_words(post.created_at) %> fa
