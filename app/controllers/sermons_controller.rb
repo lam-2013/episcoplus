@@ -24,15 +24,12 @@ class SermonsController < ApplicationController
 
   def show
     @sermon = Sermon.find(params[:id])
-    # get the user with id :id
-    @user = User.find(params[:id])
-
-    @sermon = current_user.sermons.build if signed_in? && current_user?(@user)
+    @user =  @sermon.user
   end
 
   def new
     # init the sermon variable, belonging to current user
-    @sermon = Sermon.new id:current_user.id
+    @sermon = current_user.sermons.build if signed_in?
   end
 
   private

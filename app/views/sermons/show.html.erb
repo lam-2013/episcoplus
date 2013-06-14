@@ -1,19 +1,38 @@
 <section class="sermon">
 
-
   <div class="row">
+      <div class="panel large-4 columns">
+        <div class="image"><%= gravatar_for @user, size: 70 %></div>
+        <h3><span><%= @user.honorific %></span> <%= @user.name %> <%= @user.surname %></h3>
+
+        <div class="buttons-container"><%= render 'users/follow_form' if signed_in? %>  </div>
+      </div>
+
+    <div class="large-8 columns">
+      <h2 class="motto full"><%= @sermon.title %></h2>
+      <h4 class="motto full"><% if @sermon.subtitle %>
+            <%= @sermon.subtitle %>
+        <% end %></h4>
+
+      <div class="panel">
 
 
-    <div class="large-7 pull-5 columns">
 
 
-        <div class="panel">
-          <%= render 'show' %>
-        </div>
+        <% if @sermon.type_of_liturgy %>
+            <%= @sermon.type_of_liturgy %>
+        <% end %>
+
+        <% if @sermon.day %>
+            <%= @sermon.day %>
+        <% end %>
+
+        <%= @sermon.content %>
+      </div>
 
 
     </div>
   </div>
-
+  </div>
 </section>
 
