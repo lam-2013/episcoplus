@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
       #tranform in regex, i.e. word1|word2
       text = text.gsub(' ', '|')
 
-      where('name || surname || diocese REGEXP ?', "#{text}")
+      where('name || surname || (case when diocese is null then "" else diocese end) REGEXP ?', "#{text}")
     else
       scoped # return an empty result set
     end
