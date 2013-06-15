@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'sqlite3_ar_regexp', '1.1.0'
 
 group :development do
   # Annotate models

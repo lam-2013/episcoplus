@@ -60,10 +60,15 @@ class User < ActiveRecord::Base
     FeedItem.from_users_followed_by(self)
   end
 
-  # get the searched user(s) by (part of her) name
-  def self.search(user_name)
-    if user_name
-      where('name LIKE ?', "%#{user_name}%")
+  # get the searched user(s) by (part of her) name, surname, diocese
+  def self.search(text)
+    if text
+      # remove blank space
+      text = text.strip
+      #tranform in regex, i.e. word1|word2
+      text = text.gsub(' ', '|')
+
+      where('name || surname || diocese REGEXP ?', "#{text}")
     else
       scoped # return an empty result set
     end
