@@ -29,6 +29,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-sass-rails'
+gem 'historyjs-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -40,6 +41,7 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'foundation-will_paginate'
 # TODO Sostituire will_paginate con foundation_paginate
+gem 'ajax_pagination', '~> 0.6.5'
 
 # To use private messaging
 gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'

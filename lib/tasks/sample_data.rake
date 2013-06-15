@@ -13,30 +13,30 @@ def make_users
   password = "episcoplus"
   pasquale = User.create!(name: "Pasquale",
                           surname: "Lisena",
-                          email: "pasq.lisena@gmail.it",
+                          email: "pasq.lisena@gmail.com",
                           password: password,
-                          password_confirmation: password_confirmation)
+                          password_confirmation: password)
 
   sigalini = User.create!(honorific: "Mons",
                           name: "Domenico",
                           surname: "Sigalini",
                           email: "d.sigalini@episcoplus.com",
                           password: password,
-                          password_confirmation: password_confirmation)
+                          password_confirmation: password)
 
   bagnasco = User.create!(honorific: "Card",
                           name: "Angelo",
                           surname: "Bagnasco",
                           email: "a.bagnasco@episcoplus.com",
                           password: password,
-                          password_confirmation: password_confirmation)
+                          password_confirmation: password)
 
   gallo = User.create!(honorific: "Don",
                        name: "Andrea",
                        surname: "Gallo",
                        email: "a.gallo@episcoplus.com",
                        password: password,
-                       password_confirmation: password_confirmation)
+                       password_confirmation: password)
 
   99.times do |n|
     honorific = "Don"

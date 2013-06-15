@@ -14,6 +14,10 @@
  = require jquery
  = require jquery_ujs
  = require foundation
+ = require json2
+ = require history
+ = require history_adapter_jquery
+ = require ajax_pagination
  = require jquery.ui.datepicker
  = require jquery.ui.datepicker-it
  = require_tree .

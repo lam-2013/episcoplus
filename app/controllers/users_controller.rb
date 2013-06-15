@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     end
     if @user.save
       # handle a successful save
-      flash[:success] = 'Welcome to episco+!'
+      flash[:success] = 'Benvenuto in episco+!'
       # automatically sign in
       sign_in @user
       redirect_to @user
@@ -68,6 +68,7 @@ class UsersController < ApplicationController
 
     # get all the users from the database - with pagination
     @users = User.paginate(page: params[:page])
+
   end
 
   def destroy
@@ -92,11 +93,6 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  # Paginated search for users
-  def search
-    @users = User.search(params[:search]).paginate(page: params[:page])
-  end
-
   private
 
   # Take the current user information (id) and redirect her to the home page if she is not the 'right' user
@@ -110,5 +106,6 @@ class UsersController < ApplicationController
   def admin_user
     redirect_to root_path unless current_user.admin?
   end
+
 
 end

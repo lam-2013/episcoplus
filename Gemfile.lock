@@ -34,6 +34,10 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    ajax_pagination (0.6.5)
+      jquery-historyjs
+      jquery-rails (>= 1.0.17)
+      rails (~> 3.0)
     annotate (2.5.0)
       rake
     arel (3.0.2)
@@ -52,10 +56,15 @@ GEM
     faker (1.0.1)
       i18n (~> 0.4)
     foundation-will_paginate (0.0.1)
-    hike (1.2.2)
+    hike (1.2.3)
+    historyjs-rails (1.0.1)
+      railties (>= 3.0)
     i18n (0.6.1)
     journey (1.0.4)
-    jquery-rails (3.0.0)
+    jquery-historyjs (0.2.3)
+      railties (>= 3.0)
+      thor (>= 0.14)
+    jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.0.3)
@@ -70,7 +79,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    multi_json (1.7.4)
+    multi_json (1.7.7)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -113,7 +122,7 @@ GEM
       sqlite3
     thor (0.18.1)
     tilt (1.4.1)
-    treetop (1.4.12)
+    treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
@@ -128,11 +137,13 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  ajax_pagination (~> 0.6.5)
   annotate (= 2.5.0)
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   faker (= 1.0.1)
   foundation-will_paginate
+  historyjs-rails
   jquery-rails
   jquery-ui-sass-rails
   rails (= 3.2.13)

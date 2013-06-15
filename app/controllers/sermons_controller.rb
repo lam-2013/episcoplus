@@ -11,10 +11,9 @@ class SermonsController < ApplicationController
     @sermon.build_feed_item(user_id: current_user.id)
 
     if @sermon.save
-      flash[:success] = 'Sermon created!'
+      flash[:success] = 'Omelia pubblicata!'
       redirect_to @sermon
     else
-      flash[:error] = 'Sermon not created!'
       render 'new'
     end
   end
