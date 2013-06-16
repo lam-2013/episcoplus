@@ -1,0 +1,16 @@
+<li>
+  <%= gravatar_for message.sender, size: 52 %>
+  <strong>From: </strong><%= link_to message.sender.name, message.sender %>
+  <span class="content">
+    <strong><%= message.subject %></strong>
+  </span>
+  <span class="content"><%= message.body %></span>
+  <span class="timestamp">
+    Sent <%= time_ago_in_words(message.created_at) %> ago
+  </span>
+  <% if current_user?(message.recipient) %>
+      | <%= link_to 'delete', message, method: :delete, data: {confirm: 'Are you sure?'}, title: message.subject %>
+      | <%= link_to 'reply', new_message_path(user: message.sender.id, message: message), remote: true %>
+      <div class="message"></div>
+  <% end %>
+</li>

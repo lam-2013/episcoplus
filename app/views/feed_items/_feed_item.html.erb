@@ -1,0 +1,5 @@
+<% if feed_item.doc.is_a?(Post) || feed_item.doc.is_a?(Sermon) %>
+    <%= render feed_item.doc %>
+<% else %>
+    <%= render feed_item.doc %>
+<% end %>

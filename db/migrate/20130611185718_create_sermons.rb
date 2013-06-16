@@ -3,14 +3,17 @@ class CreateSermons < ActiveRecord::Migration
     create_table :sermons do |t|
       t.string :title
       t.string :subtitle
-      t.integer :user_id
       t.string :content
+      t.string :user_id
       t.datetime :day
       t.string :type_of_liturgy
       t.string :audio
       t.string :video
+      t.string :feed_item_id
 
       t.timestamps
     end
+
+    add_index :sermons, :feed_item_id, unique: true
   end
 end

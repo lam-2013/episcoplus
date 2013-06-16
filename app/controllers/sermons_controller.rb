@@ -8,12 +8,14 @@ class SermonsController < ApplicationController
   def create
     # build a new post from the information contained in the "new post" form
     @sermon = current_user.sermons.build(params[:sermon])
+    @sermon.build_feed_item(user_id: current_user.id)
+
     if @sermon.save
       flash[:success] = 'Sermon created!'
       redirect_to @sermon
     else
       flash[:error] = 'Sermon not created!'
-      render  'new'
+      render 'new'
     end
   end
 
@@ -24,7 +26,7 @@ class SermonsController < ApplicationController
 
   def show
     @sermon = Sermon.find(params[:id])
-    @user =  @sermon.user
+    @user = @sermon.user
   end
 
   def new

@@ -2,11 +2,10 @@ class User < ActiveRecord::Base
   attr_accessible :aboutMe, :age, :birth, :confirmed, :diocese, :email, :honorific, :id, :institute, :interests, :name, :orderDay, :password, :password_confirmation, :placeForRole, :role, :study, :surname, :admin
 
   has_secure_password
+  has_private_messages
 
   # each user can have some posts associated and they must be destroyed together with the user
   has_many :posts, dependent: :destroy
-
-  # each user can have some sermons associated and they must be destroyed together with the user
   has_many :sermons, dependent: :destroy
 
   # each user can have many relationships
@@ -58,13 +57,18 @@ class User < ActiveRecord::Base
 
   # get the post to show in the wall
   def feed
-    Post.from_users_followed_by(self)
+    FeedItem.from_users_followed_by(self)
   end
 
-  # get the searched user(s) by (part of her) name
-  def self.search(user_name)
-    if user_name
-      where('name LIKE ?', "%#{user_name}%")
+  # get the searched user(s) by (part of her) name, surname, diocese
+  def self.search(text)
+    if text
+      # remove blank space
+      text = text.strip
+      #tranform in regex, i.e. word1|word2
+      text = text.gsub(' ', '|')
+
+      where('name || surname || diocese REGEXP ?', "#{text}")
     else
       scoped # return an empty result set
     end

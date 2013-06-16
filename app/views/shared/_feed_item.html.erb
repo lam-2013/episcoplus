@@ -1,7 +1,8 @@
+<%# TODO OLD FEED ITEM (sarà rimosso) %>
+
 <% if feed_item.is_a?(Post) %>
     <%= render feed_item %>
 <% else %>
-    <%# TODO non sarà così %>
     <li id="<%= feed_item.id %>">
       <%= link_to gravatar_for(feed_item.user), feed_item.user %>
       <span class="user">

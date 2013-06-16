@@ -1,0 +1,23 @@
+<div id="newMessage" class="reveal-modal large">
+  <div class="modal-header">
+    <a type="button" class="close-reveal-modal">×</a>
+    <h4>A message for <%= @user.name %></h4>
+  </div>
+  <%= form_for(@message) do |f| %>
+      <div class="modal-body">
+        <div class="field">
+          <%= f.hidden_field :sender, value: current_user.id %>
+          <%= f.hidden_field :recipient, value: @user.id %>
+
+          <%= f.text_field :subject, value: @message.subject, placeholder: 'Oggetto (opzionale)' %>
+
+          <%= f.text_area :body, placeholder: 'Scrivi il tuo messaggio', required: 'required' %>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <%= f.submit 'Send', class: 'button small' %>
+      </div>
+
+  <% end %>
+</div>

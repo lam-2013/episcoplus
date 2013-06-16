@@ -15,7 +15,7 @@ Episcoplus::Application.routes.draw do
   resources :users do
     # member: apply the reported actions to each single member (to /users/{:id}, in this case)
     member do
-      get :following, :followers # ex.: get /users/1/followers
+      get :following, :followers, :messages # ex.: get /users/1/followers
     end
     # collection: apply the reported action to the entire collection (to /users/, in this case)
     collection do
@@ -26,8 +26,11 @@ Episcoplus::Application.routes.draw do
   # default routes for the Sessions controller (only new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
 
-  # default routes for the Posts controller (only create and destroy - other operations will be done via the Users controlelr)
+  # default routes for the Posts controller (only create and destroy - other operations will be done via the Users controller)
   resources :posts, only: [:create, :destroy]
+
+  # default routes for the Messages controller
+  resources :messages
 
   # default routes for the Relationship controller (only create and destroy) - needed to build follow/unfollow relations
   resources :relationships, only: [:create, :destroy]

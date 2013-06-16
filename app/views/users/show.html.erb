@@ -34,7 +34,16 @@
             <% end %>
           </li>
           <li class="right">
-            <div class="buttons-container"><%= render 'follow_form' if signed_in? %>  </div>
+            <div class="buttons-container">
+              <% if signed_in? && current_user != @user %>
+                  <section>
+                    <%= link_to 'New message', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
+                    <div class="message"></div>
+                  </section>
+              <% end %>
+
+              <%= render 'follow_form' if signed_in? %>
+            </div>
           </li>
         </ul>
       </div>
