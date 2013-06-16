@@ -1,4 +1,4 @@
-<% if feed_item.doc.is_a?(Post) || feed_item.doc.is_a?(Sermon) %>
+<% if feed_item.doc.is_a?(Post) || feed_item.doc.is_a?(Sermon) || feed_item.doc.is_a?(Like) %>
     <%= render feed_item.doc %>
 <% else %>
     <%# TODO rimuovere (debug) %>

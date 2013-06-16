@@ -1,2 +1,3 @@
-$("#like_<%= @target.class %>_<%= @target.id %>").html("<%= escape_javascript(render( :partial => 'likes/unlike', :object => @target )) %>")
-//$("#followers").html('<#%= @target.likes.count %>')
+var $likeDiv = $("#like_<%= @target.class %>_<%= @target.id %>");
+$(".like-btn", $likeDiv).html("<%= escape_javascript(render( :partial => 'likes/unlike_action', :object => @target )) %>");
+$(".like-count", $likeDiv).html('Piace a <%= @target.likes.count %> persone');

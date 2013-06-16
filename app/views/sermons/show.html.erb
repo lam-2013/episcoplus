@@ -48,6 +48,7 @@
       </div>
 
       <p><%= @sermon.content %></p>
+      <%= render :partial => 'likes/like_form', :object => @sermon %>
     </div>
 
 

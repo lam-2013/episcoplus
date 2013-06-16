@@ -30,5 +30,19 @@ class Sermon < ActiveRecord::Base
     end
   end
 
+  # is the current liked by the given user?
+  def isLikedBy?(user)
+    likes.find_by_user_id(user.id)
+  end
+
+  # like from given user
+  def like!(other_user)
+    @like = likes.create!(user_id: other_user.id)
+  end
+
+  # like from given user
+  def unlike!(other_user)
+    likes.find_by_user_id(other_user.id).destroy
+  end
 
 end

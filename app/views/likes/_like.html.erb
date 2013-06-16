@@ -1,8 +1,12 @@
-<% doc = like %>
-<% # linked to the create action in the Like controller   %>
-<%= form_for(doc.likes.build(doc_id: doc.id, doc_type: doc.class), remote: true) do |f| %>
-    <% # the hidden field contains the information needed for following a user   %>
-    <div><%= f.hidden_field :doc_id %></div>
-    <div><%= f.hidden_field :doc_type %></div>
-    <%= f.submit 'Mi piace', class: 'small button' %>
-<% end %>
+<%# Preview of a like %>
+<li class="row post like">
+  <% doc = like.doc %>
+  <% user = like.relatedUser %>
+  <div class="small-2 columns user-image"><%= link_to gravatar_for(user), user %></div>
+  <div class="small-10 columns">
+    <span class="title-presentation">A
+      <%= link_to "#{user.honorific} #{user.name} #{user.surname}", user, class: 'user-name' %>
+      e ad altri <%= doc.likes.count %> piace un elemento</span>
+    <ul class="no-bullet like-inner"><%= render doc %></ul>
+  </div>
+</li>

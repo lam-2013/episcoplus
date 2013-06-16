@@ -33,6 +33,11 @@ class SermonsController < ApplicationController
     @sermon = current_user.sermons.build if signed_in?
   end
 
+  def index
+    # get all the users from the database - with pagination
+    @sermons = Sermon.paginate(page: params[:page])
+  end
+
   private
 
   def correct_user

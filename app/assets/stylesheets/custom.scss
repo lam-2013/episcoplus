@@ -217,7 +217,7 @@ h2.motto {
   margin-right: 3px;
 }
 
-.panel.panel_avatar_style{
+.panel.panel_avatar_style {
   background-color: $white80;
   margin-top: -20px;
   margin-right: -5px;
@@ -227,20 +227,19 @@ h2.motto {
   box-shadow: 4px 4px 15px $darkerergrey;
 }
 
-
-h5.avatar_style{
-   position: absolute;
+h5.avatar_style {
+  position: absolute;
   top: 20px;
   right: 20px;
 }
 
-h7.avatar_style{
+h7.avatar_style {
   position: absolute;
   top: 45px;
   right: 20px;
 }
 
-.buttons-container.avatar_style{
+.buttons-container.avatar_style {
   position: absolute;
   top: 75px;
   right: 20px;
@@ -520,4 +519,9 @@ footer.row {
   h4 {
     color: inherit;
   }
+}
+
+/* Likes */
+.like-btn {
+  display: inline-block;
 }
