@@ -15,28 +15,34 @@ def make_users
                           surname: "Lisena",
                           email: "pasq.lisena@gmail.it",
                           password: password,
-                          password_confirmation: password_confirmation)
+                          password_confirmation: password)
+
+  mariella = User.create!(name: "Mariella",
+                          surname: "Sabatino",
+                          email: "mll.sabatino@gmail.com",
+                          password: password,
+                          password_confirmation: password)
 
   sigalini = User.create!(honorific: "Mons",
                           name: "Domenico",
                           surname: "Sigalini",
                           email: "d.sigalini@episcoplus.com",
                           password: password,
-                          password_confirmation: password_confirmation)
+                          password_confirmation: password)
 
   bagnasco = User.create!(honorific: "Card",
                           name: "Angelo",
                           surname: "Bagnasco",
                           email: "a.bagnasco@episcoplus.com",
                           password: password,
-                          password_confirmation: password_confirmation)
+                          password_confirmation: password)
 
   gallo = User.create!(honorific: "Don",
                        name: "Andrea",
                        surname: "Gallo",
                        email: "a.gallo@episcoplus.com",
                        password: password,
-                       password_confirmation: password_confirmation)
+                       password_confirmation: password)
 
   99.times do |n|
     honorific = "Don"
