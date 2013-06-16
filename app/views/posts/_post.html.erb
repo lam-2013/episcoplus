@@ -9,5 +9,8 @@
     <% if current_user?(post.user) %>
         | <%= link_to image_tag("icon/remove.png"), post, method: :delete, data: {confirm: 'Are you sure?'}, title: post.content %>
     <% end %>
+    <div class="buttons-container">
+      <%= render :partial => 'likes/like_form', :object => post if signed_in? %>
+    </div>
   </div>
 </li>

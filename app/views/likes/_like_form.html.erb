@@ -1,0 +1,8 @@
+<% doc = like_form %>
+<div id="like_<%= doc.class %>_<%= doc.id %>">
+  <% if doc.isLikedBy?(current_user) %>
+      <%= render :partial => 'likes/unlike', :object => doc %>
+  <% else %>
+      <%= render :partial => 'likes/like', :object => doc %>
+  <% end %>
+</div>

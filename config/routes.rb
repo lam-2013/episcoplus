@@ -1,4 +1,8 @@
 Episcoplus::Application.routes.draw do
+  get "like/create"
+
+  get "like/destroy"
+
   # route for the homepage
   root :to => 'pages#home'
 
@@ -36,6 +40,9 @@ Episcoplus::Application.routes.draw do
 
   # default routes for the Relationship controller (only create and destroy) - needed to build follow/unfollow relations
   resources :relationships, only: [:create, :destroy]
+
+  # default routes for the Like controller (only create and destroy)
+  resources :likes, only: [:create, :destroy]
 
   # default routes for the Sermon controller (only create and destroy)
   resources :sermons

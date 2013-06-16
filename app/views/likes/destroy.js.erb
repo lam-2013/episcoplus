@@ -1,0 +1,2 @@
+$("#like_<%= @target.class %>_<%= @target.id %>").html("<%= escape_javascript(render( :partial => 'likes/like', :object => @target )) %>")
+//$("#followers").html('<#%= @target.likes.count %>')
