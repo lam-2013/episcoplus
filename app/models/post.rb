@@ -18,6 +18,7 @@ class Post < ActiveRecord::Base
   # each post belong to a specific user
   belongs_to :user
   has_one :feed_item, as: :doc
+  has_many :likes, as: :doc
 
   # descending order for getting the posts
   default_scope order: 'posts.created_at DESC'
@@ -34,4 +35,18 @@ class Post < ActiveRecord::Base
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user.id)
   end
 
+  # is the current liked by the given user?
+  def isLikedBy?(user)
+    likes.find_by_user_id(user.id)
+  end
+
+  # like from given user
+  def like!(other_user)
+    @like = likes.create!(user_id: other_user.id)
+  end
+
+  # like from given user
+  def unlike!(other_user)
+    likes.find_by_user_id(other_user.id).destroy
+  end
 end

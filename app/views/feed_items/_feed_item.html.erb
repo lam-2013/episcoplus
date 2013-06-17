@@ -1,5 +1,7 @@
-<% if feed_item.doc.is_a?(Post) || feed_item.doc.is_a?(Sermon) %>
+<% if feed_item.doc.is_a?(Post) || feed_item.doc.is_a?(Sermon) || feed_item.doc.is_a?(Like) %>
     <%= render feed_item.doc %>
 <% else %>
-    <%= render feed_item.doc %>
+    <%# TODO rimuovere (debug) %>
+    <%= 'NUOVO FEED ITEM' %>
+    <%= feed_item.doc.class %>
 <% end %>

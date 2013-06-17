@@ -1,0 +1,8 @@
+<% doc = like_action %>
+<% # linked to the create action in the Like controller    %>
+<%= form_for(doc.likes.build(doc_id: doc.id, doc_type: doc.class), remote: true) do |f| %>
+    <% # the hidden field contains the information needed for following a user    %>
+    <div><%= f.hidden_field :doc_id %></div>
+    <div><%= f.hidden_field :doc_type %></div>
+    <%= f.submit 'Mi piace', class: 'small button' %>
+<% end %>

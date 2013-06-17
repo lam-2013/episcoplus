@@ -13,7 +13,7 @@ def make_users
   password = "episcoplus"
   pasquale = User.create!(name: "Pasquale",
                           surname: "Lisena",
-                          email: "pasq.lisena@gmail.it",
+                          email: "pasq.lisena@gmail.com",
                           password: password,
                           password_confirmation: password)
 
@@ -64,7 +64,10 @@ def make_posts
   users = User.all(limit: 10)
   50.times do
     post_content = Faker::Lorem.sentence(8)
-    users.each { |user| user.posts.create!(content: post_content) }
+    users.each { |user|
+      post = user.posts.create!(content: post_content)
+      post.create_feed_item(user_id: user.id)
+    }
   end
 end
 
@@ -102,7 +105,10 @@ def make_sermons
   50.times do
     sermon_title = Faker::Lorem.sentence(8)
     sermon_content = Faker::Lorem.sentence(80)
-    users.each { |user| user.sermons.create!(title: sermon_title, content: sermon_content) }
+    users.each { |user|
+      sermon = user.sermons.create!(title: sermon_title, content: sermon_content)
+      sermon.create_feed_item(user_id: user.id)
+    }
   end
 end
 

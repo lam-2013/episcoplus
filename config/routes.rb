@@ -1,4 +1,8 @@
 Episcoplus::Application.routes.draw do
+  get "like/create"
+
+  get "like/destroy"
+
   # route for the homepage
   root :to => 'pages#home'
 
@@ -7,6 +11,8 @@ Episcoplus::Application.routes.draw do
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
   match '/faq', to: 'pages#faq'
+  match '/search', to: 'pages#search'
+
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
@@ -35,7 +41,10 @@ Episcoplus::Application.routes.draw do
   # default routes for the Relationship controller (only create and destroy) - needed to build follow/unfollow relations
   resources :relationships, only: [:create, :destroy]
 
-  # default routes for the Sermon controller (only create and destroy) - needed to build follow/unfollow relations
+  # default routes for the Like controller (only create and destroy)
+  resources :likes, only: [:create, :destroy]
+
+  # default routes for the Sermon controller (only create and destroy)
   resources :sermons
 
   # The priority is based upon order of creation:

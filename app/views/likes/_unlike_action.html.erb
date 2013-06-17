@@ -1,0 +1,5 @@
+<% doc = unlike_action %>
+<% # linked to the destroy action in the Like controller    %>
+<%= form_for(doc.likes.find_by_user_id(current_user.id), html: {method: :delete}, remote: true) do |f| %>
+    <%= f.submit 'Non mi piace più', class: 'small button grey' %>
+<% end %>

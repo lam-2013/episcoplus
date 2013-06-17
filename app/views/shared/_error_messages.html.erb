@@ -1,11 +1,16 @@
-<% # handle and show forms errors    %>
-<% if @user.errors.any? %>
+<% # handle and show forms errors   %>
+<% errors = @user.errors if @user %>
+<% errors = @sermon.errors if @sermon %>
+
+<% if errors && errors.any? %>
     <div data-alert class="alert-box error">
-      Il form contiene <%= pluralize(@user.errors.count, "errore", "errori") %>.
+      Il form contiene <%= pluralize(errors.count, "errore", "errori") %>.
       <ul>
-        <% @user.errors.full_messages.each do |message| %>
+        <% errors.full_messages.each do |message| %>
             <%# TODO spostare style nel css %>
-            <li style="margin-left: 20px;"><%= message %></li>
+            <li style="margin-left: 20px;">Il campo <%= message %></li>
+            <% logger.debug(message) %>
+
         <% end %>
       </ul>
       <%= link_to image_tag("icon/close.png"), "#", :class => "close" %>

@@ -1,0 +1,13 @@
+<%# Preview of a like %>
+<li class="row post like">
+  <% doc = like.doc %>
+  <% nDocLike = doc.likes.count %>
+  <% user = like.relatedUser %>
+  <div class="small-2 columns user-image"><%= link_to gravatar_for(user), user %></div>
+  <div class="small-10 columns">
+    <span class="title-presentation">A
+      <%= link_to "#{user.honorific} #{user.name} #{user.surname}", user, class: 'user-name' %>
+      <% if nDocLike > 1 %>e ad altri <%= doc.likes.count - 1 %><% end %> piace un elemento</span>
+    <ul class="no-bullet like-inner"><%= render doc %></ul>
+  </div>
+</li>

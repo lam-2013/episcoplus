@@ -1,0 +1,48 @@
+<%= ajax_loadzone do %>
+    <ul class="users no-bullet">
+      <%= render @users %>
+    </ul>
+<% end %>
+<%= ajax_links :section_id => "user_search" do %>
+    <%= foundation_paginate @users %>
+<% end %>
+
+<script>
+    $(document).ready(function () {
+
+        //fix on wrong parameter page for foundation
+        var $cont = $('#user_search');
+        var currentPage = $('.pagination .current a', $cont).text();
+        var page;
+        $('.pagination a', $cont).each(function () {
+            if ($(this).hasClass('unavailable')) {
+                return;
+            }
+
+            if ($(this).is('.previous_page a')) {
+                page = currentPage - 1;
+            } else if ($(this).is('.next_page a')) {
+                page = currentPage * 1 + 1;
+            } else {
+                page = $(this).text();
+            }
+
+            var href = $(this).attr('href');
+
+            if (href.indexOf("user_page=") >= 0) {
+                href = href.replace(/user_page=\d+/, "user_page=" + page);
+            } else {
+                href = href + '&user_page=' + page;
+            }
+
+            if (href.indexOf("change=") >= 0) {
+                href = href.replace(/change=\d+/, "change=1");
+            } else {
+                href = href + '&change=1';
+            }
+
+            $(this).attr('href', href);
+        });
+
+    });
+</script>

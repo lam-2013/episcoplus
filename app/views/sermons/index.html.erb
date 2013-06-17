@@ -1,0 +1,14 @@
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication       %>
+<% provide :title, 'Omelie' %>
+
+<div class="panel">
+  <h1>Omelie</h1>
+
+  <%= foundation_paginate(@sermons) %>
+
+  <ul class="users no-bullet">
+    <%= render @sermons %>
+  </ul>
+
+  <%= foundation_paginate(@sermons) %>
+</div>
