@@ -35,7 +35,14 @@ class SermonsController < ApplicationController
 
   def index
     # get all the users from the database - with pagination
-    @sermons = Sermon.paginate(page: params[:page])
+
+
+    if params[:tag]
+      @sermons = Sermon.tagged_with(params[:tag])
+      Sermon.paginate(page: params[:tag])
+    else
+      @sermons = Sermon.paginate(page: params[:page])
+    end
   end
 
   private

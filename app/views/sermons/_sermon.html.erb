@@ -7,7 +7,9 @@
       <%= link_to "#{sermon.title}", sermon, class: 'title' %>
     </span>
 
-    <div class="content"><%= truncate(sermon.content, :length => 200, :separator => ' ') %></div>
+    <div class="content"><%= truncate(sermon.content, :length => 100, :separator => ' ') %></div>
+    <div class="tag_list"> <%=raw sermon.tag_list.map{ |t| link_to t, tag_path(t)}.join(', ') %></div>
+
   <span class="timestamp">
     <%= time_ago_in_words(sermon.created_at) %> fa
   </span>

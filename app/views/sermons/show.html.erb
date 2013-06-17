@@ -51,6 +51,8 @@
       </div>
 
       <p><%= @sermon.content %></p>
+      <p>La mia omelia parla di:<%=raw @sermon.tag_list.map{ |t| link_to t, tag_path(t)}.join(', ') %></p>
+
       <%= render :partial => 'likes/like_form', :object => @sermon %>
     </div>
 

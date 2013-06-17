@@ -1,4 +1,4 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication         %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication            %>
 <% provide :title, 'Omelie' %>
 
 <div class="panel">
@@ -6,17 +6,21 @@
     <div class="large-5 columns">
       <h1>Omelie</h1></div>
 
+    <div class="large-6 columns">
+      <%= foundation_paginate(@sermons) %>
+    </div>
 
-          <div class="large-6 columns">
-
-  <%= foundation_paginate(@sermons) %>
-          </div>
     <div class="large-1 columns">
-
       <%= form_for(new_sermon_path) do |f| %>
           <%= f.submit "Scrivi", :class => 'button small radius' %>
       <% end %>
     </div>
+  </div>
+
+  <div id="tag_cloud">
+    <% tag_cloud Sermon.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
   </div>
 
   <ul class="users no-bullet">
