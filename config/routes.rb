@@ -4,8 +4,6 @@ Episcoplus::Application.routes.draw do
   get "like/destroy"
 
   get 'tags/:tag', to: 'sermon#show', as: :tag
-  resources :sermons
-  root :to => 'sermons#show'
 
   # route for the homepage
   root :to => 'pages#home'
