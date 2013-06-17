@@ -43,6 +43,9 @@ gem 'foundation-will_paginate'
 # TODO Sostituire will_paginate con foundation_paginate
 gem 'ajax_pagination', '~> 0.6.5'
 
+# To use tag
+gem 'acts-as-taggable-on'
+
 # To use private messaging
 gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 
