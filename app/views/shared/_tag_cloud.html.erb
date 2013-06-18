@@ -1,0 +1,8 @@
+<div class="panel tag_cloud">
+
+    <%# TODO sistemare la visualizzazione dei tag %>
+    <% tag_cloud Sermon.tag_counts.order('name ASC, count DESC').limit(30), %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+
+</div>
