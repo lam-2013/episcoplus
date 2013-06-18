@@ -1,9 +1,10 @@
-<% unless current_user?(@user) %>
-  <div id="follow_form">
-    <% if current_user.following?(@user) %>
-      <%= render 'users/unfollow' %>
-    <% else %>
-      <%= render 'users/follow' %>
-    <% end %>
-  </div>
+<% user = follow_form %>
+<% unless current_user?(user) %>
+    <div id="follow_form_<%= user.id %>" class="follow_form_container">
+      <% if current_user.following?(user) %>
+          <%= render :partial => 'users/unfollow', :object => user %>
+      <% else %>
+          <%= render :partial => 'users/follow', :object => user %>
+      <% end %>
+    </div>
 <% end %>

@@ -1,16 +1,19 @@
 <% if signed_in? %>
     <div id="dashboard">
       <div class="row">
-        <div class="columns large-8 push-4">
+        <div class="columns large-7 push-5">
           <div class="panel">
             <%= render 'shared/post_form' %>
             <%= render 'shared/feed' %>
           </div>
         </div>
 
-        <aside class="columns large-4 pull-8">
+        <aside class="columns large-5 pull-7">
           <section>
             <%= render 'shared/user_info' %>
+          </section>
+          <section>
+            <%= render 'users/suggested_user_index' %>
           </section>
         </aside>
       </div>

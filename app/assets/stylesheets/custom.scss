@@ -259,9 +259,15 @@ p.center {
   width: 400px;
   line-height: 1.6em;
   text-align: center;
-  .s { font-size: 0.8em; }
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }
+  .s {
+    font-size: 0.8em;
+  }
+  .m {
+    font-size: 1.2em;
+  }
+  .l {
+    font-size: 1.8em;
+  }
 }
 
 //datepicker
@@ -500,8 +506,64 @@ footer.row {
 .user {
   padding: 5px 0 10px;
   border-bottom: $lightBorder;
-  img {
-    vertical-align: middle;
+  &.row {
+    margin: 0;
+  }
+  .gravatar-cont {
+    float: left;
+    img {
+      vertical-align: middle;
+    }
+  }
+  .user-name {
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+    @media #{$small} {
+      line-height: 50px;
+    }
+  }
+  .informations {
+    float: left;
+    @media #{$small} {
+      line-height: 50px;
+    }
+    .additional-info {
+      float: left;
+      margin-left: 5px;
+      .follow-info {
+        color: $grey;
+        font-size: 0.8em;
+      }
+    }
+  }
+  .follow_form_container {
+    float: right;
+    @media #{$small} {
+      line-height: 50px;
+    }
+    form {
+      text-align: right;
+    }
+  }
+}
+
+.users.small {
+  @media #{$small} {
+    .informations {
+      line-height: 1em;
+    }
+    .additional-info {
+      margin-left: 0.5em;
+    }
+    .user-name {
+      margin-top: 0.5em;
+      margin-left: 0.5em;
+      line-height: 1em;
+    }
+    .follow_form_container {
+      line-height: 1em;
+    }
   }
 }
 
