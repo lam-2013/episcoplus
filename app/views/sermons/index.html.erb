@@ -11,14 +11,12 @@
     </div>
 
     <div class="large-1 columns">
-      <%= form_for(new_sermon_path) do |f| %>
-          <%= f.submit "Scrivi", :class => 'button small radius' %>
-      <% end %>
+      <%= button_to 'Scrivi', new_sermon_path, :class => 'button small radius', :method => :get %>
     </div>
   </div>
 
   <div id="tag_cloud">
-    <% tag_cloud Sermon.tag_counts, %w{s m l} do |tag, css_class| %>
+    <% tag_cloud Sermon.tag_counts.limit(40), %w{s m l} do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
     <% end %>
   </div>

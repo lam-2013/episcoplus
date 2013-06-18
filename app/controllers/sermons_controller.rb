@@ -10,6 +10,11 @@ class SermonsController < ApplicationController
     @sermon = current_user.sermons.build(params[:sermon])
     @sermon.build_feed_item(user_id: current_user.id)
 
+    @sermon.subtitle = nil if @sermon.subtitle.strip.empty?
+
+    @sermon.type_of_liturgy = nil if @sermon.type_of_liturgy.strip.empty?
+
+
     if @sermon.save
       flash[:success] = 'Omelia pubblicata!'
       redirect_to @sermon
