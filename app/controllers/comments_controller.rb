@@ -12,12 +12,13 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:success] = "Commento inserito!"
+      @sermon = Comment.find(@comment.id).doc
       # without javascript: redirect_to home
-      respond_with @comment.doc
+      respond_with sermons_path
       # Rails will look for a create.js.erb file for responding to this action with ajax
     else
       flash[:error] = "Commento non inserito!"
-      respond_with @comment.doc
+      respond_with sermons_path
     end
 
   end

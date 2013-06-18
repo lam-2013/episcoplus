@@ -1,11 +1,9 @@
 <section class="sermon">
 
   <div class="row">
-
     <div class="panel">
 
       <div class="row">
-
         <div class="large-8 columns">
           <h2><%= @sermon.title %></h2>
 
@@ -55,11 +53,15 @@
 
       <%= render :partial => 'likes/like_form', :object => @sermon %>
       <%= render 'comments/comment_form' %>
+      <ul class="comments no-bullet" id="comments">
+        <% logger.debug('num commenti') %>
+        <% logger.debug(@comments.count) %>
+
+        <%= render @comments %>
+      </ul>
     </div>
 
 
-  </div>
-  </div>
   </div>
 </section>
 

@@ -1,8 +1,8 @@
 <% doc = @sermon %>
-<%= form_for(doc.comments.build(doc_id: doc.id, doc_type: doc.class), remote: true) do |f| %>
+<%= form_for(@comment, remote: true) do |f| %>
     <div class="row comment-form">
-      <%= f.hidden_field :doc_id %>
-      <%= f.hidden_field :doc_type %>
+      <%= f.hidden_field :doc_id, :value => doc.id %>
+      <%= f.hidden_field :doc_type, :value => doc.class %>
 
       <div class="field large-9 small-8 columns">
         <%= f.text_area :content, placeholder: 'Inserisci un commento', maxlength: '140', required: 'required' %>

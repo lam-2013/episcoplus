@@ -155,6 +155,10 @@ textarea {
   resize: none;
 }
 
+.pagination li.current a {
+  background-color: $darkred;
+}
+
 div.alert-box.error {
   @include alert-base;
   @include alert-style(#ff0020);

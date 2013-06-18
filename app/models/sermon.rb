@@ -17,6 +17,8 @@ class Sermon < ActiveRecord::Base
   # content must be present
   validates :content, presence: true
 
+  default_scope order: 'sermons.created_at DESC'
+
   # get the searched user(s) by (part of her) title
   # TODO implements search by keyword
   def self.search(text)

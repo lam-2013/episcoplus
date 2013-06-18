@@ -3,6 +3,8 @@ class Comment < ActiveRecord::Base
 
   belongs_to :doc, :polymorphic => true
 
+  default_scope order: 'comments.created_at DESC'
+
   def relatedUser
     User.find(user_id)
   end
