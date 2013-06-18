@@ -88,8 +88,8 @@ class User < ActiveRecord::Base
     their_followed_ids = "SELECT followed_id FROM relationships WHERE follower_id IN (#{followed_user_ids})
                             GROUP BY followed_id ORDER BY count(follower_id)"
 
-    my_diocese_ids = "SELECT id FROM users WHERE diocese = #{user.diocese} ORDER BY RANDOM()" if user.diocese
-    my_study_ids = "SELECT id FROM users WHERE study = #{user.study} ORDER BY RANDOM()" if user.study
+    my_diocese_ids = "SELECT id FROM users WHERE diocese = \"#{user.diocese}\" ORDER BY RANDOM()" if user.diocese
+    my_study_ids = "SELECT id FROM users WHERE study = \"#{user.study}\" ORDER BY RANDOM()" if user.study
 
     where("id <> :user_id AND id NOT IN (#{followed_user_ids}) AND(id IN (#{their_followed_ids}) OR id IN (#{my_diocese_ids}) OR id IN (#{my_study_ids}))", user_id: user.id).order('RANDOM()').limit(4)
   end
