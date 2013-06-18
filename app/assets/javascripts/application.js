@@ -12,6 +12,7 @@
  GO AFTER THE REQUIRES BELOW.
 
  = require jquery
+ = require jquery
  = require jquery_ujs
  = require foundation
  = require json2
@@ -43,6 +44,8 @@ $(function () {
             }).attr("type", "text");
 
         }
+
+        $('#tags').tagsInput();
 
     });
 

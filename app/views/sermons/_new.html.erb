@@ -13,7 +13,7 @@
 
       <%= f.text_area :content, placeholder: 'Scrivi la tua omelia' %>
 
-      <%= f.text_field :tag_list, placeholder: 'Di cosa parla? (separa le parole con una virgola)' %>
+      <%= f.text_field :tag_list, :id => 'tags', placeholder: 'Di cosa parla? (separa le parole con una virgola)' %>
 
       <%= f.submit "Pubblica", :class => 'button small radius' %>
   <% end %>
