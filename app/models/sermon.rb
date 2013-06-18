@@ -6,6 +6,7 @@ class Sermon < ActiveRecord::Base
   belongs_to :user
   has_one :feed_item, as: :doc
   has_many :likes, as: :doc
+  has_many :comments, as: :doc
 
   # user_id must be present while creating a new sermon...
   validates :user_id, presence: true

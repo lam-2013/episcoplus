@@ -31,6 +31,7 @@ class SermonsController < ApplicationController
   def show
     @sermon = Sermon.find(params[:id])
     @user = @sermon.user
+    @comment = Comment.new
   end
 
   def new

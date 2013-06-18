@@ -18,7 +18,7 @@
 
         <div class="panel panel_avatar_style large-4 columns">
           <div class="image"><%= gravatar_for @user, size: 70 %></div>
-          <h5 class="avatar_style"><%= link_to "#{@user.honorific} #{@user.name} #{@user.surname}", @user %></h5>
+          <h5 class="avatar_style"><%= link_to "#{@user.full_name}", @user %></h5>
           <% if @user.role %>
               <h7 class="avatar_style">
                 <%= @user.role %>
@@ -28,7 +28,7 @@
                 <% end %>
           <% end %>
 
-          <div class="buttons-container avatar_style"><%= render 'users/follow_form' if signed_in? %>  </div>
+          <div class="buttons-container avatar_style"><%= render :partial => 'users/follow_form', :object => @user if signed_in? %>  </div>
         </div>
 
       </div>
@@ -54,6 +54,7 @@
       <p>La mia omelia parla di:<%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
       <%= render :partial => 'likes/like_form', :object => @sermon %>
+      <%= render 'comments/comment_form' %>
     </div>
 
 
