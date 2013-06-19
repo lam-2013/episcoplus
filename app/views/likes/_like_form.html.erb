@@ -1,6 +1,10 @@
 <% doc = like_form %>
 <div id="like_<%= doc.class %>_<%= doc.id %>">
-  <span class="like-count">Piace a <%= doc.likes.count %> persone</span>
+  <% if doc.likes.count > 0 %>
+      <span class="like-count">Piace a <%= doc.likes.count %> persone</span>
+  <% else %>
+      <span class="like-count">Metti mi piace per primo!</span>
+  <% end %>
 
   <div class="like-btn">
     <% if doc.isLikedBy?(current_user) %>

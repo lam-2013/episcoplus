@@ -1,29 +1,67 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication %>
-<% provide :title, 'Edit user' %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication       %>
+<% provide :title, 'Aggiorna profilo' %>
 
-<h1>Update your profile</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+<div class="row relative">
 
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-        <%= f.label :password_confirmation, 'Confirmation' %>
-        <%= f.password_field :password_confirmation %>
-
-        <%= f.submit 'Save changes', class: 'btn btn-large btn-primary' %>
-    <% end %>
-
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">Change</a>
+  <div class="columns large-4">
+    <h2 class="motto">Aggiorna il tuo profilo</h2>
   </div>
-</div>
+
+  <div class="columns large-8">
+    <div class="panel">
+      <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <div class="row collapse">
+            <div class="columns large-2">
+              <%= f.text_field :honorific, :placeholder => "honorific" %>
+            </div>
+            <div class="columns large-5">
+              <%= f.text_field :name, :placeholder => "Nome", :required => 'required' %>
+            </div>
+            <div class="columns large-5">
+              <%= f.text_field :surname, :placeholder => "Cognome", :required => 'required' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="columns large-12">
+              <%= f.email_field :email, :placeholder => "Email", :required => 'required' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="columns large-12">
+              <%= f.password_field :password, :placeholder => "Password (minimo 6 caratteri)", :required => 'required', :pattern => '.{6,}' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="columns large-12">
+              <%= f.password_field :password_confirmation, :placeholder => "Conferma password", :required => 'required', :pattern => '.{6,}' %>
+            </div>
+          </div>
+
+
+          <div class="row collapse">
+            <div class="columns large-1">
+              <%= gravatar_for @user %>
+            </div>
+            <div class="columns large-11">
+              <%= button_to 'Modifica foto', "http://gravatar.com/emails", class: 'small button' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="columns large-12">
+              <%= f.submit "Salva modifiche", :class => 'button small' %>
+              <%end%>
+            </div>
+          </div>
+
+          </div>
+          </div>
+          </div>
+
+
