@@ -30,10 +30,23 @@ $(function () {
     var is_mobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
 
 
+
+
+
     $(document).ready(function () {
 
         $(document).foundation();
         $('textarea').autosize();
+        $('#tags').tagsInput();
+        $('.info_dropdown').hide();
+
+
+
+        $('.more_info_dropdown').click(function(){
+            $(this).toggleClass('more_info_dropdown_rotate', "slow"),
+            $(".info_dropdown").slideToggle();
+        });
+
 
         if (!is_mobile) {
             $('.datepicker').datepicker({
@@ -45,10 +58,10 @@ $(function () {
 
         }
 
-        $('#tags').tagsInput();
+
+
 
     });
-
 });
 
 

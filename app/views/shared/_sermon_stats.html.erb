@@ -1,0 +1,19 @@
+<% # we are going to use this partial in the home and in the user profile;
+   # in the home @user is nil and needs to be filled      %>
+
+<% @user ||= current_user %>
+<div class="stats row">
+
+  <span class="large-2 large-offset-1 columns">
+    <strong><%= @user.sermons.count %></strong>
+    omelie pubblicate</span>
+
+  <span class="large-2 large-offset-2 columns">
+    <%= image_tag "icon/arrow-down.png"%>
+  </span>
+
+  <%#TODO controllare questa espressione sql%>
+  <span class="large-4 large-offset-1 columns">
+    <strong><%= @user.sermons.count_by_sql("SELECT id FROM sermons WHERE created_at >= '#{(Time.now - 30.days).utc.iso8601}'") %></strong>
+    nell'ultimo mese</span>
+</div>

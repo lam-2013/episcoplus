@@ -373,6 +373,70 @@ div.tagsinput div {
   color: #90111A !important;
 }
 
+/*info_dropdown*/
+
+div.info_dropdown {
+  background-color: $white80;
+  padding: 20px;
+  -moz-box-shadow: 4px 4px 15px $darkerergrey;
+  -webkit-box-shadow: 4px 4px 15px $darkerergrey;
+  box-shadow: 4px 4px 15px $darkerergrey;
+}
+
+
+.more_info_dropdown_rotate {
+  animation: rotate 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+
+  -webkit-animation: rotate 0.5s ease-in-out; /* Safari & Chrome */
+  -webkit-animation-fill-mode: forwards;
+
+  -moz-animation: rotate 0.5s ease-in-out;
+  -moz-animation-fill-mode: forwards;
+
+  -ms-animation: rotate 0.5s ease-in-out;
+  -ms-animation-fill-mode: forwards;
+
+  -o-animation: rotate 0.5s ease-in-out;
+  -o-animation-fill-mode: forwards;
+
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+/* Chrome, Safari 3.1+ */
+  100% {
+    -webkit-transform: rotate(45deg);
+  }
+
+}
+
+@-moz-keyframes rotate {
+/* Firefox 3.5-15*/
+  100% {
+    -moz-transform: rotate(45deg);
+  }
+}
+
+@-ms-keyframes rotate {
+/* IE 9  */
+  100% {
+    -ms-transform: rotate(45deg);
+  }
+}
+
+@-o-keyframes rotate {
+/* Opera 10.50-12.00  */
+  100% {
+    -o-transform: rotate(45deg);
+  }
+}
+
 /* wrapper */
 
 div.wrapper.columns {

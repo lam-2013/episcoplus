@@ -1,0 +1,23 @@
+<div class="row collapse">
+  <div class="large-6 columns">
+    <%= render 'pages/search_form' %>
+  </div>
+  <div class="large-5 columns ">
+    <%= image_tag("icon/plus.png", :class=>'more_info_dropdown')%>
+  </div>
+</div>
+
+<div class="row collapse info_dropdown">
+  <div class="columns large-10">
+    <%= label_tag 'Argomento' %>
+    <%= text_field :argument, placeholder: 'Argomento' %>
+  </div>
+  <div class="columns large-6">
+    <%= label_tag 'Tipo di liturgia' %>
+    <%= text_field :type_of_liturgy, placeholder: 'Tipo di Liturgia' %>
+  </div>
+  <div class="columns large-6">
+    <%= label_tag 'Data di celebrazione' %>
+    <%= text_field :day, :type => :date, :class => 'datepicker', placeholder: 'gg/mm/aaaa' %>
+  </div>
+</div>
