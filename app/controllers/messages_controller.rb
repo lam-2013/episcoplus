@@ -35,10 +35,10 @@ class MessagesController < ApplicationController
     @message.recipient = recipient
 
     if @message.save
-      flash[:success] = "Message sent to #{recipient.name}!"
-      redirect_to root_url
+      flash[:success] = "Messaggio inviato a #{recipient.name}!"
+      redirect_to @message.recipient
     else
-      render 'pages/home'
+      render @message.recipient
     end
   end
 

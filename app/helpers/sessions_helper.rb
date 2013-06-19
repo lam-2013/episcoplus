@@ -24,7 +24,8 @@ module SessionsHelper
       @current_user ||= User.find_by_remember_token(cookies[:remember_token])
     else
       @current_user = nil
-    end
+    end                    \
+
   end
 
   # Check if the current user is signed in

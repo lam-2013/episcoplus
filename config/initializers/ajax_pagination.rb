@@ -8,7 +8,7 @@ AjaxPagination.config do |config|
   # uncomment to turn warnings on in all environments
   # config.warnings = true
   # or to turn off in all environments
-  config.warnings = false
+  # config.warnings = false
 
   # Intercepts 302 redirects, if the request is an AJAX call with a ?pagination= parameter in the GET url
   # This is used because browsers transparently follow 302 redirects, without the AJAX javascript code being aware

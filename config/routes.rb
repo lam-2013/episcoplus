@@ -1,4 +1,8 @@
 Episcoplus::Application.routes.draw do
+  get "comments/create"
+
+  get "comments/destroy"
+
   get "like/create"
 
   get "like/destroy"
@@ -32,7 +36,6 @@ Episcoplus::Application.routes.draw do
   end
 
 
-
   # default routes for the Sessions controller (only new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -45,8 +48,9 @@ Episcoplus::Application.routes.draw do
   # default routes for the Relationship controller (only create and destroy) - needed to build follow/unfollow relations
   resources :relationships, only: [:create, :destroy]
 
-  # default routes for the Like controller (only create and destroy)
+  # default routes for the Like and Comment controller (only create and destroy)
   resources :likes, only: [:create, :destroy]
+  resources :comments, only: [:create]
 
   # default routes for the Sermon controller (only create and destroy)
   resources :sermons

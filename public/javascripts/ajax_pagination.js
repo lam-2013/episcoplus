@@ -81,6 +81,8 @@ jQuery(document).ready(function () {
                         var img = document.createElement("IMG");
                         if (ajax_section.data("pagination") !== undefined && ajax_section.data("pagination").image !== undefined) img.src = ajax_section.data("pagination").image;
                         else img.src = "/images/ajax-loader.gif";
+                        img.height = 20;
+                        img.width = 20;
                         var margin = Math.round(height > 400 ? 50 : (height / 8));
                         $(img).addClass('ajaxpagination-loader');
                         var div = document.createElement("DIV");

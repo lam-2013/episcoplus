@@ -1,5 +1,5 @@
 <% # we are going to use this partial in the home and in the user profile;
-   # in the home @user is nil and needs to be filled                         %>
+   # in the home @user is nil and needs to be filled                          %>
 <% @user ||= current_user %>
 <div class="stats">
 
@@ -19,7 +19,7 @@
 
   <% @this_followed = @user.followed_users.paginate :page => 1, :per_page => 3, :order => 'RANDOM()' %>
 
-  <ul class="users no-bullet">
+  <ul class="users no-bullet small">
     <% @this_followed.each do |fwd| %>
         <%= render fwd %>
     <% end %>
@@ -31,7 +31,7 @@
     <a <%= fwHref %>>
       &Eacute; seguito da
       <span class="num-follow">
-          <strong id="followers" class="stat">
+          <strong id="followers_of_<%= @user.id %>" class="stat">
             <%= @user.followers.count %>
           </strong>
         <%= pluralize_without_count(@user.followers.count, 'persona', 'persone') %>

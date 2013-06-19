@@ -1,0 +1,12 @@
+<li class="row comment">
+  <% user = comment.relatedUser %>
+
+  <div class="small-2 columns user-image"><%= link_to gravatar_for(user), user %></div>
+  <div class="small-10 columns">
+    <%= link_to "#{user.full_name}", user, class: 'user-name' %>
+    <div class="content"><%= comment.content %></div>
+  <span class="timestamp">
+    <%= time_ago_in_words(comment.created_at) %> fa
+  </span>
+  </div>
+</li>

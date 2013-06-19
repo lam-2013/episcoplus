@@ -1,0 +1,14 @@
+<% doc = @sermon %>
+<%= form_for(@comment, remote: true) do |f| %>
+    <div class="row comment-form">
+      <%= f.hidden_field :doc_id, :value => doc.id %>
+      <%= f.hidden_field :doc_type, :value => doc.class %>
+
+      <div class="field large-9 small-8 columns">
+        <%= f.text_area :content, placeholder: 'Inserisci un commento', maxlength: '140', required: 'required' %>
+      </div>
+      <div class="large-3 small-4 columns publish-button">
+        <%= f.submit 'Pubblica', class: 'small button', style: 'margin:8px 0;' %>
+      </div>
+    </div>
+<% end %>

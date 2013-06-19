@@ -8,4 +8,14 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.name, class: "gravatar", height: "#{size}", width: "#{size}", style: "border-width:#{size/20}px")
   end
 
+  def suggested_user
+    User.getSuggestedUsers(current_user);
+  end
+
+  def pluralize_other_friends(count)
+    other = pluralize_without_count(count, 'un altro', 'altri')
+    x = (count == 1) ? '' : count
+
+    "#{other} #{x}".strip
+  end
 end

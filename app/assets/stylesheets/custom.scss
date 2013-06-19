@@ -155,6 +155,10 @@ textarea {
   resize: none;
 }
 
+.pagination li.current a {
+  background-color: $darkred;
+}
+
 div.alert-box.error {
   @include alert-base;
   @include alert-style(#ff0020);
@@ -258,9 +262,15 @@ p.center {
 .tag_cloud {
   line-height: 1.6em;
   text-align: center;
-  .s { font-size: 0.8em; }
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.9em; }
+  .s {
+    font-size: 0.8em;
+  }
+  .m {
+    font-size: 1.2em;
+  }
+  .l {
+    font-size: 1.9em;
+  }
 }
 
 //datepicker
@@ -303,18 +313,17 @@ img.ui-datepicker-trigger {
   right: 10px;
 }
 
-
 /*tag_list*/
-div.tagsinput{
+div.tagsinput {
   border: 1px solid #cccccc;
   background: white;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow:  inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.75);
   margin-bottom: 1em;
 }
 
-input#tags_tag{
+input#tags_tag {
   border: transparent;
   font-size: 0.875em;
   width: 320px;
@@ -363,7 +372,6 @@ div.tagsinput div {
   background: #FBD8DB !important;
   color: #90111A !important;
 }
-
 
 /* wrapper */
 
@@ -561,8 +569,89 @@ footer.row {
 .user {
   padding: 5px 0 10px;
   border-bottom: $lightBorder;
-  img {
-    vertical-align: middle;
+  &.row {
+    margin: 0;
+  }
+  .gravatar-cont {
+    float: left;
+    img {
+      vertical-align: middle;
+    }
+  }
+  .user-name {
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+    @media #{$small} {
+      line-height: 50px;
+    }
+  }
+  .informations {
+    float: left;
+    max-width: 300px;
+    min-width: 200px;
+    @media #{$small} {
+      line-height: 50px;
+      max-width: 999999px;
+    }
+    .additional-info {
+      color: $grey;
+      float: left;
+      font-size: 0.8em;
+      margin-left: 5px;
+
+      span {
+        white-space: nowrap;
+
+        &:after {
+          content: " - ";
+        }
+        &:last-child:after {
+          content: "";
+        }
+      }
+    }
+  }
+  .follow_form_container {
+    float: right;
+    @media #{$small} {
+      line-height: 50px;
+    }
+    form {
+      text-align: right;
+    }
+  }
+}
+
+.users.small {
+  .additional-info {
+    span {
+      display: none;
+      &:first-child {
+        display: inline;
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
+
+  @media #{$small} {
+    .informations {
+      line-height: 1em;
+    }
+    .additional-info {
+      margin-left: 0.5em;
+    }
+    .user-name {
+      margin-top: 0.5em;
+      margin-left: 0.5em;
+      line-height: 1em;
+      min-width: 75%;
+    }
+    .follow_form_container {
+      line-height: 1em;
+    }
   }
 }
 

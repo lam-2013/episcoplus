@@ -39,6 +39,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
 
+  def full_name
+    "#{self.honorific} #{self.name} #{self.surname}".strip
+  end
 
   # is the current user following the given user?
   def following?(other_user)
@@ -60,7 +63,12 @@ class User < ActiveRecord::Base
     FeedItem.from_users_followed_by(self)
   end
 
+  def friends_in_common_with(other_user)
+    @friends = self.followers & other_user.followed_users
+  end
+
   # get the searched user(s) by (part of her) name, surname, diocese
+  # TODO mettere prima i match sul nome, poi sulla città
   def self.search(text)
     if text
       # remove blank space
@@ -72,6 +80,18 @@ class User < ActiveRecord::Base
     else
       scoped # return an empty result set
     end
+  end
+
+  #get suggested user - my followed's followeds, people with my diocese and study
+  def self.getSuggestedUsers(user)
+    followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
+    their_followed_ids = "SELECT followed_id FROM relationships WHERE follower_id IN (#{followed_user_ids})
+                            GROUP BY followed_id ORDER BY count(follower_id)"
+
+    my_diocese_ids = "SELECT id FROM users WHERE diocese = \"#{user.diocese}\" ORDER BY RANDOM()" if user.diocese
+    my_study_ids = "SELECT id FROM users WHERE study = \"#{user.study}\" ORDER BY RANDOM()" if user.study
+
+    where("id <> :user_id AND id NOT IN (#{followed_user_ids}) AND(id IN (#{their_followed_ids}) OR id IN (#{my_diocese_ids}) OR id IN (#{my_study_ids}))", user_id: user.id).order('RANDOM()').limit(4)
   end
 
   # private methods

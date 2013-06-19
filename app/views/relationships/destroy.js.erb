@@ -1,2 +1,2 @@
-$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>")
-$("#followers").html('<%= @user.followers.count %>')
+$("#follow_form_<%= @user.id %>").html("<%= escape_javascript(render(:partial => 'users/follow', :object => @user)) %>")
+$("#followers_of_<%= @user.id %>").html('<%= @user.followers.count %>')
