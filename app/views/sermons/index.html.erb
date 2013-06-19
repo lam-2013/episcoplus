@@ -15,6 +15,27 @@
     </div>
   </div>
 
+    <div class="row">
+    <%= render 'pages/search_form' %>
+    <%= link_to '+ info', :class=>"info_dropdown" %>
+
+    <div class="info_dropdown">
+      <%= form_tag search_path, method: 'get' %>
+
+          <%= text_field_tag :argument %>
+
+          <div class="columns large-4">
+            <%= text_field_tag :type_of_liturgy %>
+          </div>
+          <div class="columns large-4">
+            <%= text_field_tag :day, :class => 'datepicker', placeholder: 'gg/mm/aaaa' %>
+          </div>
+
+
+    </div>
+
+
+  </div>
 
   <ul class="users no-bullet">
     <%= render @sermons %>
