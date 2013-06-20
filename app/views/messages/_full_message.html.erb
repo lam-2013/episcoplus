@@ -1,0 +1,28 @@
+<% message = full_message %>
+<h2><%= message.sender.full_name %></h2>
+<div class="row">
+  <div class="large-2 small-2 columns">
+    <%= gravatar_for message.sender, size: 50 %>
+  </div>
+  <div class="large-10 small-10 columns">
+
+    <%= link_to message.sender.full_name, message.sender, :class => 'user-name' %>
+    <% if message.subject %>
+        <div class="subject">
+          <strong><%= message.subject %></strong>
+        </div>
+    <% end %>
+    <div class="content"><%= message.body %></div>
+
+    <div class="timestamp">
+      <%= time_ago_in_words(message.created_at) %> fa
+    </div>
+    <div class="buttons-container">
+      <% if current_user?(message.recipient) %>
+          <%= link_to image_tag("icon/remove.png"), message, method: :delete, data: {confirm: 'Are you sure?'}, title: message.subject %>
+          | <%= link_to 'reply', new_message_path(user: message.sender.id, message: message), remote: true %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
