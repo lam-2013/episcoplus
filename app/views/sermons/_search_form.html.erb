@@ -1,0 +1,39 @@
+<%= form_tag search_sermons_path, method: 'get', class: ' custom' do %>
+    <div class="info_dropdown" id="adv-search-sermon">
+      <div class="row">
+        <div class="large-8 columns">
+          <div class="row">
+            <div class="large-10 small-10 columns">
+              <%= text_field_tag :argument, params[:argument], placeholder: 'Argomento' %>
+            </div>
+            <div class="large-2 small-2 columns">
+              <% more_opened = (params[:day] || params[:type_of_liturgy]) %>
+              <% more_info_class = (more_opened) ? 'rotate' : '' %>
+              <%= image_tag("icon/plus.png", :class => "more_info_dropdown #{more_info_class}") %>
+            </div>
+          </div>
+        </div>
+        <div class="large-4 columns ">
+          <%= submit_tag "Cerca Omelia", :class => 'button small' %>
+        </div>
+      </div>
+
+      <div class="row more"
+           <% if more_opened %>style="display:block;"
+      <% end %>>
+        <div class="columns large-6">
+          <%= label_tag :type_of_liturgy, 'Tipo di liturgia' %>
+          <%= select_tag :type_of_liturgy, options_from_collection_for_select(@available_type, :type_of_liturgy, :type_of_liturgy, params[:type_of_liturgy]), :prompt => "Qualsiasi" %>
+        </div>
+        <div class="columns large-6">
+          <%= label_tag :day, 'Data di celebrazione' %>
+          <%= text_field_tag :day, params[:day], :type => :date, :class => 'datepicker', placeholder: 'gg/mm/aaaa' %>
+        </div>
+      </div>
+
+    </div>
+
+
+<% end %>
+
+
