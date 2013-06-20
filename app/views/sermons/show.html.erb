@@ -7,6 +7,10 @@
         <div class="large-8 columns">
           <h2><%= @sermon.title %></h2>
 
+          <% if @sermon.tag_list %>
+
+              <p>La mia omelia parla di:<%= raw @sermon.tag_list.map{ |t| link_to t, tag_path(t),:class=>"round alert label"  }.join(' ') %></p>
+          <% end %>
 
           <% if @sermon.subtitle %>
               <h4><%= @sermon.subtitle %></h4>
@@ -49,21 +53,26 @@
 
 
       <% if @sermon.video %>
-          <video id="example_video_1" class="video-js vjs-default-skin"
-                 controls preload="auto" width="640" height="264"
-                 data-setup='{"example_option":true}'>
-            <source src="<%= @sermon.video %>" type='video/mp4' />
-            <source src="<%= @sermon.video %>" type='video/webm' />
-            <source src="<%= @sermon.video %>" type='video/ogg' />
-          </video>
-      <% end %>
+          <div class="row">
+            <div class="large-12 columns large-offset-3 video">
+              <video class="video-js vjs-default-skin"
+                     controls preload="auto" width="470" height="266"
+                     poster="../assets/video_omelie_poster.png"
+                     data-setup='{"example_option":true}'>
+                <source src="<%= @sermon.video %>" type='video/mp4'/>
+                <source src="<%= @sermon.video %>" type='video/webm'/>
+                <source src="<%= @sermon.video %>" type='video/ogg'/>
+              </video>
 
+
+            </div>
+          </div>
+
+      <% end %>
 
       <p><%= @sermon.content %></p>
 
-      <% if @sermon.tag_list %>
-      <p>La mia omelia parla di:<%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-      <% end %>
+
 
 
 

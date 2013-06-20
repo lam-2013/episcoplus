@@ -273,6 +273,12 @@ p.center {
   }
 }
 
+
+.round.alert.label{
+  background-color: $mediumred;
+  font-size: 1.2em;
+}
+
 //datepicker
 
 .ui-datepicker .ui-datepicker-header {
@@ -383,8 +389,12 @@ div.info_dropdown {
   box-shadow: 4px 4px 15px $darkerergrey;
 }
 
-
+.more_info_dropdown{
+  cursor: pointer;
+}
 .more_info_dropdown_rotate {
+  cursor: pointer;
+
   animation: rotate 0.5s ease-in-out;
   animation-fill-mode: forwards;
 
@@ -436,6 +446,12 @@ div.info_dropdown {
     -o-transform: rotate(45deg);
   }
 }
+
+.video{
+  margin: 3em;
+}
+
+
 
 /* wrapper */
 
