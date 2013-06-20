@@ -401,6 +401,7 @@ div.info_dropdown {
 .more_info_dropdown {
   transition: transform 500ms;
   -webkit-transition: -webkit-transform 500ms; /* Safari and Chrome */
+  cursor: pointer;
 }
 
 .more_info_dropdown.rotate {
