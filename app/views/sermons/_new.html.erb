@@ -1,21 +1,34 @@
 <div class="row collapse">
-  <%= form_for(@sermon) do |f| %>
+<%= form_for(@sermon) do |f| %>
 
-      <%= f.text_field :title, placeholder: 'Titolo' %>
-      <%= f.text_field :subtitle, placeholder: 'Sottotitolo' %>
+    <%= f.text_field :title, placeholder: 'Titolo' %>
+    <%= f.text_field :subtitle, placeholder: 'Sottotitolo' %>
 
-      <div class="columns large-4">
+    <div class="row collapse">
+      <div class="columns large-8">
         <%= f.text_field :type_of_liturgy, placeholder: 'Tipo di Liturgia' %>
       </div>
       <div class="columns large-4">
         <%= f.text_field :day, :type => :date, :class => 'datepicker', placeholder: 'gg/mm/aaaa' %>
       </div>
+    </div>
 
-      <%= f.text_area :content, placeholder: 'Scrivi la tua omelia' %>
+    <div class="row collapse">
+      <div class="columns large-1 large-offset-1">
 
-      <%= f.text_field :tag_list, :id => 'tags', placeholder: 'Di cosa parla? (separa le parole con una virgola)' %>
+        <%= f.select :video, options_for_select([["Video", "v"], ["Audio", "a"]]), :class => 'dropdown small' %>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.text_field :video, placeholder: 'inserisci url' %>
+      </div>
+    </div>
 
-      <%= f.submit "Pubblica", :class => 'button small radius' %>
-  <% end %>
+    <%= f.text_area :content, placeholder: 'Scrivi la tua omelia' %>
+
+
+    <%= f.text_field :tag_list, :id => 'tags', placeholder: 'Di cosa parla? (separa le parole con una virgola)' %>
+
+    <%= f.submit "Pubblica", :class => 'button small radius' %>
+<% end %>
 
 </div>

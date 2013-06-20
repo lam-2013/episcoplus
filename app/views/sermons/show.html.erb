@@ -47,20 +47,25 @@
 
       </div>
 
+
+      <% if @sermon.video %>
+          <video id="example_video_1" class="video-js vjs-default-skin"
+                 controls preload="auto" width="640" height="264"
+                 data-setup='{"example_option":true}'>
+            <source src="<%= @sermon.video %>" type='video/mp4' />
+            <source src="<%= @sermon.video %>" type='video/webm' />
+            <source src="<%= @sermon.video %>" type='video/ogg' />
+          </video>
+      <% end %>
+
+
       <p><%= @sermon.content %></p>
 
       <% if @sermon.tag_list %>
       <p>La mia omelia parla di:<%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
       <% end %>
 
-      <video id="example_video_1" class="video-js vjs-default-skin"
-             controls preload="auto" width="640" height="264"
-             poster="http://video-js.zencoder.com/oceans-clip.png"
-             data-setup='{"example_option":true}'>
-        <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
-        <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
-        <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
-      </video>
+
 
       <%= render :partial => 'likes/like_form', :object => @sermon %>
       <%= render 'comments/comment_form' %>
