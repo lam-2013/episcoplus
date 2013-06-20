@@ -315,8 +315,15 @@ p.center {
 
 img.ui-datepicker-trigger {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  bottom: 25px;
+  right: 25px;
+}
+
+.row.collapse {
+  img.ui-datepicker-trigger {
+    top: 10px;
+    right: 10px;
+  }
 }
 
 /*tag_list*/
@@ -387,71 +394,27 @@ div.info_dropdown {
   -moz-box-shadow: 4px 4px 15px $darkerergrey;
   -webkit-box-shadow: 4px 4px 15px $darkerergrey;
   box-shadow: 4px 4px 15px $darkerergrey;
+  .row {
+    .row {
+      margin: 0 -0.5em;
+    }
+    .columns {
+      position: relative;
+    }
+  }
 }
 
-.more_info_dropdown{
+.more_info_dropdown {
+  transition: transform 500ms;
+  -webkit-transition: -webkit-transform 500ms; /* Safari and Chrome */
   cursor: pointer;
 }
-.more_info_dropdown_rotate {
-  cursor: pointer;
 
-  animation: rotate 0.5s ease-in-out;
-  animation-fill-mode: forwards;
-
-  -webkit-animation: rotate 0.5s ease-in-out; /* Safari & Chrome */
-  -webkit-animation-fill-mode: forwards;
-
-  -moz-animation: rotate 0.5s ease-in-out;
-  -moz-animation-fill-mode: forwards;
-
-  -ms-animation: rotate 0.5s ease-in-out;
-  -ms-animation-fill-mode: forwards;
-
-  -o-animation: rotate 0.5s ease-in-out;
-  -o-animation-fill-mode: forwards;
-
+.more_info_dropdown.rotate {
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
 }
-
-@keyframes rotate {
-  100% {
-    transform: rotate(45deg);
-  }
-}
-
-@-webkit-keyframes rotate {
-/* Chrome, Safari 3.1+ */
-  100% {
-    -webkit-transform: rotate(45deg);
-  }
-
-}
-
-@-moz-keyframes rotate {
-/* Firefox 3.5-15*/
-  100% {
-    -moz-transform: rotate(45deg);
-  }
-}
-
-@-ms-keyframes rotate {
-/* IE 9  */
-  100% {
-    -ms-transform: rotate(45deg);
-  }
-}
-
-@-o-keyframes rotate {
-/* Opera 10.50-12.00  */
-  100% {
-    -o-transform: rotate(45deg);
-  }
-}
-
-.video{
-  margin: 3em;
-}
-
-
 
 /* wrapper */
 

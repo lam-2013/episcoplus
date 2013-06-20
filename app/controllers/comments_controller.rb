@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
     #@comment.create_feed_item(user_id: current_user.id)
 
     if @comment.save
-      flash[:success] = "Commento inserito!"
       @sermon = Comment.find(@comment.id).doc
       # without javascript: redirect_to home
       respond_with sermons_path

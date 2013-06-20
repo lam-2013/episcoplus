@@ -7,7 +7,7 @@ Episcoplus::Application.routes.draw do
 
   get "like/destroy"
 
-  get 'tags/:tag', to: 'sermon#show', as: :tag
+  get 'tags/:tag', to: 'sermons#index', as: :tag
 
   # route for the homepage
   root :to => 'pages#home'
@@ -53,7 +53,13 @@ Episcoplus::Application.routes.draw do
   resources :comments, only: [:create]
 
   # default routes for the Sermon controller (only create and destroy)
-  resources :sermons
+  resources :sermons do
+    # collection: apply the reported action to the entire collection (to /sermons/, in this case)
+    collection do
+      get :search
+    end
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
