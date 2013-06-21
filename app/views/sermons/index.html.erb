@@ -1,26 +1,35 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication               %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication                 %>
 <% provide :title, 'Omelie' %>
 
-<div class="panel">
-  <div class="row">
-    <div class="large-5 columns">
-      <h1>Omelie</h1></div>
+<div class="row">
+  <div class="large-8 push-4 columns">
+    <div class="panel">
+      <div class="row">
+        <div class="large-5 columns">
+          <h1>Omelie</h1></div>
 
-    <div class="large-6 columns">
+        <div class="large-6 columns">
+          <%= foundation_paginate(@sermons) %>
+        </div>
+
+        <div class="large-1 columns">
+          <%= button_to 'Scrivi', new_sermon_path, :class => 'button small radius', :method => :get %>
+        </div>
+      </div>
+
+      <%= render 'search_form' %>
+
+
+      <ul class="users no-bullet">
+        <%= render :partial => 'sermon_preview', :collection => @sermons %>
+      </ul>
+
       <%= foundation_paginate(@sermons) %>
     </div>
-
-    <div class="large-1 columns">
-      <%= button_to 'Scrivi', new_sermon_path, :class => 'button small radius', :method => :get %>
+  </div>
+  <div class="large-4 pull-8 columns">
+    <div class="panel">
+      s
     </div>
   </div>
-
-  <%= render 'search_form' %>
-
-
-  <ul class="users no-bullet">
-    <%= render @sermons %>
-  </ul>
-
-  <%= foundation_paginate(@sermons) %>
 </div>

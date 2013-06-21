@@ -6,7 +6,7 @@ class SermonsController < ApplicationController
   before_filter :correct_user, only: :destroy
 
   def create
-    # build a new post from the information contained in the "new post" form
+    # build a new sermon from the information contained in the new sermon form
     @sermon = current_user.sermons.build(params[:sermon])
     @sermon.build_feed_item(user_id: current_user.id)
 
@@ -51,8 +51,10 @@ class SermonsController < ApplicationController
     if params[:tag]
       @sermons = Sermon.tagged_with(params[:tag]).paginate(page: params[:page])
     else
-      @sermons = Sermon.paginate(page: params[:page])
+      @sermons = Sermon.orderByLike(current_user).paginate(page: params[:page])
     end
+
+    #collections for left boxes
 
     @available_type = Sermon.where("type_of_liturgy IS NOT NULL").select(:type_of_liturgy).uniq
   end

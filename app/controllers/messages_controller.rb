@@ -54,7 +54,7 @@ class MessagesController < ApplicationController
       # the message has been received
       @message.mark_deleted(current_user)
     end
-    redirect_to current_user
+    redirect_to messages_path
   end
 
   def index

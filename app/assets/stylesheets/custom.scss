@@ -305,10 +305,10 @@ p.center {
   }
 }
 
-
-.round.alert.label{
+.round.alert.label {
   background-color: $mediumred;
-  font-size: 1.2em;
+  font-size: 0.7em;
+  text-transform: uppercase;
 }
 
 //datepicker
@@ -765,6 +765,26 @@ footer.row {
 /* Sermons */
 .more {
   display: none;
+}
+
+.sermon.preview {
+  .title, .subtitle {
+    margin-bottom: 0;
+    float: left;
+    clear: left;
+  }
+  .subtitle {
+    margin-top: 0.75em;
+  }
+  .author {
+    float: left;
+    clear: right;
+    margin-top: 0.4em;
+    margin-left: 0.5em;
+  }
+  .content {
+    clear: both;
+  }
 }
 
 /* Messages */

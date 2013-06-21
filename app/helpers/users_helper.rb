@@ -12,10 +12,4 @@ module UsersHelper
     User.getSuggestedUsers(current_user);
   end
 
-  def pluralize_other_friends(count)
-    other = pluralize_without_count(count, 'un altro', 'altri')
-    x = (count == 1) ? '' : count
-
-    "#{other} #{x}".strip
-  end
 end
