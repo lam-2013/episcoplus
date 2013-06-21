@@ -12,8 +12,7 @@
     <%= image_tag "icon/arrow-down.png"%>
   </span>
 
-  <%#TODO controllare questa espressione sql%>
   <span class="large-4 large-offset-1 columns">
-    <strong><%= @user.sermons.count_by_sql("SELECT id FROM sermons WHERE created_at >= '#{(Time.now - 30.days).utc.iso8601}'") %></strong>
+    <strong><%= @user.sermons.where("created_at >= '#{(Time.now - 30.days).utc.iso8601}'").count %></strong>
     nell'ultimo mese</span>
 </div>
