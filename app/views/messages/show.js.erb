@@ -1,0 +1,2 @@
+$mainMsg = $('#main-message');
+$mainMsg.html("<%= escape_javascript(render(:partial => 'messages/full_message', :object => @message)) %>");

@@ -1,14 +1,31 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication      %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication           %>
 <% provide :title, 'Messaggi' %>
+<div class="row">
+  <div class="large-8 columns push-4">
+    <div class="panel">
+      <div id="main-message">
+        <%= render :partial => 'messages/full_message', :object => @message %>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 columns pull-8">
 
-<div class="panel">
-  <h1>I Miei messaggi</h1>
-
-  <%= foundation_paginate(@messages) %>
-
-  <ul class="users no-bullet">
-    <%= render @messages %>
-  </ul>
-
-  <%= foundation_paginate(@messages) %>
+    <div class="panel">
+      <ul class="messages no-bullet" id="messages-list">
+        <%= render @messages %>
+      </ul>
+      <%= foundation_paginate(@messages) %>
+    </div>
+  </div>
+  <div class="new-message"></div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var $mList = $('#messages-list');
+        $('li .inner', $mList).on('click', function (e) {
+            var href = $(this).siblings('.openMessage').attr('href');
+            $.ajax(href);
+        });
+    });
+</script>

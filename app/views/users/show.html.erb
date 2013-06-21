@@ -3,7 +3,7 @@
     <div class="large-12 columns">
       <div class="panel clearfix">
         <div class="image"><%= gravatar_for @user, size: 100 %></div>
-        <h3><span><%= @user.honorific %></span> <%= @user.name %> <%= @user.surname %></h3>
+        <h3><%= @user.full_name %></h3>
         <ul class="no-bullet">
           <li>
             <% if @user.role %>
@@ -38,7 +38,7 @@
               <% if signed_in? && current_user != @user %>
                   <section>
                     <%= link_to 'New message', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
-                    <div class="message"></div>
+                    <div class="new-message"></div>
                   </section>
               <% end %>
 
@@ -57,9 +57,9 @@
       </div>
 
 
-        <div class="panel">
-          <%= render 'shared/sermon_stats' %>
-        </div>
+      <div class="panel">
+        <%= render 'shared/sermon_stats' %>
+      </div>
     </div>
 
     <div class="large-7 pull-5 columns">
@@ -73,7 +73,7 @@
             <ul class="posts no-bullet">
               <%= render @posts %>
             </ul>
-            <% # since we are in a Users view, we need to specify that the pagination is for the posts                  %>
+            <% # since we are in a Users view, we need to specify that the pagination is for the posts                   %>
             <% foundation_paginate @posts %>
         <% else %>
             <p class="no-post">

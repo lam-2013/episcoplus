@@ -56,7 +56,6 @@ header {
           height: 120px;
         }
         .title-area {
-          // fix pasquale
           background: transparent;
         }
       }
@@ -135,6 +134,34 @@ header {
             font-size: 0.875em;
           }
         }
+        .with-notify {
+          position: relative;
+          .notify {
+            position: absolute;
+            border-radius: 0.8em;
+            min-width: 1.5em;
+            text-align: center;
+            color: $darkergrey;
+            background-color: #ffffff;
+            font-size: 0.8em;
+            padding: 0 0.4em;
+            top: 50%;
+            margin-top: -0.8em;
+            right: 1em;
+            font-weight: bold;
+
+            @media only screen and (min-width: 58.75em) {
+              color: #ffffff;
+              background-color: $darkred;
+              font-size: 0.6em;
+              padding: 0 0.2em;
+              top: 0.5em;
+              right: 0.3em;
+              margin: 0;
+              font-weight: normal;
+            }
+          }
+        }
       }
     }
   }
@@ -157,6 +184,11 @@ textarea {
 
 .pagination li.current a {
   background-color: $darkred;
+}
+
+.timestamp {
+  font-size: 0.9em;
+  color: $grey;
 }
 
 div.alert-box.error {
@@ -728,4 +760,43 @@ footer.row {
 /* Likes */
 .like-btn {
   display: inline-block;
+}
+
+/* Sermons */
+.more {
+  display: none;
+}
+
+/* Messages */
+.message {
+  border: 1px solid #f2f2f2;
+  border-bottom: $lightBorder;
+  border-top-width: 0;
+
+  padding: 1em;
+  cursor: pointer;
+  transition: background 500ms;
+  -webkit-transition: background 500ms; /* Safari and Chrome */
+  &:first-child {
+    border-top-width: 1px;
+  }
+  &:hover {
+    background: #dddddd;
+    border: $lightBorder;
+    border-top-width: 0;
+    &:first-child {
+      border-top-width: 1px;
+    }
+  }
+  &.unread {
+
+  }
+  .user-name {
+    color: $darkred;
+    font-weight: bold;
+  }
+}
+
+.openMessage {
+  display: none;
 }

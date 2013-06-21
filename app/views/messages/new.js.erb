@@ -1,5 +1,5 @@
-$(".message").html("<%= escape_javascript(render('shared/message_form')) %>")
-var $newMessage = $("#newMessage");
+$(".new-message").html("<%= escape_javascript(render('shared/message_form')) %>")
+var $newMessage = $("#newMessage")
 $("#newMessage").foundation('reveal', 'open')
-$('textarea', $newMessage).autosize();
+$('textarea', $newMessage).autosize()
 

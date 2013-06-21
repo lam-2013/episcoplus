@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   before_filter :correct_user, only: :destroy
 
   # only the new action should respond to javascript
-  respond_to :js, only: :new
+  respond_to :js, :only => [:new, :show]
 
   def new
     # get the recipient user
@@ -18,7 +18,6 @@ class MessagesController < ApplicationController
       # get the message
       subject = Message.find(params[:message]).subject
       # set the reply subject
-      @message.subject = "Re: #{subject}"
     end
 
     respond_with @user, @message
@@ -28,7 +27,10 @@ class MessagesController < ApplicationController
     # build a new message from the information contained in the "new message" form
     # we cannot use create, in this case, due to some choices in the simple-private-messages gem
     @message = Message.new
-    @message.subject = params[:message][:subject]
+    subject = params[:message][:subject].strip
+    if !subject.empty?
+      @message.subject = params[:message][:subject]
+    end
     @message.body = params[:message][:body]
     @message.sender = User.find(params[:message][:sender])
     recipient = User.find(params[:message][:recipient])
@@ -38,6 +40,7 @@ class MessagesController < ApplicationController
       flash[:success] = "Messaggio inviato a #{recipient.name}!"
       redirect_to @message.recipient
     else
+      flash[:error] = "Messaggio non inviato a #{recipient.name}!"
       render @message.recipient
     end
   end
@@ -55,7 +58,13 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = current_user.received_messages.paginate(page: params[:page])
+    @messages = current_user.received_messages.paginate(page: params[:page], per_page: 10)
+    @message = @messages.first
+  end
+
+  def show
+    @message = Message.find(params[:id])
+    respond_with @message
   end
 
   private

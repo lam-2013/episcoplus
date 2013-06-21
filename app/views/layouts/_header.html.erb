@@ -16,9 +16,9 @@
           <ul class="left">
             <li class="divider"></li>
             <%# TODO collegare i pulsanti appena sviluppate le funzionalità %>
-              <li><%= link_to "omelie", sermons_path %></li>
+            <li><%= link_to "omelie", sermons_path %></li>
             <li class="divider"></li>
-            <li><%= link_to 'breviario', root_path%></li>
+            <li><%= link_to 'breviario', root_path %></li>
             <li class="divider"></li>
 
           </ul>
@@ -28,7 +28,12 @@
             <li class="divider hide-for-small "></li>
             <li><%= link_to image_tag("icon/bell.png"), root_path %></li>
             <li class="divider"></li>
-            <li><%= link_to image_tag("icon/mail2.png"), root_path %></li>
+            <li class="with-notify">
+              <%= link_to image_tag("icon/mail2.png"), messages_path %>
+              <% if current_user.unread_messages? %>
+                  <span class="notify"><%= current_user.unread_message_count %></span>
+              <% end %>
+            </li>
             <li class="divider"></li>
 
             <li>
