@@ -16,7 +16,7 @@
     <div class="row collapse">
       <div class="columns large-1 large-offset-1">
 
-        <%= f.select :video, options_for_select([["Video", "v"], ["Audio", "a"]], :class => 'dropdown small') %>
+        <%= f.select :video, options_for_select([["Video", :video], ["Audio", :audio]], :class => 'dropdown small') %>
       </div>
       <div class="small-9 large-10 columns">
         <%= f.text_field :video, :type=>"url" , placeholder: 'inserisci url' %>
