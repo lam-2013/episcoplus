@@ -1,23 +1,32 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication           %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication               %>
 <% provide :title, 'Messaggi' %>
 <div class="row">
-  <div class="large-8 columns push-4">
-    <div class="panel">
-      <div id="main-message">
-        <%= render :partial => 'messages/full_message', :object => @message %>
-      </div>
-    </div>
-  </div>
-  <div class="large-4 columns pull-8">
+  <% if @message %>
 
-    <div class="panel">
-      <ul class="messages no-bullet" id="messages-list">
-        <%= render @messages %>
-      </ul>
-      <%= foundation_paginate(@messages) %>
-    </div>
-  </div>
-  <div class="new-message"></div>
+      <div class="large-8 columns push-4">
+        <div class="panel">
+
+          <div id="main-message">
+            <%= render :partial => 'messages/full_message', :object => @message %>
+          </div>
+        </div>
+      </div>
+      <div class="large-4 columns pull-8">
+
+        <div class="panel">
+          <ul class="messages no-bullet" id="messages-list">
+            <%= render @messages %>
+          </ul>
+          <%= foundation_paginate(@messages) %>
+        </div>
+      </div>
+      <div class="new-message"></div>
+  <% else %>
+      <div class="panel">
+        Non hai ricevuto nessun messaggio finora.
+      </div>
+  <% end %>
+
 </div>
 
 <script>

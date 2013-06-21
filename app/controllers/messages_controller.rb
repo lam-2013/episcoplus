@@ -59,11 +59,12 @@ class MessagesController < ApplicationController
 
   def index
     @messages = current_user.received_messages.paginate(page: params[:page], per_page: 10)
-    @message = @messages.first
+    @message = Message.read_message(@messages.first.id, current_user)
   end
 
   def show
-    @message = Message.find(params[:id])
+    @message = Message.read_message(params[:id], current_user)
+
     respond_with @message
   end
 

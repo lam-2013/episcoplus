@@ -774,7 +774,7 @@ footer.row {
   &:first-child {
     border-top-width: 1px;
   }
-  &:hover {
+  &:hover, &.unread {
     background: #dddddd;
     border: $lightBorder;
     border-top-width: 0;
@@ -782,8 +782,9 @@ footer.row {
       border-top-width: 1px;
     }
   }
-  &.unread {
-
+  .columns {
+    padding-left: 0.3em;
+    padding-right: 0;
   }
   .user-name {
     color: $darkred;
