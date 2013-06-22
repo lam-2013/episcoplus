@@ -9,11 +9,9 @@ class CreateSermons < ActiveRecord::Migration
       t.string :type_of_liturgy
       t.string :audio
       t.string :video
-      t.string :feed_item_id
 
       t.timestamps
     end
 
-    add_index :sermons, :feed_item_id, unique: true
   end
 end

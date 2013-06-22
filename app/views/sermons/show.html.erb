@@ -52,6 +52,7 @@
 
     <% if @sermon.video %>
         <div class="row">
+          <%# TODO cambiare!!! large-x+large-offset-y < 12!!!! %>
           <div class="large-12 columns large-offset-3 video">
             <video class="video-js vjs-default-skin"
                    controls preload="auto" width="470" height="266"
@@ -65,16 +66,16 @@
     <% if @sermon.audio %>
 
         <div class="row">
-          <div class="large-12 columns large-offset-3 video">
+          <div class="large-9 columns large-offset-3 video ">
+            <div class="audio_player">
+              <audio preload="auto" width="470">
+                <source src="<%= @sermon.audio %>" type="audio/ogg">
+                <source src="<%= @sermon.audio %>" type="audio/mpeg">
+                <source src="<%= @sermon.audio %>" type="audio/wav">
+              </audio>
 
-            <audio class="audio_player audio_skin"
-                   controls preload="auto" width="470">
-              <source src="<%= @sermon.audio %>" type="audio/ogg">
-              <source src="<%= @sermon.audio %>" type="audio/mpeg">
-              <source src="<%= @sermon.audio %>" type="audio/wav">
-            </audio>
-
-            <%= render "shared/player" %>
+              <%= render "shared/player" %>
+            </div>
           </div>
         </div>
         </div>

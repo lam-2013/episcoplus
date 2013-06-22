@@ -16,277 +16,313 @@ REQUIRED STYLES (be careful overriding)
 
 .video-js {
 
-  background-color: #000;
-  position: relative;
-  padding: 0;
-  /* Start with 10px for base font size so other dimensions can be em based and easily calculable. */
-  font-size: 10px;
-  /* Allow poster to be vertially aligned. */
-  vertical-align: middle;
-  /*  display: table-cell; */ /*This works in Safari but not Firefox.*/
+    background-color: #000;
+    position: relative;
+    padding: 0;
+    /* Start with 10px for base font size so other dimensions can be em based and easily calculable. */
+    font-size: 10px;
+    /* Allow poster to be vertially aligned. */
+    vertical-align: middle;
+    /*  display: table-cell; */
+    /*This works in Safari but not Firefox.*/
 
-  /* Turn off user selection (text highlighting) by default.
-     The majority of player components will not be text blocks.
-     Text areas will need to turn user selection back on. */
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  -o-user-select: none;
-  user-select: none;
+    /* Turn off user selection (text highlighting) by default.
+       The majority of player components will not be text blocks.
+       Text areas will need to turn user selection back on. */
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    -o-user-select: none;
+    user-select: none;
 }
 
 /* Playback technology elements expand to the width/height of the containing div.
     <video> or <object> */
 .video-js .vjs-tech {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Fix for Firefox 9 fullscreen (only if it is enabled). Not needed when checking fullScreenEnabled. */
-.video-js:-moz-full-screen { position: absolute; }
+.video-js:-moz-full-screen {
+    position: absolute;
+}
 
 /* Fullscreen Styles */
 body.vjs-full-window {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  overflow-y: auto; /* Fix for IE6 full-window. http://www.cssplay.co.uk/layouts/fixed.html */
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow-y: auto; /* Fix for IE6 full-window. http://www.cssplay.co.uk/layouts/fixed.html */
 }
+
 .video-js.vjs-fullscreen {
-  position: fixed;
-  overflow: hidden;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100% !important;
-  height: 100% !important;
-  _position: absolute; /* IE6 Full-window (underscore hack) */
+    position: fixed;
+    overflow: hidden;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100% !important;
+    height: 100% !important;
+    _position: absolute; /* IE6 Full-window (underscore hack) */
 }
+
 .video-js:-webkit-full-screen {
-  width: 100% !important; height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* Poster Styles */
 .vjs-poster {
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: contain;
-  cursor: pointer;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  width: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    cursor: pointer;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
 }
+
 .vjs-poster img {
-  display: block;
-  margin: 0 auto;
-  max-height: 100%;
-  padding: 0;
-  width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    padding: 0;
+    width: 100%;
 }
 
 /* Text Track Styles */
 /* Overall track holder for both captions and subtitles */
 .video-js .vjs-text-track-display {
-  text-align: center;
-  position: absolute;
-  bottom: 4em;
-  left: 1em; /* Leave padding on left and right */
-  right: 1em;
-  font-family: Arial, sans-serif;
+    text-align: center;
+    position: absolute;
+    bottom: 4em;
+    left: 1em; /* Leave padding on left and right */
+    right: 1em;
+    font-family: Arial, sans-serif;
 }
+
 /* Individual tracks */
 .video-js .vjs-text-track {
-  display: none;
-  font-size: 1.4em;
-  text-align: center;
-  margin-bottom: 0.1em;
-  /* Transparent black background, or fallback to all black (oldIE) */
-  background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.50);
+    display: none;
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 0.1em;
+    /* Transparent black background, or fallback to all black (oldIE) */
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.50);
 }
-.video-js .vjs-subtitles { color: #fff; } /* Subtitles are white */
-.video-js .vjs-captions { color: #fc6; } /* Captions are yellow */
-.vjs-tt-cue { display: block; }
+
+.video-js .vjs-subtitles {
+    color: #fff;
+}
+
+/* Subtitles are white */
+.video-js .vjs-captions {
+    color: #fc6;
+}
+
+/* Captions are yellow */
+.vjs-tt-cue {
+    display: block;
+}
 
 /* Fading sytles, used to fade control bar. */
 .vjs-fade-in {
-  display: block !important;
-  visibility: visible; /* Needed to make sure things hide in older browsers too. */
-  opacity: 1;
+    display: block !important;
+    visibility: visible; /* Needed to make sure things hide in older browsers too. */
+    opacity: 1;
 
-  -webkit-transition: visibility 0.1s, opacity 0.1s;
-     -moz-transition: visibility 0.1s, opacity 0.1s;
-      -ms-transition: visibility 0.1s, opacity 0.1s;
-       -o-transition: visibility 0.1s, opacity 0.1s;
-          transition: visibility 0.1s, opacity 0.1s;
+    -webkit-transition: visibility 0.1s, opacity 0.1s;
+    -moz-transition: visibility 0.1s, opacity 0.1s;
+    -ms-transition: visibility 0.1s, opacity 0.1s;
+    -o-transition: visibility 0.1s, opacity 0.1s;
+    transition: visibility 0.1s, opacity 0.1s;
 }
+
 .vjs-fade-out {
-  display: block !important;
-  visibility: hidden;
-  opacity: 0;
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
 
-  -webkit-transition: visibility 1.5s, opacity 1.5s;
-     -moz-transition: visibility 1.5s, opacity 1.5s;
-      -ms-transition: visibility 1.5s, opacity 1.5s;
-       -o-transition: visibility 1.5s, opacity 1.5s;
-          transition: visibility 1.5s, opacity 1.5s;
+    -webkit-transition: visibility 1.5s, opacity 1.5s;
+    -moz-transition: visibility 1.5s, opacity 1.5s;
+    -ms-transition: visibility 1.5s, opacity 1.5s;
+    -o-transition: visibility 1.5s, opacity 1.5s;
+    transition: visibility 1.5s, opacity 1.5s;
 
-  /* Wait a moment before fading out the control bar */
-  -webkit-transition-delay: 2s;
-     -moz-transition-delay: 2s;
-      -ms-transition-delay: 2s;
-       -o-transition-delay: 2s;
-          transition-delay: 2s;
+    /* Wait a moment before fading out the control bar */
+    -webkit-transition-delay: 2s;
+    -moz-transition-delay: 2s;
+    -ms-transition-delay: 2s;
+    -o-transition-delay: 2s;
+    transition-delay: 2s;
 }
+
 /* Hide disabled or unsupported controls */
-.vjs-default-skin .vjs-hidden { display: none; }
+.vjs-default-skin .vjs-hidden {
+    display: none;
+}
 
 .vjs-lock-showing {
-  display: block !important;
-  opacity: 1;
-  visibility: visible;
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Base UI Component Classes
 -------------------------------------------------------------------------------- */
-@font-face{
-  font-family: 'VideoJS';
-  src: url('font/vjs.eot');
-  src: url('font/vjs.eot?#iefix') format('embedded-opentype'),
-  url('font/vjs.woff') format('woff'),
-  url('font/vjs.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+@font-face {
+    font-family: 'VideoJS';
+    src: url('font/vjs.eot');
+    src: url('font/vjs.eot?#iefix') format('embedded-opentype'), url('font/vjs.woff') format('woff'), url('font/vjs.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .vjs-default-skin {
-  color: #2b2b2b;
+    color: #2b2b2b;
 }
 
 /* Slider - used for Volume bar and Seek bar */
 .vjs-default-skin .vjs-slider {
-  outline: 0; /* Replace browser focus hightlight with handle highlight */
-  position: relative;
-  cursor: pointer;
-  padding: 0;
+    outline: 0; /* Replace browser focus hightlight with handle highlight */
+    position: relative;
+    cursor: pointer;
+    padding: 0;
 
-  background: rgb(50, 50, 50); /* IE8- Fallback */
-  background: rgba(100, 100, 100, 0.5);
+    background: rgb(50, 50, 50); /* IE8- Fallback */
+    background: rgba(100, 100, 100, 0.5);
 }
 
 .vjs-default-skin .vjs-slider:focus {
-  background: rgb(70, 70, 70); /* IE8- Fallback */
-  background: rgba(100, 100, 100, 0.70);
+    background: rgb(70, 70, 70); /* IE8- Fallback */
+    background: rgba(100, 100, 100, 0.70);
 
-  -webkit-box-shadow: 0 0 2em rgba(255, 255, 255, 1);
-     -moz-box-shadow: 0 0 2em rgba(255, 255, 255, 1);
-          box-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    box-shadow: 0 0 2em rgba(255, 255, 255, 1);
 }
 
 .vjs-default-skin .vjs-slider-handle {
-  position: absolute;
-  /* Needed for IE6 */
-  left: 0;
-  top: 0;
+    position: absolute;
+    /* Needed for IE6 */
+    left: 0;
+    top: 0;
 }
 
 .vjs-default-skin .vjs-slider-handle:before {
-  /*content: "\f111";*/ /* Circle icon = f111 */
-  content: "\e009"; /* Square icon */
-  font-family: VideoJS;
-  font-size: 1em;
-  line-height: 1;
-  text-align: center;
+    /*content: "\f111";*/
+    /* Circle icon = f111 */
+    content: "\e009"; /* Square icon */
+    font-family: VideoJS;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
     color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0em 0em 1em #8c0000;
+    text-shadow: 0em 0em 1em #8c0000;
 
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  /* Rotate the square icon to make a diamond */
-  -webkit-transform: rotate(-45deg);
-     -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    /* Rotate the square icon to make a diamond */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 }
 
 /* Control Bar
 -------------------------------------------------------------------------------- */
 /* The default control bar. Created by controls.js */
 .vjs-default-skin .vjs-control-bar {
-  display: none; /* Start hidden */
-  position: absolute;
-  /* Distance from the bottom of the box/video. Keep 0. Use height to add more bottom margin. */
-  bottom: 0;
-  /* 100% width of player div */
-  left: 0;
-  right: 0;
-  /* Controls are absolutely position, so no padding necessary */
-  padding: 0;
-  margin: 0;
-  /* Height includes any margin you want above or below control items */
-  height: 3.0em;
-  background-color: rgb(0, 0, 0);
-  /* Slight blue so it can be seen more easily on black. */
+    display: none; /* Start hidden */
+    position: absolute;
+    /* Distance from the bottom of the box/video. Keep 0. Use height to add more bottom margin. */
+    bottom: 0;
+    /* 100% width of player div */
+    left: 0;
+    right: 0;
+    /* Controls are absolutely position, so no padding necessary */
+    padding: 0;
+    margin: 0;
+    /* Height includes any margin you want above or below control items */
+    height: 3.0em;
+    background-color: rgb(0, 0, 0);
+    /* Slight blue so it can be seen more easily on black. */
     background: rgba(255, 255, 255, 0.8);
-  /* Default font settings */
-  font-style: normal;
-  font-weight: normal;
-  font-family: Arial, sans-serif;
+    /* Default font settings */
+    font-style: normal;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
 }
 
 /* General styles for individual controls. */
 .vjs-default-skin .vjs-control {
-  outline: none;
-  position: relative;
-  float: left;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  height: 3.0em;
-  width: 4em;
+    outline: none;
+    position: relative;
+    float: left;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 3.0em;
+    width: 4em;
 }
 
 /* FontAwsome button icons */
 .vjs-default-skin .vjs-control:before {
-  font-family: VideoJS;
-  font-size: 1.5em;
-  line-height: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    font-family: VideoJS;
+    font-size: 1.5em;
+    line-height: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* Replacement for focus outline */
 .vjs-default-skin .vjs-control:focus:before,
 .vjs-default-skin .vjs-control:hover:before {
-  text-shadow: 0em 0em 1em rgba(255, 255, 255, 1);
+    text-shadow: 0em 0em 1em rgba(255, 255, 255, 1);
 }
 
-.vjs-default-skin .vjs-control:focus { /*  outline: 0; */ /* keyboard-only users cannot see the focus on several of the UI elements when this is set to 0 */ }
+.vjs-default-skin .vjs-control:focus {
+    /*  outline: 0; */
+    /* keyboard-only users cannot see the focus on several of the UI elements when this is set to 0 */
+}
 
 /* Hide control text visually, but have it available for screenreaders: h5bp.com/v */
-.vjs-default-skin .vjs-control-text { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.vjs-default-skin .vjs-control-text {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
 
 /* Play/Pause
 -------------------------------------------------------------------------------- */
 .vjs-default-skin .vjs-play-control {
-  width: 5em;
-  cursor: pointer;
+    width: 5em;
+    cursor: pointer;
     background: url("player/play.png") no-repeat center;
 }
+
 /*.vjs-default-skin .vjs-play-control:before {
       Play Icon
 }*/
@@ -294,72 +330,75 @@ body.vjs-full-window {
     background: url("player/pause.png") no-repeat center; /* Pause Icon */
 }
 
-
 /* Volume/Mute
 -------------------------------------------------------------------------------- */
 .vjs-default-skin .vjs-mute-control,
 .vjs-default-skin .vjs-volume-menu-button {
-  cursor: pointer;
-  float: right;
+    cursor: pointer;
+    float: right;
 }
+
 .vjs-default-skin .vjs-mute-control,
 .vjs-default-skin .vjs-volume-menu-button {
     background: url("player/volume-high.png") no-repeat center; /* Full volume */
 }
+
 .vjs-default-skin .vjs-mute-control.vjs-vol-0,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0 {
     background: url("player/volume-zero.png") no-repeat center; /* No volume */
 }
+
 .vjs-default-skin .vjs-mute-control.vjs-vol-1,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-1 {
     background: url("player/volume-low.png") no-repeat center; /* Half volume */
 }
+
 .vjs-default-skin .vjs-mute-control.vjs-vol-2,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-2 {
     background: url("player/volume-medium.png") no-repeat center; /* Full volume */
 }
 
 .vjs-default-skin .vjs-volume-control {
-  width: 5em;
-  float: right;
+    width: 5em;
+    float: right;
 }
+
 .vjs-default-skin .vjs-volume-bar {
-  width: 5em;
-  height: 0.6em;
-  margin: 1.1em auto 0;
+    width: 5em;
+    height: 0.6em;
+    margin: 1.1em auto 0;
 }
 
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu-content {
-  height: 2.9em;
+    height: 2.9em;
 }
 
 .vjs-default-skin .vjs-volume-level {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0.5em;
 
-  background: #8c0000
-    url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC)
-    -50% 0 repeat;
+    background: #8c0000 url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
 }
+
 .vjs-default-skin .vjs-volume-bar .vjs-volume-handle {
-  width: 0.5em;
-  height: 0.5em;
+    width: 0.5em;
+    height: 0.5em;
 }
 
 .vjs-default-skin .vjs-volume-handle:before {
-  font-size: 0.9em;
-  top: -0.2em;
-  left: -0.2em;
+    font-size: 0.9em;
+    top: -0.2em;
+    left: -0.2em;
 
-  width: 1em;
-  height: 1em;
+    width: 1em;
+    height: 1em;
 }
 
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content {
-  width: 6em;
-  left: -4em;
+    width: 6em;
+    left: -4em;
 }
 
 /*.vjs-default-skin .vjs-menu-button .vjs-volume-control {
@@ -369,20 +408,20 @@ body.vjs-full-window {
 /* Progress
 -------------------------------------------------------------------------------- */
 .vjs-default-skin .vjs-progress-control {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: auto;
-  font-size: 0.3em;
-  height: 1em;
-  /* Set above the rest of the controls. */
-  top: -1em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto;
+    font-size: 0.3em;
+    height: 1em;
+    /* Set above the rest of the controls. */
+    top: -1em;
 
-  /* Shrink the bar slower than it grows. */
-  -webkit-transition: top 0.4s, height 0.4s, font-size 0.4s, -webkit-transform 0.4s;
-     -moz-transition: top 0.4s, height 0.4s, font-size 0.4s,    -moz-transform 0.4s;
-       -o-transition: top 0.4s, height 0.4s, font-size 0.4s,      -o-transform 0.4s;
-          transition: top 0.4s, height 0.4s, font-size 0.4s,         transform 0.4s;
+    /* Shrink the bar slower than it grows. */
+    -webkit-transition: top 0.4s, height 0.4s, font-size 0.4s, -webkit-transform 0.4s;
+    -moz-transition: top 0.4s, height 0.4s, font-size 0.4s, -moz-transform 0.4s;
+    -o-transition: top 0.4s, height 0.4s, font-size 0.4s, -o-transform 0.4s;
+    transition: top 0.4s, height 0.4s, font-size 0.4s, transform 0.4s;
 
 }
 
@@ -390,223 +429,637 @@ body.vjs-full-window {
     This simply changes the overall font for the progress bar, and this
     updates both the em-based widths and heights, as wells as the icon font */
 .vjs-default-skin:hover .vjs-progress-control {
-  font-size: .9em;
+    font-size: .9em;
 
-  /* Even though we're not changing the top/height, we need to include them in
-      the transition so they're handled correctly. */
-  -webkit-transition: top 0.2s, height 0.2s, font-size 0.2s, -webkit-transform 0.2s;
-     -moz-transition: top 0.2s, height 0.2s, font-size 0.2s,    -moz-transform 0.2s;
-       -o-transition: top 0.2s, height 0.2s, font-size 0.2s,      -o-transform 0.2s;
-          transition: top 0.2s, height 0.2s, font-size 0.2s,         transform 0.2s;
+    /* Even though we're not changing the top/height, we need to include them in
+        the transition so they're handled correctly. */
+    -webkit-transition: top 0.2s, height 0.2s, font-size 0.2s, -webkit-transform 0.2s;
+    -moz-transition: top 0.2s, height 0.2s, font-size 0.2s, -moz-transform 0.2s;
+    -o-transition: top 0.2s, height 0.2s, font-size 0.2s, -o-transform 0.2s;
+    transition: top 0.2s, height 0.2s, font-size 0.2s, transform 0.2s;
 }
 
 /* Box containing play and load progresses. Also acts as seek scrubber. */
 .vjs-default-skin .vjs-progress-holder {
-  /* Placement within the progress control item */
-  height: 100%;
+    /* Placement within the progress control item */
+    height: 100%;
 }
 
 /* Progress Bars */
 .vjs-default-skin .vjs-progress-holder .vjs-play-progress,
 .vjs-default-skin .vjs-progress-holder .vjs-load-progress {
-  position: absolute;
-  display: block;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  /* Needed for IE6 */
-  left: 0;
-  top: 0;
+    position: absolute;
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Needed for IE6 */
+    left: 0;
+    top: 0;
 }
 
 .vjs-default-skin .vjs-play-progress {
-  /*
-    Using a data URI to create the white diagonal lines with a transparent
-      background. Surprising works in IE8.
-      Created using http://www.patternify.com
-    Changing the first color value will change the bar color.
-    Also using a paralax effect to make the lines move backwards.
-      The -50% left position makes that happen.
-  */
-  background: #8c0000
-    url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC)
-    -50% 0 repeat;
+    /*
+      Using a data URI to create the white diagonal lines with a transparent
+        background. Surprising works in IE8.
+        Created using http://www.patternify.com
+      Changing the first color value will change the bar color.
+      Also using a paralax effect to make the lines move backwards.
+        The -50% left position makes that happen.
+    */
+    background: #8c0000 url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
 }
+
 .vjs-default-skin .vjs-load-progress {
-  background: rgba(255, 255, 255, 0.4); /* IE8- Fallback */
-  background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.4); /* IE8- Fallback */
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .vjs-default-skin .vjs-seek-handle {
-  width: 1.5em;
-  height: 100%;
+    width: 1.5em;
+    height: 100%;
 }
 
 .vjs-default-skin .vjs-seek-handle:before {
-  padding-top: 0.1em; /* Minor adjustment */
+    padding-top: 0.1em; /* Minor adjustment */
 }
 
 /* Time Display
 -------------------------------------------------------------------------------- */
 .vjs-default-skin .vjs-time-controls {
-  font-size: 1em;
-  /* Align vertically by making the line height the same as the control bar */
-  line-height: 3em;
+    font-size: 1em;
+    /* Align vertically by making the line height the same as the control bar */
+    line-height: 3em;
 }
-.vjs-default-skin .vjs-current-time { float: left; }
-.vjs-default-skin .vjs-duration { float: left; }
+
+.vjs-default-skin .vjs-current-time {
+    float: left;
+}
+
+.vjs-default-skin .vjs-duration {
+    float: left;
+}
+
 /* Remaining time is in the HTML, but not included in default design */
-.vjs-default-skin .vjs-remaining-time { display: none; float: left; }
-.vjs-time-divider { float: left; line-height: 3em; }
+.vjs-default-skin .vjs-remaining-time {
+    display: none;
+    float: left;
+}
+
+.vjs-time-divider {
+    float: left;
+    line-height: 3em;
+}
 
 /* Fullscreen
 -------------------------------------------------------------------------------- */
 .vjs-default-skin .vjs-fullscreen-control {
-  width: 3.8em;
-  cursor: pointer;
-  float: right;
+    width: 3.8em;
+    cursor: pointer;
+    float: right;
     background: url("player/maximize.png") no-repeat center;
 
 }
 
-
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control {
     background: url("player/contract.png") no-repeat center;
-/* Exit full screen */
+    /* Exit full screen */
 
 }
-
 
 /* Big Play Button (at start)
 ---------------------------------------------------------*/
 .vjs-default-skin .vjs-big-play-button {
-  background: url("player/big_play.png") no-repeat center;
-  display: block;
-  z-index: 2;
-  position: absolute;
-  top: 10em;
-  left: 20.5em;
-  width: 6.6em;
-  height: 6.6em;
-  margin: 0;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  opacity: 1;
+    background: url("player/big_play.png") no-repeat center;
+    display: block;
+    z-index: 2;
+    position: absolute;
+    top: 10em;
+    left: 20.5em;
+    width: 6.6em;
+    height: 6.6em;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    opacity: 1;
 
-  /* Need a slightly gray bg so it can be seen on black backgrounds */
-  background-color: rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.5);
+    /* Need a slightly gray bg so it can be seen on black backgrounds */
+    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 
-  /*border: 0.3em solid rgb(50, 50, 50);
-  border-color: rgba(255, 255, 255, 0.25);*/
+    /*border: 0.3em solid rgb(50, 50, 50);
+    border-color: rgba(255, 255, 255, 0.25);*/
 
-  -webkit-border-radius: 58px;
-     -moz-border-radius: 58px;
-          border-radius: 58px;
+    -webkit-border-radius: 58px;
+    -moz-border-radius: 58px;
+    border-radius: 58px;
 
-
-  -webkit-transition: border 0.4s, -webkit-box-shadow 0.4s, -webkit-transform 0.4s;
-     -moz-transition: border 0.4s,    -moz-box-shadow 0.4s,    -moz-transform 0.4s;
-       -o-transition: border 0.4s,      -o-box-shadow 0.4s,      -o-transform 0.4s;
-          transition: border 0.4s,         box-shadow 0.4s,         transform 0.4s;
+    -webkit-transition: border 0.4s, -webkit-box-shadow 0.4s, -webkit-transform 0.4s;
+    -moz-transition: border 0.4s, -moz-box-shadow 0.4s, -moz-transform 0.4s;
+    -o-transition: border 0.4s, -o-box-shadow 0.4s, -o-transform 0.4s;
+    transition: border 0.4s, box-shadow 0.4s, transform 0.4s;
 }
 
 .vjs-default-skin:hover .vjs-big-play-button,
 .vjs-default-skin .vjs-big-play-button:focus {
-  outline: 0;
+    outline: 0;
 
+    -webkit-box-shadow: 0 0 3em #ffffbe;
+    -moz-box-shadow: 0 0 3em #ffffbe;
+    box-shadow: 0 0 3em #ffffbe;
 
-  -webkit-box-shadow: 0 0 3em #ffffbe;
-     -moz-box-shadow: 0 0 3em #ffffbe;
-          box-shadow: 0 0 3em #ffffbe;
-
-  -webkit-transition: border 0s, -webkit-box-shadow 0s, -webkit-transform 0s;
-     -moz-transition: border 0s,    -moz-box-shadow 0s,    -moz-transform 0s;
-       -o-transition: border 0s,      -o-box-shadow 0s,      -o-transform 0s;
-          transition: border 0s,         box-shadow 0s,         transform 0s;
+    -webkit-transition: border 0s, -webkit-box-shadow 0s, -webkit-transform 0s;
+    -moz-transition: border 0s, -moz-box-shadow 0s, -moz-transform 0s;
+    -o-transition: border 0s, -o-box-shadow 0s, -o-transform 0s;
+    transition: border 0s, box-shadow 0s, transform 0s;
 }
-
 
 /* Loading Spinner
 ---------------------------------------------------------*/
 .vjs-loading-spinner {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  font-size: 5em;
-  line-height: 1;
+    font-size: 5em;
+    line-height: 1;
 
-  width: 1em;
-  height: 1em;
+    width: 1em;
+    height: 1em;
 
-  margin-left: -0.5em;
-  margin-top: -0.5em;
+    margin-left: -0.5em;
+    margin-top: -0.5em;
 
-  opacity: 0.75;
+    opacity: 0.75;
 
-  -webkit-animation: spin 1.5s infinite linear;
-     -moz-animation: spin 1.5s infinite linear;
-       -o-animation: spin 1.5s infinite linear;
-          animation: spin 1.5s infinite linear;
+    -webkit-animation: spin 1.5s infinite linear;
+    -moz-animation: spin 1.5s infinite linear;
+    -o-animation: spin 1.5s infinite linear;
+    animation: spin 1.5s infinite linear;
 }
 
 .vjs-default-skin .vjs-loading-spinner:before {
-  content: "\e00a"; /* Loading spinner icon */
-  font-family: VideoJS;
+    content: "\e00a"; /* Loading spinner icon */
+    font-family: VideoJS;
 
-  position: absolute;
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  text-shadow: 0em 0em 0.1em #000;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    text-shadow: 0em 0em 0.1em #000;
 }
 
 /* Add a gradient to the spinner by overlaying another copy.
    Text gradient plus a text shadow doesn't work
    and `background-clip: text` only works in Webkit. */
 .vjs-default-skin .vjs-loading-spinner:after {
-  content: "\e00a"; /* Loading spinner icon */
-  font-family: VideoJS;
+    content: "\e00a"; /* Loading spinner icon */
+    font-family: VideoJS;
 
-  position: absolute;
-  width: 1em;
-  height: 1em;
-  text-align: center;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    text-align: center;
 
-  /*-webkit-background-clip: text;*/
-  -webkit-text-fill-color: transparent;
+    /*-webkit-background-clip: text;*/
+    -webkit-text-fill-color: transparent;
 }
 
 @-moz-keyframes spin {
-  0% { -moz-transform: rotate(0deg); }
-  100% { -moz-transform: rotate(359deg); }
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(359deg);
+    }
 }
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(359deg); }
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
 }
+
 @-o-keyframes spin {
-  0% { -o-transform: rotate(0deg); }
-  100% { -o-transform: rotate(359deg); }
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(359deg);
+    }
 }
+
 @-ms-keyframes spin {
-  0% { -ms-transform: rotate(0deg); }
-  100% { -ms-transform: rotate(359deg); }
+    0% {
+        -ms-transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(359deg);
+    }
 }
+
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(359deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
 }
-
-
 
 /* Replacement for focus outline */
 .vjs-default-skin .vjs-captions-button:focus .vjs-control-content:before,
 .vjs-default-skin .vjs-captions-button:hover .vjs-control-content:before {
-  -webkit-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
-     -moz-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
-          box-shadow: 0 0 1em rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
+    box-shadow: 0 0 1em rgba(255, 255, 255, 1);
 }
+
+/* -----------------------------------------------------------
+START audio player*/
+
+.audio_player {
+    background-color: #000;
+    position: relative;
+    padding: 0;
+    /* Start with 10px for base font size so other dimensions can be em based and easily calculable. */
+    font-size: 10px;
+    /* Allow poster to be vertially aligned. */
+    vertical-align: middle;
+    /*  display: table-cell; */
+    /*This works in Safari but not Firefox.*/
+
+    /* Turn off user selection (text highlighting) by default.
+       The majority of player components will not be text blocks.
+       Text areas will need to turn user selection back on. */
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    -o-user-select: none;
+    user-select: none;
+}
+
+.audio_skin.audio_control_bar {
+    padding: 0;
+    margin: 0;
+    height: 3.0em;
+    background-color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.8);
+    font-style: normal;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.audio_control {
+    outline: none;
+    position: relative;
+    float: left;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 3.0em;
+    width: 4em;
+}
+
+/* Replacement for focus outline */
+.audio_skin .audio_control_content {
+    -webkit-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
+    box-shadow: 0 0 1em rgba(255, 255, 255, 1);
+}
+
+/* Hide control text visually, but have it available for screenreaders: h5bp.com/v */
+.audio_skin .audio_control-text,
+.audio_skin .audio_control_text {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* Play/Pause*/
+.audio_player .audio_play_control {
+    width: 5em;
+    cursor: pointer;
+    background: url("player/play.png") no-repeat center;
+}
+
+.audio_player.audio_playing .audio_play_control {
+    background: url("player/pause.png") no-repeat center; /* Pause Icon */
+}
+
+/* Time Display */
+.audio_skin .audio_time-controls {
+    font-size: 1em;
+    line-height: 3em;
+}
+
+.audio_skin .audio_current-time {
+    float: left;
+}
+
+.audio_skin .audio_duration {
+    float: left;
+}
+
+.audio_time-divider {
+    float: left;
+    line-height: 3em;
+}
+
+.audio_skin .audio_progress-control {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto;
+    font-size: 0.3em;
+    height: 1em;
+    /* Set above the rest of the controls. */
+    top: -1em;
+
+    /* Shrink the bar slower than it grows. */
+    -webkit-transition: top 0.4s, height 0.4s, font-size 0.4s, -webkit-transform 0.4s;
+    -moz-transition: top 0.4s, height 0.4s, font-size 0.4s, -moz-transform 0.4s;
+    -o-transition: top 0.4s, height 0.4s, font-size 0.4s, -o-transform 0.4s;
+    transition: top 0.4s, height 0.4s, font-size 0.4s, transform 0.4s;
+
+}
+
+/* On hover, make the progress bar grow */
+.audio_skin:hover .audio_progress-control {
+    font-size: .9em;
+
+    /* Even though we're not changing the top/height, we need to include them in
+        the transition so they're handled correctly. */
+    -webkit-transition: top 0.2s, height 0.2s, font-size 0.2s, -webkit-transform 0.2s;
+    -moz-transition: top 0.2s, height 0.2s, font-size 0.2s, -moz-transform 0.2s;
+    -o-transition: top 0.2s, height 0.2s, font-size 0.2s, -o-transform 0.2s;
+    transition: top 0.2s, height 0.2s, font-size 0.2s, transform 0.2s;
+}
+
+/* Box containing play and load progresses. Also acts as seek scrubber. */
+.audio_skin .audio_progress-holder {
+    height: 100%;
+}
+
+/* Progress Bars */
+.audio_skin .audio_progress-holder .audio_play-progress,
+.audio_skin .audio_progress-holder .audio_load-progress {
+    position: absolute;
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Needed for IE6 */
+    left: 0;
+    top: 0;
+}
+
+.audio_skin .audio_play-progress {
+    /*
+      Using a data URI to create the white diagonal lines with a transparent
+        background. Surprising works in IE8.
+        Created using http://www.patternify.com
+      Changing the first color value will change the bar color.
+      Also using a paralax effect to make the lines move backwards.
+        The -50% left position makes that happen.
+    */
+    background: #8c0000 url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+}
+
+.audio_skin .audio_load-progress {
+    background: rgba(255, 255, 255, 0.4); /* IE8- Fallback */
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.audio_skin .audio_seek-handle {
+    width: 1.5em;
+    height: 100%;
+}
+
+.audio_skin .audio_seek-handle:before {
+    padding-top: 0.1em; /* Minor adjustment */
+}
+
+/* Volume/Mute */
+.audio_skin .audio_mute-control,
+.audio_skin .audio_volume-menu-button {
+    cursor: pointer;
+    float: right;
+}
+
+.audio_skin .audio_mute-control,
+.audio_skin .audio_volume-menu-button {
+    background: url("player/volume-high.png") no-repeat center; /* Full volume */
+}
+
+.audio_skin .audio_mute-control.audio_vol-0,
+.audio_skin .audio_volume-menu-button.audio_vol-0 {
+    background: url("player/volume-zero.png") no-repeat center; /* No volume */
+}
+
+.audio_skin .audio_mute-control.audio_vol-1,
+.audio_skin .audio_volume-menu-button.audio_vol-1 {
+    background: url("player/volume-low.png") no-repeat center; /* Half volume */
+}
+
+.audio_skin .audio_mute-control.audio_vol-2,
+.audio_skin .audio_volume-menu-button.audio_vol-2 {
+    background: url("player/volume-medium.png") no-repeat center; /* Full volume */
+}
+
+.audio_skin .audio_volume-control {
+    width: 5em;
+    float: right;
+    margin-right: 20px;
+}
+
+.audio_skin .audio_volume-bar {
+    width: 5em;
+    height: 0.6em;
+    margin: 1.1em auto 0;
+}
+
+.audio_skin .audio_volume-menu-button .audio_menu-content {
+    height: 2.9em;
+}
+
+.audio_skin .audio_volume-level {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0.5em;
+
+    background: #8c0000 url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+}
+
+.audio_skin .audio_volume-bar .audio_volume-handle {
+    width: 0.5em;
+    height: 0.5em;
+    margin-left: -5px;
+    margin-top: -2px;
+}
+
+.audio_skin .audio_volume-menu-button .audio_menu .audio_menu-content {
+    width: 6em;
+    left: -4em;
+}
+
+/* Loading Spinner
+---------------------------------------------------------*/
+.audio_loading-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    font-size: 5em;
+    line-height: 1;
+
+    width: 1em;
+    height: 1em;
+
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+
+    opacity: 0.75;
+
+    -webkit-animation: spin 1.5s infinite linear;
+    -moz-animation: spin 1.5s infinite linear;
+    -o-animation: spin 1.5s infinite linear;
+    animation: spin 1.5s infinite linear;
+}
+
+.audio_default-skin .audio_loading-spinner:before {
+    content: "\e00a"; /* Loading spinner icon */
+    font-family: VideoJS;
+
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    text-shadow: 0em 0em 0.1em #000;
+}
+
+/* Add a gradient to the spinner by overlaying another copy.
+   Text gradient plus a text shadow doesn't work
+   and `background-clip: text` only works in Webkit. */
+.audio_default-skin .audio_loading-spinner:after {
+    content: "\e00a"; /* Loading spinner icon */
+    font-family: VideoJS;
+
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+
+    /*-webkit-background-clip: text;*/
+    -webkit-text-fill-color: transparent;
+}
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes spin {
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@-ms-keyframes spin {
+    0% {
+        -ms-transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(359deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+/* Slider - used for Volume bar and Seek bar */
+.audio_player .audio_slider {
+    outline: 0; /* Replace browser focus hightlight with handle highlight */
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+
+    background: rgb(50, 50, 50); /* IE8- Fallback */
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.audio_player .audio_slider:focus {
+    background: rgb(70, 70, 70); /* IE8- Fallback */
+    background: rgba(100, 100, 100, 0.70);
+
+    -webkit-box-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    box-shadow: 0 0 2em rgba(255, 255, 255, 1);
+}
+
+.audio_player .audio_slider-handle {
+    position: absolute;
+    /* Needed for IE6 */
+    left: 0;
+    top: 0;
+}
+
+.audio_player .audio_slider-handle:before {
+    /*content: "\f111";*/
+    /* Circle icon = f111 */
+    content: "\e009"; /* Square icon */
+    font-family: VideoJS;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0em 0em 1em #8c0000;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Rotate the square icon to make a diamond */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+
+/* END AUDIO PLAYER
+-------------------------------------------------------------------------------- */
