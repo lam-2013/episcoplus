@@ -1,4 +1,6 @@
-<li class="message" id="<%= message.id %>">
+<li class="message
+  <% if !message.message_read? %>unread
+  <% end %>" id="message-<%= message.id %>">
   <div class="inner row">
     <div class="large-3 small-3 columns">
       <%= gravatar_for message.sender, size: 50 %>
@@ -14,9 +16,10 @@
           <div class="content"><%= truncate(message.body, :length => 20, :separator => ' ') %></div>
       <% end %>
 
-      <span class="timestamp">
-    <%= time_ago_in_words(message.created_at) %> fa
-  </span>
+      <span class="timestamp"><%= time_ago_in_words(message.created_at) %> fa</span>
+      <% if !message.message_read? %>
+          <span class="round alert label new-label">nuovo</span>
+      <% end %>
     </div>
   </div>
   <%= link_to(message.id, message, :class => 'openMessage') %>

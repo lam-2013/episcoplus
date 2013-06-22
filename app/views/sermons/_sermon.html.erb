@@ -2,13 +2,13 @@
 <li class="row post sermon">
   <div class="small-2 columns user-image"><%= link_to gravatar_for(sermon.user), sermon.user %></div>
   <div class="small-10 columns">
-    <%= link_to "#{sermon.user.honorific} #{sermon.user.name} #{sermon.user.surname}", sermon.user, class: 'user-name' %>
+    <%= link_to sermon.user.full_name, sermon.user, class: 'user-name' %>
     <span class="title-presentation">ha aggiunto un'omelia dal titolo
       <%= link_to "#{sermon.title}", sermon, class: 'title' %>
     </span>
 
     <div class="content"><%= truncate(sermon.content, :length => 100, :separator => ' ') %></div>
-    <div class="tag_list"> <%=raw sermon.tag_list.map{ |t| link_to t, tag_path(t)}.join(', ') %></div>
+    <div class="tag_list"><%= raw sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %></div>
 
   <span class="timestamp">
     <%= time_ago_in_words(sermon.created_at) %> fa

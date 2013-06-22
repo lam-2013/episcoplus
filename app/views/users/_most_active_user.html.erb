@@ -1,0 +1,25 @@
+<% user = most_active_user %>
+<li class="user row">
+  <div class="gravatar-cont"> <%= gravatar_for user, size: 50 %> </div>
+  <div class="text">
+
+    <%= link_to "#{user.full_name}", user, class: 'user-name' %>
+
+    <div class="informations">
+      <div class="additional-info">
+        <% if user.sermons.count > 0 %>
+            <span><%= pluralize(user.sermons.count, 'omelia', 'omelie') %></span>
+
+        <% end %>
+        <% if user.diocese = current_user.diocese %>
+            <span class="my-diocese">dalla tua diocesi</span>
+        <% end %>
+        <% if user.study = current_user.study %>
+            <span class="my-diocese">ha studiato con te</span>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render :partial => 'users/follow_form', :object => user %>
+  </div>
+</li>

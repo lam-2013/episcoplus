@@ -1,0 +1,23 @@
+<% sermon = sermon_preview %>
+<%# Preview of a sermon %>
+<li class="row post sermon preview">
+  <div class="small-2 columns user-image"><%= link_to gravatar_for(sermon.user), sermon.user %></div>
+  <div class="small-10 columns">
+    <h4 class="title"><%= link_to "#{sermon.title}", sermon %></h4>
+    <% if sermon.subtitle %>
+        <h6 class="subtitle"><%= sermon.subtitle %></h6>
+    <% end %>
+    <span class="author">di <%= link_to sermon.user.full_name, sermon.user, class: 'user-name' %></span>
+
+    <div class="content"><%= truncate(sermon.content, :length => 100, :separator => ' ') %></div>
+    <div class="tag_list"><%= raw sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %></div>
+
+  <span class="timestamp">
+    <%= time_ago_in_words(sermon.created_at) %> fa
+  </span>
+    <% if sermon.likes.count > 0 %>
+        <span class="like-count">Piace a <%= pluralize(sermon.likes.count, 'persona', 'persone') %></span>
+    <% end %>
+
+  </div>
+</li>

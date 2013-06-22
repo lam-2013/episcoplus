@@ -1,15 +1,18 @@
-<%= form_tag search_sermons_path, method: 'get', class: ' custom' do %>
+<%= form_tag search_sermons_path, method: 'get', class: 'custom' do %>
     <div class="info_dropdown" id="adv-search-sermon">
       <div class="row">
         <div class="large-8 columns">
           <div class="row">
-            <div class="large-10 small-10 columns">
+            <div class="large-7 small-8 columns">
               <%= text_field_tag :argument, params[:argument], placeholder: 'Argomento' %>
             </div>
-            <div class="large-2 small-2 columns">
+            <div class="large-5 small-4 columns">
               <% more_opened = (params[:day] || params[:type_of_liturgy]) %>
               <% more_info_class = (more_opened) ? 'rotate' : '' %>
-              <%= image_tag("icon/plus.png", :class => "more_info_dropdown #{more_info_class}") %>
+              <div class="more_info_dropdown">
+                <%= link_to "altre opzioni", "#" %>
+                <%= image_tag("icon/plus.png", :class => "#{more_info_class}", :height => 20, :width => 20) %>
+              </div>
             </div>
           </div>
         </div>
@@ -20,7 +23,7 @@
 
       <div class="row more"
            <% if more_opened %>style="display:block;"
-      <% end %>>
+           <% end %>>
         <div class="columns large-6">
           <%= label_tag :type_of_liturgy, 'Tipo di liturgia' %>
           <%= select_tag :type_of_liturgy, options_from_collection_for_select(@available_type, :type_of_liturgy, :type_of_liturgy, params[:type_of_liturgy]), :prompt => "Qualsiasi" %>

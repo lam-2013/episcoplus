@@ -1,7 +1,8 @@
 <div class="panel tag_cloud">
 
   <%# TODO ricontare i tag %>
-  <% tag_cloud Sermon.tag_counts.where("id in(SELECT tag_id FROM taggings WHERE created_at >= '#{(Time.now - 30.days).utc.iso8601}'  GROUP BY tag_id ORDER BY COUNT(*) DESC LIMIT 30)").order('name ASC, count DESC'), %w{s m l} do |tag, css_class| %>
+  <%# TODO spostare la ricerca dei tag in un helper %>
+  <% tag_cloud generate_tag_cloud, %w{s m l} do |tag, css_class| %>
       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 

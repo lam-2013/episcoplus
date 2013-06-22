@@ -37,8 +37,8 @@ $(function () {
 
         $advSearchSermon = $('#adv-search-sermon');
         $('.more_info_dropdown', $advSearchSermon).click(function () {
-            $(this).toggleClass('rotate', "slow"),
-                $(".more", $advSearchSermon).slideToggle();
+            $(this).children('img').toggleClass('rotate', "slow");
+            $(".more", $advSearchSermon).slideToggle();
         });
 
         if (!is_mobile) {

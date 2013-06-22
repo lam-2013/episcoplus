@@ -307,7 +307,8 @@ p.center {
 
 .round.alert.label {
   background-color: $mediumred;
-  font-size: 1.2em;
+  font-size: 0.7em;
+  text-transform: uppercase;
 }
 
 //datepicker
@@ -961,20 +962,17 @@ footer.row {
     }
   }
   .user-name {
-    float: left;
     margin-left: 5px;
     font-weight: bold;
     @media #{$small} {
+      float: left;
       line-height: 50px;
     }
   }
   .informations {
-    float: left;
-    max-width: 300px;
-    min-width: 200px;
     @media #{$small} {
+      float: left;
       line-height: 50px;
-      max-width: 999999px;
     }
     .additional-info {
       color: $grey;
@@ -999,8 +997,9 @@ footer.row {
     @media #{$small} {
       line-height: 50px;
     }
-    form {
-      text-align: right;
+    input.button.small {
+      margin: 0.5em 0 0;
+      float: right;
     }
   }
 }
@@ -1017,7 +1016,19 @@ footer.row {
       }
     }
   }
-
+  .user-name {
+    float: none;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    line-height: 1em;
+  }
+  .informations {
+    float: none;
+  }
+  input.button.small {
+    font-size: 0.7em;
+    margin-top: 1em;
+  }
   @media #{$small} {
     .informations {
       line-height: 1em;
@@ -1030,9 +1041,6 @@ footer.row {
       margin-left: 0.5em;
       line-height: 1em;
       min-width: 75%;
-    }
-    .follow_form_container {
-      line-height: 1em;
     }
   }
 }
@@ -1074,6 +1082,72 @@ footer.row {
   display: none;
 }
 
+.sermon.preview {
+  .title, .subtitle {
+    margin-bottom: 0;
+    float: left;
+    clear: left;
+  }
+  .subtitle {
+    margin-top: 0.75em;
+  }
+  .author {
+    float: left;
+    clear: right;
+    margin-top: 0.4em;
+    margin-left: 0.5em;
+  }
+  .content {
+    clear: both;
+  }
+}
+
+.sermons.small {
+  .text {
+    padding-left: 0.5em;
+  }
+  .author {
+    float: none;
+    font-weight: normal;
+    margin-left: 0;
+  }
+}
+
+.most-active > div {
+  text-align: center;
+}
+
+#adv-search-sermon {
+  margin: 5px 0 20px;
+  .more_info_dropdown {
+    padding: 5px 0;
+    a {
+      padding-top: 2px;
+      font-size: 0.8em;
+    }
+    img {
+      vertical-align: text-top;
+      transition: transform 500ms;
+      -webkit-transition: -webkit-transform 500ms; /* Safari and Chrome */
+      cursor: pointer;
+
+      &.rotate {
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg); /* IE 9 */
+        -webkit-transform: rotate(45deg); /* Safari and Chrome */
+      }
+    }
+  }
+  .small.button {
+    margin-bottom: 1em;
+    width: 100%;
+    @media #{$small} {
+      width: auto;
+    }
+  }
+
+}
+
 /* Messages */
 .message {
   border: 1px solid #f2f2f2;
@@ -1087,7 +1161,7 @@ footer.row {
   &:first-child {
     border-top-width: 1px;
   }
-  &:hover {
+  &:hover, &.unread {
     background: #dddddd;
     border: $lightBorder;
     border-top-width: 0;
@@ -1095,8 +1169,9 @@ footer.row {
       border-top-width: 1px;
     }
   }
-  &.unread {
-
+  .columns {
+    padding-left: 0.3em;
+    padding-right: 0;
   }
   .user-name {
     color: $darkred;
