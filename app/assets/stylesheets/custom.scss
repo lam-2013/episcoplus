@@ -253,32 +253,46 @@ h2.motto {
   margin-right: 3px;
 }
 
-.panel.panel_avatar_style {
+section.sermon {
+  .panel {
+    @media #{$small} {
+      padding-right: 0;
+    }
+  }
+}
+
+.panel.author-panel {
   background-color: $white80;
   margin-top: -20px;
   margin-right: -5px;
-  border-radius: 15px;
-  -moz-box-shadow: 4px 4px 15px $darkerergrey;
-  -webkit-box-shadow: 4px 4px 15px $darkerergrey;
-  box-shadow: 4px 4px 15px $darkerergrey;
-}
 
-h5.avatar_style {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
+  padding: 0.8em;
+  .image {
+    height: 52px;
+    float: left;
+    margin-right: 0.3em;
+  }
+  .text {
+    float: left;
+    @media #{$small} {
+      float: none;
+    }
+    .name {
+      margin-bottom: 0;
+    }
+    .role {
+      font-size: 0.9em;
+      color: $grey;
+    }
+  }
 
-h7.avatar_style {
-  position: absolute;
-  top: 45px;
-  right: 20px;
-}
-
-.buttons-container.avatar_style {
-  position: absolute;
-  top: 75px;
-  right: 20px;
+  .buttons-container {
+    float: right;
+    margin: 0.5em;
+    @media #{$small} {
+      margin: 0 0.5em;
+    }
+  }
 }
 
 .row.relative {
