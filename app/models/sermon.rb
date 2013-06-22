@@ -52,6 +52,8 @@ class Sermon < ActiveRecord::Base
   def self.orderByLike(user)
     #num di giorni da created_at
     delta = "(julianday('now')-julianday(created_at))"
+    #per l'ordinamento, non mi interessano i dati più vecchi di un mese
+    last_month = "created_at >= '#{(Time.now - 30.days).utc.iso8601}'"
 
     #current_user's followed
     followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = #{user.id}"
@@ -59,10 +61,11 @@ class Sermon < ActiveRecord::Base
     #raggruppa i like per sermon e genera una tabella con id e num_likes pesati rispetto ai giorni trascorsi
     #gli '1+' evitano le divisioni per zero e da zero
     number_of_like_table = "SELECT doc_id, ((1 + count(*))/( 1 + #{delta})) as number_of_likes FROM likes
-                                    WHERE doc_type = 'Sermon' GROUP BY doc_id"
+                                    WHERE doc_type = 'Sermon' and #{last_month} GROUP BY doc_id"
     #i like dei friends valgono triplo (moltiplico per 2 e poi sommo)
     number_of_like_friends = "SELECT doc_id, (2*(1 + count(*))/( 1 + #{delta})) as number_of_likes FROM likes
-                                    WHERE doc_type = 'Sermon' and user_id IN (#{followed_user_ids}) GROUP BY doc_id"
+                                    WHERE doc_type = 'Sermon' and user_id IN (#{followed_user_ids}) and #{last_month}
+                                    GROUP BY doc_id"
 
     #bonus = una percentuale sulla media dei voti giornalieri nell'ultima settimata
     num_likes_last_week = "SELECT COUNT(*) AS number_of_likes FROM likes WHERE doc_type = 'Sermon' AND created_at >= '#{(Time.now - 8.days).utc.iso8601}' GROUP BY doc_id"

@@ -12,4 +12,11 @@ module UsersHelper
     User.getSuggestedUsers(current_user);
   end
 
+  def more_active_users
+    #più prolifici nel mese
+    User.joins(:sermons).select("#{User.table_name}.*, count(#{Sermon.table_name}.id) as num_sermon")
+    .where("#{Sermon.table_name}.created_at >= '#{(Time.now - 30.days).utc.iso8601}'").group("#{User.table_name}.id")
+    .order("num_sermon DESC").limit(3)
+  end
+
 end
