@@ -1,28 +1,31 @@
 <li class="user row">
   <div class="gravatar-cont"> <%= gravatar_for user, size: 50 %> </div>
-  <%= link_to "#{user.full_name}", user, class: 'user-name' %>
+  <div class="text">
+    <div class="user-name"> <%= link_to "#{user.full_name}", user %>  </div>
 
-  <div class="informations">
-    <% if current_user.admin? && !current_user?(user) %>
-        <% # since browsers cannot send DELETE request, Rails fakes them with javascript...     %>
-        | <%= link_to 'delete', user, method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %>
+    <div class="informations">
+      <% if current_user.admin? && !current_user?(user) %>
+          <% # since browsers cannot send DELETE request, Rails fakes them with javascript...       %>
+          | <%= link_to 'delete', user, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
 
-    <% friends = user.friends_in_common_with(current_user) %>
-    <div class="additional-info">
-      <% if friends.count > 0 %>
+      <% friends = user.friends_in_common_with(current_user) %>
+      <div class="additional-info">
+        <% if friends.count > 0 %>
         <span class="follow-info">seguito da <%= link_to friends.first.full_name, friends.first %>
           <% if friends.count > 1 %> e altri<% end %></span>
 
-      <% end %>
-      <% if user.diocese = current_user.diocese %>
-          <span class="my-diocese">dalla tua diocesi</span>
-      <% end %>
-      <% if user.study = current_user.study %>
-          <span class="my-diocese">ha studiato con te</span>
-      <% end %>
+        <% end %>
+        <% if user.diocese = current_user.diocese %>
+            <span class="my-diocese">dalla tua diocesi</span>
+        <% end %>
+        <% if user.study = current_user.study %>
+            <span class="my-diocese">ha studiato con te</span>
+        <% end %>
+      </div>
     </div>
-  </div>
 
+  </div>
   <%= render :partial => 'users/follow_form', :object => user %>
+
 </li>

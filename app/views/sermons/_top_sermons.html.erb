@@ -1,0 +1,25 @@
+<div class="panel">
+  <h4>Top della settimana</h4>
+  <ul class="sermons small no-bullet">
+    <% top_sermons_month.each do |sermon| %>
+
+        <li class="row post sermon preview">
+          <div class="small-2 columns user-image"><%= link_to gravatar_for(sermon.user), sermon.user %></div>
+          <div class="small-10 columns text">
+            <h6 class="title"><%= link_to "#{sermon.title}", sermon %>
+              <span class="author">di <%= link_to sermon.user.full_name, sermon.user, class: 'user-name' %></span>
+            </h6>
+
+            <div style="clear: both">
+              <span class="timestamp">
+                <%= time_ago_in_words(sermon.created_at) %> fa
+              </span>
+              <% if sermon.likes.count > 0 %>
+                  <span class="like-count">Piace a <%= pluralize(sermon.likes.count, 'persona', 'persone') %></span>
+              <% end %>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>

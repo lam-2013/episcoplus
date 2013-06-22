@@ -49,13 +49,12 @@ class SermonsController < ApplicationController
   def index
     # get all the users from the database - with pagination
     if params[:tag]
-      @sermons = Sermon.tagged_with(params[:tag]).paginate(page: params[:page])
+      @sermons = Sermon.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
     else
-      @sermons = Sermon.orderByLike(current_user).paginate(page: params[:page])
+      @sermons = Sermon.orderByLike(current_user).paginate(page: params[:page], per_page: 10)
     end
 
     #collections for left boxes
-
     @available_type = Sermon.where("type_of_liturgy IS NOT NULL").select(:type_of_liturgy).uniq
   end
 
@@ -102,9 +101,9 @@ class SermonsController < ApplicationController
 
     if !where_condition.empty?
       if join_condition
-        @sermons = Sermon.joins(join_condition).where(where_condition).paginate(page: params[:page])
+        @sermons = Sermon.joins(join_condition).where(where_condition).paginate(page: params[:page], per_page: 10)
       else
-        @sermons = Sermon.where(where_condition).paginate(page: params[:page])
+        @sermons = Sermon.where(where_condition).paginate(page: params[:page], per_page: 10)
       end
     else
       redirect_to sermons_path

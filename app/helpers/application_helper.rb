@@ -35,4 +35,8 @@ module ApplicationHelper
     "#{other} #{x}".strip
   end
 
+  def generate_tag_cloud
+    top_tags = "SELECT tag_id FROM taggings WHERE created_at >= '#{(Time.now - 30.days).utc.iso8601}' GROUP BY tag_id ORDER BY COUNT(*) DESC LIMIT 30"
+    Sermon.unscoped.tag_counts.where("id in(#{top_tags})").order('name ASC, count DESC')
+  end
 end

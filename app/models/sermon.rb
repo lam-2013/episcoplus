@@ -17,7 +17,13 @@ class Sermon < ActiveRecord::Base
   # content must be present
   validates :content, presence: true
 
-  default_scope order: 'sermons.created_at DESC'
+  def self.default_scope
+    last_week = "created_at >= '#{(Time.now - 8.days).utc.iso8601}'"
+    num_likes = "SELECT doc_id, count(id) AS nlikes FROM #{Like.table_name} WHERE doc_type = 'Sermon' and #{last_week} GROUP BY doc_id"
+    #order by mumber of likes
+    joins("LEFT OUTER JOIN (#{num_likes}) AS num_likes ON num_likes.doc_id=#{Sermon.table_name}.id")
+    .order("num_likes.nlikes DESC, #{Sermon.table_name}.created_at DESC")
+  end
 
   # get the searched user(s) by (part of her) title
   # TODO implements search by keyword (see in controller)
@@ -79,7 +85,7 @@ class Sermon < ActiveRecord::Base
     unscoped.joins("LEFT OUTER JOIN (#{number_of_like_table})  AS like_table ON like_table.doc_id = #{Sermon.table_name}.id
                     LEFT OUTER JOIN (#{number_of_like_friends}) AS friends_table ON friends_table.doc_id = #{Sermon.table_name}.id")
     .select("#{Sermon.table_name}.*, #{rank} AS rank")
-    .order("rank DESC")
+    .order("rank DESC, created_at DESC")
   end
 
 end

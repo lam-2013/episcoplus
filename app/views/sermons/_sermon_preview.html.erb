@@ -15,7 +15,6 @@
   <span class="timestamp">
     <%= time_ago_in_words(sermon.created_at) %> fa
   </span>
-    <%= sermon.rank %>
     <% if sermon.likes.count > 0 %>
         <span class="like-count">Piace a <%= pluralize(sermon.likes.count, 'persona', 'persone') %></span>
     <% end %>
