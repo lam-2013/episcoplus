@@ -1,5 +1,5 @@
 class Sermon < ActiveRecord::Base
-  attr_accessible :content, :day, :subtitle, :title, :type_of_liturgy, :tag_list, :audio, :video
+  attr_accessible :content, :day, :subtitle, :title, :type_of_liturgy, :tag_list, :multimedia, :multimedia_url
   acts_as_taggable
 
   # each sermon belong to a specific user

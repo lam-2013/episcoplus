@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
   end
 
   add_index "likes", ["doc_id", "doc_type"], :name => "index_likes_on_doc_id_and_doc_type"
+  add_index "likes", ["user_id", "doc_id", "doc_type"], :name => "index_likes_on_user_id_and_doc_id_and_doc_type", :unique => true
   add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
 
   create_table "messages", :force => true do |t|
@@ -75,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
+
   create_table "sermons", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
@@ -82,8 +85,8 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
     t.string   "user_id"
     t.datetime "day"
     t.string   "type_of_liturgy"
-    t.string   "audio"
-    t.string   "video"
+    t.string   "multimedia"
+    t.string   "multimedia_url"
     t.string   "feed_item_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

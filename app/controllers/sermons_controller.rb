@@ -13,11 +13,10 @@ class SermonsController < ApplicationController
     @sermon.subtitle = nil if @sermon.subtitle.strip.empty?
 
 
-=begin
-    @sermon.video = nil if @sermon.video.strip.empty?
-=end
-
-    @sermon.audio = nil if @sermon.audio.strip.empty?
+    if @sermon.multimedia_url.strip.empty?
+      @sermon.multimedia = nil
+      @sermon.multimedia_url = nil
+    end
 
     @sermon.type_of_liturgy = nil if @sermon.type_of_liturgy.strip.empty?
 

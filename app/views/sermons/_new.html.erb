@@ -16,11 +16,11 @@
       <div class="row collapse">
         <div class="columns large-1 large-offset-1">
 
-          <%= f.select :audio, options_for_select([["Video", :video], ["Audio", :audio]], {:include_blank => 'carica un file multimediale'} ), html_options = {:class=>"medium dropdown"}  %>
+          <%= f.select :multimedia, options_for_select([["Video", "v"], ["Audio", "a"]]), :class=>"medium dropdown"  %>
         </div>
         <div class="small-9 large-10 columns">
 
-              <%= f.text_field :audio, :type => "url", placeholder: 'inserisci url audio' %>
+              <%= f.text_field :multimedia_url, :type => "url", placeholder: 'inserisci url' %>
         </div>
       </div>
 

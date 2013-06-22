@@ -7,8 +7,8 @@ class CreateSermons < ActiveRecord::Migration
       t.string :user_id
       t.datetime :day
       t.string :type_of_liturgy
-      t.string :audio
-      t.string :video
+      t.string :multimedia
+      t.string :multimedia_url
       t.string :feed_item_id
 
       t.timestamps
