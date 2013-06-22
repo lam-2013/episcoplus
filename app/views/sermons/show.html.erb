@@ -61,11 +61,23 @@
               <source src="<%= @sermon.video %>" type='video/webm'/>
               <source src="<%= @sermon.video %>" type='video/ogg'/>
             </video>
+    <% end %>
+    <% if @sermon.audio %>
 
+        <div class="row">
+          <div class="large-12 columns large-offset-3 video">
 
+            <audio class="audio_player audio_skin"
+                   controls preload="auto" width="470">
+              <source src="<%= @sermon.audio %>" type="audio/ogg">
+              <source src="<%= @sermon.audio %>" type="audio/mpeg">
+              <source src="<%= @sermon.audio %>" type="audio/wav">
+            </audio>
+
+            <%= render "shared/player" %>
           </div>
         </div>
-
+        </div>
     <% end %>
 
     <p><%= @sermon.content %></p>
@@ -82,8 +94,6 @@
 
       <%= render @comments %>
     </ul>
-  </div>
-
+    </div>
 
 </section>
-
