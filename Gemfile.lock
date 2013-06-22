@@ -43,6 +43,7 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -108,6 +109,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    ruby-audio (1.6.1-x86-mingw32)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -118,6 +120,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
     sqlite3 (1.3.7-x86-mingw32)
     sqlite3_ar_regexp (1.1.0)
       activerecord (~> 3.0)
@@ -150,6 +153,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-sass-rails
   rails (= 3.2.13)
+  ruby-audio
   sass-rails (~> 3.2.3)
   simple-private-messages (= 0.0.0)!
   sqlite3

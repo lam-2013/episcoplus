@@ -13,9 +13,7 @@ REQUIRED STYLES (be careful overriding)
    ** If you want to add some kind of border/padding (e.g. a frame), or special positioning, use another containing element.
    Otherwise you risk messing up control positioning and full window mode. **
 */
-div#vjs_video_4{
-    width: 466px; !important
-}
+
 .video-js {
 
   background-color: #000;
@@ -154,11 +152,6 @@ body.vjs-full-window {
   opacity: 1;
   visibility: visible;
 }
-
-/* DEFAULT SKIN (override in another file to create new skins)
-================================================================================
-Instead of editing this file, I recommend creating your own skin CSS file to be included after this file,
-so you can upgrade to newer versions easier. You can remove all these styles by removing the 'vjs-default-skin' class from the tag. */
 
 /* Base UI Component Classes
 -------------------------------------------------------------------------------- */
@@ -301,11 +294,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
     background: url("player/pause.png") no-repeat center; /* Pause Icon */
 }
 
-/* Rewind
--------------------------------------------------------------------------------- */
-/*.vjs-default-skin .vjs-rewind-control { width: 5em; cursor: pointer !important; }
-.vjs-default-skin .vjs-rewind-control div { width: 19px; height: 16px; background: url('assets/icon/video-js.png'); margin: 0.5em auto 0; }
-*/
 
 /* Volume/Mute
 -------------------------------------------------------------------------------- */
@@ -482,13 +470,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 }
 
 
-/*
-.vjs-default-skin .vjs-fullscreen-control:before {
-    background: url("player/maximize16.png") no-repeat center */
-/* Enter full screen *//*
-
-}*/
-
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control {
     background: url("player/contract.png") no-repeat center;
 /* Exit full screen */
@@ -620,112 +601,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   100% { transform: rotate(359deg); }
 }
 
-/* Menu Buttons (Captions/Subtitles/etc.)
--------------------------------------------------------------------------------- */
-.vjs-default-skin .vjs-menu-button {
-  float: right;
-  cursor: pointer;
-}
-
-.vjs-default-skin .vjs-menu {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0em; /* (Width of vjs-menu - width of button) / 2 */
-  width: 0em;
-  height: 0em;
-  margin-bottom: 3em;
-
-  border-left: 2em solid transparent;
-  border-right: 2em solid transparent;
-
-  border-top: 1.55em solid rgb(0, 0, 0); /* Same top as ul bottom */
-  border-top-color: rgba(7, 40, 50, 0.5); /* Same as ul background */
-}
-
-/* Button Pop-up Menu */
-.vjs-default-skin .vjs-menu-button .vjs-menu .vjs-menu-content {
-  display: block;
-  padding: 0; margin: 0;
-  position: absolute;
-  width: 10em;
-  bottom: 1.5em; /* Same bottom as vjs-menu border-top */
-  max-height: 15em;
-  overflow: auto;
-
-  left: -5em; /* Width of menu - width of button / 2 */
-
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(7, 40, 50, 0.7);
-
-  -webkit-box-shadow: -20px -20px 0px rgba(255, 255, 255, 0.5);
-     -moz-box-shadow: 0 0 1em rgba(255, 255, 255, 0.5);
-          box-shadow: -0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2);
-}
-
-/*.vjs-default-skin .vjs-menu-button:focus ul,*/ /* This is not needed because keyboard accessibility for the caption button is not handled with the focus any more. */
-.vjs-default-skin .vjs-menu-button:hover .vjs-menu {
-  display: block;
-}
-.vjs-default-skin .vjs-menu-button ul li {
-  list-style: none;
-  margin: 0;
-  padding: 0.3em 0 0.3em 0;
-  line-height: 1.4em;
-  font-size: 1.2em;
-  font-weight: normal;
-  text-align: center;
-  text-transform: lowercase;
-}
-.vjs-default-skin .vjs-menu-button ul li.vjs-selected {
-  background-color: #000;
-}
-.vjs-default-skin .vjs-menu-button ul li:focus,
-.vjs-default-skin .vjs-menu-button ul li:hover,
-.vjs-default-skin .vjs-menu-button ul li.vjs-selected:focus,
-.vjs-default-skin .vjs-menu-button ul li.vjs-selected:hover {
-  background-color: rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.75);
-  color: #111;
-  outline: 0;
-
-  -webkit-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
-     -moz-box-shadow: 0 0 1em rgba(255, 255, 255, 1);
-          box-shadow: 0 0 1em rgba(255, 255, 255, 1);
-}
-.vjs-default-skin .vjs-menu-button ul li.vjs-menu-title {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1em;
-  line-height: 2em;
-  padding: 0;
-  margin: 0 0 0.3em 0;
-  font-weight: bold;
-  cursor: default;
-}
-
-/* Subtitles Button */
-.vjs-default-skin .vjs-subtitles-button:before { content: "\e00c"; }
-
-/* There's unfortunately no CC button in FontAwesome, so we need
-    to manually create one. Please +1 the fontawesome request.
-    https://github.com/FortAwesome/Font-Awesome/issues/968 */
-.vjs-default-skin .vjs-captions-button {
-  font-size: 1em; /* Font icons are 1.5em */
-}
-.vjs-default-skin .vjs-captions-button:before {
-  content: "\e008";
-  font-family: VideoJS;
-  font-size: 1.5em;
-  line-height: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  text-shadow: none;
-}
 
 
 /* Replacement for focus outline */
