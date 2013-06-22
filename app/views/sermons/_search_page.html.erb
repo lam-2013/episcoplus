@@ -1,6 +1,6 @@
 <%= ajax_loadzone do %>
     <ul class="sermons no-bullet">
-      <%= render @sermons %>
+      <%= render :partial => 'sermons/sermon_preview', :collection => @sermons %>
     </ul>
 <% end %>
 <%= ajax_links :section_id => 'sermon_search' do %>
