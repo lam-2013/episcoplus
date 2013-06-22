@@ -473,14 +473,15 @@ START audio player*/
   font-size: 10px;
   /* Allow poster to be vertially aligned. */
   vertical-align: middle;
-  /*  display: table-cell; */ /*This works in Safari but not Firefox.*/
+  /*  display: table-cell; */
+  /*This works in Safari but not Firefox.*/
 
   /* Turn off user selection (text highlighting) by default.
      The majority of player components will not be text blocks.
      Text areas will need to turn user selection back on. */
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
   -o-user-select: none;
   user-select: none;
 }
@@ -568,9 +569,9 @@ START audio player*/
 
   /* Shrink the bar slower than it grows. */
   -webkit-transition: top 0.4s, height 0.4s, font-size 0.4s, -webkit-transform 0.4s;
-  -moz-transition: top 0.4s, height 0.4s, font-size 0.4s,    -moz-transform 0.4s;
-  -o-transition: top 0.4s, height 0.4s, font-size 0.4s,      -o-transform 0.4s;
-  transition: top 0.4s, height 0.4s, font-size 0.4s,         transform 0.4s;
+  -moz-transition: top 0.4s, height 0.4s, font-size 0.4s, -moz-transform 0.4s;
+  -o-transition: top 0.4s, height 0.4s, font-size 0.4s, -o-transform 0.4s;
+  transition: top 0.4s, height 0.4s, font-size 0.4s, transform 0.4s;
 
 }
 
@@ -581,9 +582,9 @@ START audio player*/
   /* Even though we're not changing the top/height, we need to include them in
       the transition so they're handled correctly. */
   -webkit-transition: top 0.2s, height 0.2s, font-size 0.2s, -webkit-transform 0.2s;
-  -moz-transition: top 0.2s, height 0.2s, font-size 0.2s,    -moz-transform 0.2s;
-  -o-transition: top 0.2s, height 0.2s, font-size 0.2s,      -o-transform 0.2s;
-  transition: top 0.2s, height 0.2s, font-size 0.2s,         transform 0.2s;
+  -moz-transition: top 0.2s, height 0.2s, font-size 0.2s, -moz-transform 0.2s;
+  -o-transition: top 0.2s, height 0.2s, font-size 0.2s, -o-transform 0.2s;
+  transition: top 0.2s, height 0.2s, font-size 0.2s, transform 0.2s;
 }
 
 /* Box containing play and load progresses. Also acts as seek scrubber. */
@@ -617,6 +618,7 @@ START audio player*/
     url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC)
     -50% 0 repeat;
 }
+
 .audio_skin .audio_load-progress {
   background: rgba(255, 255, 255, 0.4); /* IE8- Fallback */
   background: rgba(255, 255, 255, 0.4);
@@ -637,18 +639,22 @@ START audio player*/
   cursor: pointer;
   float: right;
 }
+
 .audio_skin .audio_mute-control,
 .audio_skin .audio_volume-menu-button {
   background: url("player/volume-high.png") no-repeat center; /* Full volume */
 }
+
 .audio_skin .audio_mute-control.audio_vol-0,
 .audio_skin .audio_volume-menu-button.audio_vol-0 {
   background: url("player/volume-zero.png") no-repeat center; /* No volume */
 }
+
 .audio_skin .audio_mute-control.audio_vol-1,
 .audio_skin .audio_volume-menu-button.audio_vol-1 {
   background: url("player/volume-low.png") no-repeat center; /* Half volume */
 }
+
 .audio_skin .audio_mute-control.audio_vol-2,
 .audio_skin .audio_volume-menu-button.audio_vol-2 {
   background: url("player/volume-medium.png") no-repeat center; /* Full volume */
@@ -658,6 +664,7 @@ START audio player*/
   width: 5em;
   float: right;
 }
+
 .audio_skin .audio_volume-bar {
   width: 5em;
   height: 0.6em;
@@ -678,11 +685,11 @@ START audio player*/
     url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC)
     -50% 0 repeat;
 }
+
 .audio_skin .audio_volume-bar .audio_volume-handle {
   width: 0.5em;
   height: 0.5em;
 }
-
 
 .audio_skin .audio_volume-menu-button .audio_menu .audio_menu-content {
   width: 6em;
@@ -742,30 +749,49 @@ START audio player*/
 }
 
 @-moz-keyframes spin {
-  0% { -moz-transform: rotate(0deg); }
-  100% { -moz-transform: rotate(359deg); }
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
 }
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(359deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
 }
+
 @-o-keyframes spin {
-  0% { -o-transform: rotate(0deg); }
-  100% { -o-transform: rotate(359deg); }
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
 }
+
 @-ms-keyframes spin {
-  0% { -ms-transform: rotate(0deg); }
-  100% { -ms-transform: rotate(359deg); }
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
 }
+
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(359deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
 }
-
-
-
-
-
 
 /* END AUDIO PLAYER
 -------------------------------------------------------------------------------- */
