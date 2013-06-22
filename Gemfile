@@ -46,6 +46,9 @@ gem 'ajax_pagination', '~> 0.6.5'
 # To use tag
 gem 'acts-as-taggable-on'
 
+#To stream audio files
+gem 'ruby-audio'
+
 
 # To use private messaging
 gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
