@@ -42,7 +42,7 @@
 
     <% if @sermon.multimedia == "v" %>
         <div class="row">
-          <div class="large-12 columns large-offset-3 video">
+          <div class="large-10 columns large-offset-1 multimedia">
             <video class="video-js vjs-default-skin"
                    controls preload="auto" width="470" height="266"
                    poster="../assets/video_omelie_poster.png"
@@ -53,11 +53,11 @@
             </video>
           </div>
         </div>
-    <% end %>
 
-    <% if @sermon.multimedia == "a" %>
+
+    <% elsif @sermon.multimedia == "a" %>
         <div class="row">
-          <div class="large-12 columns large-offset-3 audio">
+          <div class="large-12 columns large-offset-1 multimedia">
 
             <audio class="audio_player audio_skin"
                    controls preload="auto" width="470">
