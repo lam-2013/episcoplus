@@ -51,6 +51,8 @@ $(function () {
 
         }
 
+        $('.audio_player').audioplayer();
+
     });
 });
 

@@ -14,6 +14,5 @@ class CreateSermons < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :sermons, :feed_item_id, unique: true
   end
 end
