@@ -252,6 +252,9 @@ div.gravatar_padding {
 
 div.multimedia {
   margin: 20px;
+  @media #{$small} {
+    padding: 10px 50px 10px 40px;
+  }
 }
 
 a {
