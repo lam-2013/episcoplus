@@ -44,32 +44,28 @@
 
 
         <% if @sermon.multimedia == "v" %>
-            <div class="row">
-              <div class="large-10 columns large-offset-1 multimedia">
-                <video class="video-js vjs-default-skin"
-                       controls preload="auto" width="470" height="266"
-                       poster="../assets/video_omelie_poster.png"
-                       data-setup='{"example_option":true}'>
-                  <source src="<%= @sermon.multimedia_url %>" type='video/mp4'/>
-                  <source src="<%= @sermon.multimedia_url %>" type='video/webm'/>
-                  <source src="<%= @sermon.multimedia_url %>" type='video/ogg'/>
-                </video>
-              </div>
+            <div class="row multimedia">
+              <video class="video-js vjs-default-skin"
+                     controls preload="auto" width="470" height="266"
+                     poster="../assets/video_omelie_poster.png"
+                     data-setup='{"example_option":true}'>
+                <source src="<%= @sermon.multimedia_url %>" type='video/mp4'/>
+                <source src="<%= @sermon.multimedia_url %>" type='video/webm'/>
+                <source src="<%= @sermon.multimedia_url %>" type='video/ogg'/>
+              </video>
             </div>
 
 
         <% elsif @sermon.multimedia == "a" %>
-            <div class="row">
-              <div class="large-10 columns large-offset-1 multimedia">
-                <div class="audio_player">
-                  <audio preload="auto" width="470">
-                    <source src="<%= @sermon.multimedia_url %>" type="audio/ogg">
-                    <source src="<%= @sermon.multimedia_url %>" type="audio/mpeg">
-                    <source src="<%= @sermon.multimedia_url %>" type="audio/wav">
-                  </audio>
+            <div class="row multimedia">
+              <div class="audio_player">
+                <audio preload="auto" width="470">
+                  <source src="<%= @sermon.multimedia_url %>" type="audio/ogg">
+                  <source src="<%= @sermon.multimedia_url %>" type="audio/mpeg">
+                  <source src="<%= @sermon.multimedia_url %>" type="audio/wav">
+                </audio>
 
-                  <%= render "shared/player" %>
-                </div>
+                <%= render "shared/player" %>
               </div>
             </div>
         <% end %>

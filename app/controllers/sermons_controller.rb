@@ -12,7 +12,6 @@ class SermonsController < ApplicationController
 
     @sermon.subtitle = nil if @sermon.subtitle.strip.empty?
 
-
     if @sermon.multimedia_url.strip.empty?
       @sermon.multimedia = nil
       @sermon.multimedia_url = nil

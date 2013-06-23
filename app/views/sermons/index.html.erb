@@ -1,8 +1,8 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication                     %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication                      %>
 <% provide :title, 'Omelie' %>
 
 <div class="row">
-  <div class="large-8 push-4 columns">
+  <div class="large-7 push-5 columns">
     <%= render 'sermons/search_form' %>
 
     <div class="panel">
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="large-4 pull-8 columns">
+  <div class="large-5 pull-7 columns">
     <%= render 'users/most_active' %>
     <%= render 'shared/tag_cloud' %>
     <%= render 'sermons/top_sermons' %>

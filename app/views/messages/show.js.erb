@@ -2,3 +2,4 @@ $mainMsg = $('#main-message');
 $mainMsg.html("<%= escape_javascript(render(:partial => 'messages/full_message', :object => @message)) %>");
 $thisMsg = $('#message-<%= @message.id %>').removeClass('unread');
 $('.new-label', $thisMsg).remove();
+$('#messages-notify').html("<%= current_user.unread_message_count %>")

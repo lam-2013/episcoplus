@@ -15,7 +15,8 @@ REQUIRED STYLES (be careful overriding)
 */
 
 .video-js {
-
+    max-width: 100%;
+    margin: 10px auto;
     background-color: #000;
     position: relative;
     padding: 0;

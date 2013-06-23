@@ -26,7 +26,6 @@ class Sermon < ActiveRecord::Base
   end
 
   # get the searched user(s) by (part of her) title
-  # TODO implements search by keyword (see in controller)
   def self.search(text)
     if text
       # remove blank space
@@ -34,7 +33,21 @@ class Sermon < ActiveRecord::Base
       #tranform in regex, i.e. word1|word2
       text = text.gsub(' ', '|')
 
-      where('title || (case when subtitle is null then "" else subtitle end) REGEXP ?', "#{text}")
+      where_condition = '(title || (case when subtitle is null then "" else subtitle end) REGEXP ?)'
+
+      join_condition = "LEFT OUTER JOIN
+                            (SELECT taggings.taggable_id AS taggable_id, tags.name AS tag_name
+                              FROM taggings LEFT OUTER JOIN tags ON taggings.tag_id = tags.id
+                              WHERE taggable_type='Sermon') AS tagsTable
+                    ON tagsTable.taggable_id = sermons.id"
+
+
+      #SEARCH IN TAG
+      text.split('|').each do |word|
+        where_condition << " OR tag_name = '#{word}'"
+      end
+
+      joins(join_condition).where(where_condition, "#{text}")
     else
       scoped # return an empty result set
     end

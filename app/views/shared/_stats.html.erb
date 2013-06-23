@@ -1,5 +1,5 @@
 <% # we are going to use this partial in the home and in the user profile;
-   # in the home @user is nil and needs to be filled       %>
+   # in the home @user is nil and needs to be filled        %>
 <% @user ||= current_user %>
 <div class="stats row" xmlns="http://www.w3.org/1999/html">
 
@@ -19,7 +19,8 @@
     utenti che mi seguono
   </a>
 
-  <span class="large-3 large-offset-1 small-4 columns left-border">
-    <strong><%= current_user.sermons.count %></strong>
-    omelie pubblicate</span>
+  <a href=<%= sermons_user_path(@user) if @user.sermons.count >0 %> class="large-3 large-offset-1 small-4 columns
+  left-border">
+  <strong><%= @user.sermons.count %></strong>
+  omelie pubblicate</a>
 </div>

@@ -1,4 +1,4 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication    %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication     %>
 <% provide :title, 'Scrivi omelia' %>
 
 <%= render 'shared/error_messages' %>
@@ -12,7 +12,41 @@
   <div class="columns large-12">
 
     <div class="panel">
-      <%= render 'new' %>
+      <div class="row collapse">
+        <%= form_for(@sermon, :html => {:class => "custom"}) do |f| %>
+
+            <%= f.text_field :title, placeholder: 'Titolo', :required => "required" %>
+            <%= f.text_field :subtitle, placeholder: 'Sottotitolo' %>
+
+            <div class="row collapse">
+              <div class="columns large-8">
+                <%= f.text_field :type_of_liturgy, placeholder: 'Tipo di Liturgia' %>
+              </div>
+              <div class="columns large-4">
+                <%= f.text_field :day, :type => :date, :class => 'datepicker', placeholder: 'gg/mm/aaaa' %>
+              </div>
+            </div>
+
+            <div class="row collapse">
+              <div class="columns small-3 large-2">
+
+                <%= f.select :multimedia, options_for_select([["Video", "v"], ["Audio", "a"]]), :class => "medium dropdown" %>
+              </div>
+              <div class="small-9 large-10 columns">
+
+                <%= f.text_field :multimedia_url, :type => "url", placeholder: 'inserisci url' %>
+              </div>
+            </div>
+
+            <%= f.text_area :content, placeholder: 'Scrivi la tua omelia', :required => "required" %>
+
+
+            <%= f.text_field :tag_list, :id => 'tags', placeholder: 'Di cosa parla? (separa le parole con una virgola)' %>
+
+            <%= f.submit "Pubblica", :class => 'button small radius' %>
+        <% end %>
+
+      </div>
     </div>
   </div>
 

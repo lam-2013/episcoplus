@@ -110,6 +110,13 @@ header {
           }
 
         }
+        .hide-for-large-up {
+          display: inline !important;
+          vertical-align: middle;
+          @media only screen and (min-width: 58.75em) {
+            display: none !important;
+          }
+        }
         .settings {
           @media only screen and (min-width: 58.75em) {
             a.icon-anchor {
@@ -160,6 +167,9 @@ header {
               right: 0.3em;
               margin: 0;
               font-weight: normal;
+              line-height: 1em;
+              font-size: 1em;
+              padding: 0.3em 0.2em;
             }
           }
         }
@@ -561,15 +571,18 @@ footer.row {
 }
 
 /* home page pre-login */
+.container.pre-login {
+  @media #{$small} {
+    background: url('home/home_02.jpg') bottom left no-repeat;
+    background-size: cover;
+  }
+}
+
 #pre-login-home {
   max-width: none;
   padding-top: 20px;
   padding: 0;
   position: relative;
-  @media #{$small} {
-    background: url('home/home_02.jpg') bottom left no-repeat;
-    background-size: cover;
-  }
   #sign-area {
     @media #{$small} {
       margin-top: 1.6em;
@@ -775,6 +788,7 @@ footer.row {
     }
   }
   .user-name {
+    display: block;
     float: none;
     margin-top: 0.5em;
     margin-left: 0.5em;
@@ -868,9 +882,18 @@ footer.row {
   display: inline-block;
 }
 
+.like-count {
+  font-size: 0.9em;
+  color: $grey;
+}
+
 /* Sermons */
 .more {
   display: none;
+}
+
+.sermon .title {
+  font-weight: bold;
 }
 
 .sermon.preview {
