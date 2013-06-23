@@ -7,8 +7,7 @@
       Il form contiene <%= pluralize(errors.count, "errore", "errori") %>.
       <ul>
         <% errors.full_messages.each do |message| %>
-            <%# TODO spostare style nel css %>
-            <li style="margin-left: 20px;">Il campo <%= message %></li>
+            <li>Il campo <%= message %></li>
             <% logger.debug(message) %>
 
         <% end %>

@@ -2,8 +2,7 @@
   <% # current user gravatar      %>
   <a href="<%= user_path(current_user) %>" class="row">
 
-    <%# TODO spostare padding in CSS %>
-    <div class="columns small-2 large-2" style="padding: 0;">
+    <div class="columns small-2 large-2 gravatar_padding">
       <%= gravatar_for current_user, size: 52 %>
     </div>
 

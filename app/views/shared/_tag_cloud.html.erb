@@ -1,6 +1,5 @@
 <div class="panel tag_cloud">
 
-  <%# TODO ricontare i tag %>
   <%# TODO spostare la ricerca dei tag in un helper %>
   <% tag_cloud generate_tag_cloud, %w{s m l} do |tag, css_class| %>
       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
