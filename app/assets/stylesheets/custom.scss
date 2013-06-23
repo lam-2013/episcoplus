@@ -10,6 +10,7 @@ $darkgrey: #2b2b2b;
 $darkergrey: #1c1c1c;
 $darkerergrey: #131313;
 $white80: rgba(255, 255, 255, 0.8);
+$white90: rgba(255, 255, 255, 0.9);
 
 $lightBorder: 1px solid $lightgrey;
 
@@ -238,7 +239,7 @@ a {
 }
 
 h2.motto {
-  background: $white80;
+  background: $white90;
   text-align: center;
   padding: 10px;
   @media #{$small} {
@@ -247,7 +248,7 @@ h2.motto {
 }
 
 .motto.full {
-  background: $white80;
+  background: $white90;
   text-align: center;
   padding: 10px;
   margin-right: 3px;
@@ -265,6 +266,11 @@ section.sermon {
   background-color: $white80;
   margin-top: -20px;
   margin-right: -5px;
+
+  margin-left: -1px;
+  @media #{$small} {
+    margin-left: -14px;
+  }
 
   padding: 0.8em;
   .image {
@@ -293,6 +299,8 @@ section.sermon {
       margin: 0 0.5em;
     }
   }
+
+
 }
 
 .row.relative {
@@ -317,6 +325,23 @@ p.center {
   .l {
     font-size: 1.9em;
   }
+}
+
+div.tagsdiv {
+  border-top: $lightBorder;
+  border-bottom: $lightBorder;
+  padding: 15px;
+  @media #{$small} {
+    margin: 10px -6px 15px -20px;
+    width: 25px;
+  }
+
+}
+
+
+.row.border{
+  border-bottom: $lightBorder;
+  margin: 0 10px 20px 1px;
 }
 
 .round.alert.label {
@@ -370,6 +395,19 @@ img.ui-datepicker-trigger {
     top: 10px;
     right: 10px;
   }
+}
+
+div.comments {
+  background-color: $white90;
+  padding: 20px;
+  -moz-box-shadow: 4px 4px 15px $darkerergrey;
+  -webkit-box-shadow: 4px 4px 15px $darkerergrey;
+  box-shadow: 4px 4px 15px $darkerergrey;
+
+}
+
+div.sermon_content {
+  padding-left: 20px;
 }
 
 /*tag_list*/
@@ -435,7 +473,7 @@ div.tagsinput div {
 /*info_dropdown*/
 
 div.info_dropdown {
-  background-color: $white80;
+  background-color: $white90;
   padding: 20px;
   -moz-box-shadow: 4px 4px 15px $darkerergrey;
   -webkit-box-shadow: 4px 4px 15px $darkerergrey;
@@ -802,7 +840,7 @@ div.wrapper.columns {
   @media only screen and (min-width: 58.75em) {
     padding: 30px 0;
   }
-  background-color: rgba(255, 255, 255, 0.5);
+  //background-color: rgba(255, 255, 255, 0.5);
   max-width: 1000px;
   margin: 0 auto 5em;
 }
@@ -877,7 +915,7 @@ footer.row {
     }
 
     .motto {
-      background: $white80;
+      background: $white90;
       text-align: center;
       padding: 10px;
       @media #{$small} {
@@ -891,7 +929,7 @@ footer.row {
 
     .logo {
       text-indent: -9999px;
-      background: $white80 url("logo-episco+.png") center center no-repeat;
+      background: $white90 url("logo-episco+.png") center center no-repeat;
       background-size: auto 90%;
       height: 100px;
       margin-top: 0;
@@ -914,6 +952,7 @@ footer.row {
     }
     @media #{$small} {
       text-align: left;
+      margin-right: 80px;
       ul {
         margin: 0;
         li {

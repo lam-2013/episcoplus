@@ -59,7 +59,9 @@ class MessagesController < ApplicationController
 
   def index
     @messages = current_user.received_messages.paginate(page: params[:page], per_page: 10)
-    @message = Message.read_message(@messages.first.id, current_user)
+    if @messages.first
+      @message = Message.read_message(@messages.first.id, current_user)
+    end
   end
 
   def show

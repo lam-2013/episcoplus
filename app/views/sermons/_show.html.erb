@@ -1,0 +1,124 @@
+<section class="sermon">
+
+  <div class="panel">
+
+    <div class="row">
+      <div class="panel author-panel large-4 push-8 columns">
+        <div class="image"><%= gravatar_for @user, size: 50 %></div>
+        <div class="text">
+          <h5 class="name"><%= link_to "#{@user.full_name}", @user %></h5>
+          <% if @user.role %>
+              <h7 class="role">
+                <%= @user.role %>
+                <% if @user.placeForRole %>
+                    presso <%= @user.placeForRole %>
+                    </h7>
+                <% end %>
+          <% end %>
+        </div>
+        <div class="buttons-container"><%= render :partial => 'users/follow_form', :object => @user if signed_in? %>  </div>
+      </div>
+      <div class="large-8 pull-4 columns">
+        <h2><%= @sermon.title %></h2>
+        <% if @sermon.subtitle %>
+            <h4><%= @sermon.subtitle %></h4>
+        <% end %>
+      </div>
+
+    </div>
+
+
+
+      <% if @sermon.tag_list %>
+        <div class="row">
+          <div class="tagsdiv large-10 large-offset-1 columns">
+            <%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %>
+          </div>
+        </div>
+
+  <% end %>
+
+
+
+    <% if @sermon.multimedia == "v" %>
+        <div class="row">
+          <div class="large-12 columns large-offset-3 video">
+            <video class="video-js vjs-default-skin"
+                   controls preload="auto" width="470" height="266"
+                   poster="../assets/video_omelie_poster.png"
+                   data-setup='{"example_option":true}'>
+              <source src="<%= @sermon.multimedia_url %>" type='video/mp4'/>
+              <source src="<%= @sermon.multimedia_url %>" type='video/webm'/>
+              <source src="<%= @sermon.multimedia_url %>" type='video/ogg'/>
+            </video>
+          </div>
+        </div>
+    <% end %>
+
+    <% if @sermon.multimedia == "a" %>
+        <div class="row">
+          <div class="large-12 columns large-offset-3 audio">
+
+            <audio class="audio_player audio_skin"
+                   controls preload="auto" width="470">
+              <source src="<%= @sermon.multimedia_url %>" type="audio/ogg">
+              <source src="<%= @sermon.multimedia_url %>" type="audio/mpeg">
+              <source src="<%= @sermon.multimedia_url %>" type="audio/wav">
+            </audio>
+
+            <%= render "shared/player" %>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="row">
+      <div class="column large-12 sermon_content">
+        <p><%= @sermon.content %></p>
+      </div>
+    </div>
+
+
+    <div class="row border">
+      <% if @sermon.type_of_liturgy && @sermon.day %>
+          <div class="large-6 columns">
+            <h6>Tipo di liturgia: <%= @sermon.type_of_liturgy %></h6>
+          </div>
+
+          <div class="large-6 columns">
+            <h6>Da celebrare il: <%= l @sermon.day.to_date(), :format => :long %></h6>
+          </div>
+
+      <% elsif @sermon.type_of_liturgy && !@sermon.day %>
+          <div class="large-12 columns">
+            <h6>Tipo di liturgia: <%= @sermon.type_of_liturgy %></h6>
+          </div>
+      <% elsif !@sermon.type_of_liturgy && @sermon.day %>
+          <div class="large-12 columns">
+            <h6>Giorno di celebrazione: <%= l @sermon.day.to_date(), :format => :long %></h6>
+          </div>
+
+
+      <% end %>
+
+
+    </div>
+
+    <%= render :partial => 'likes/like_form', :object => @sermon %>
+
+  </div>
+
+
+  <div class="comments">
+    <%= render 'comments/comment_form' %>
+    <ul class="comments no-bullet" id="comments">
+      <% logger.debug('num commenti') %>
+      <% logger.debug(@comments.count) %>
+
+
+      <%= render @comments %>
+
+    </ul>
+  </div>
+
+
+</section>

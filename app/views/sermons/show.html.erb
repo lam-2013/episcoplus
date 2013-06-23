@@ -1,99 +1,14 @@
-<section class="sermon">
+<div class="row">
 
-  <div class="panel">
-    <div class="row">
-      <div class="panel author-panel large-4 push-8 columns">
-        <div class="image"><%= gravatar_for @user, size: 50 %></div>
-        <div class="text">
-          <h5 class="name"><%= link_to "#{@user.full_name}", @user %></h5>
-          <% if @user.role %>
-              <h7 class="role">
-                <%= @user.role %>
-                <% if @user.placeForRole %>
-                    presso <%= @user.placeForRole %>
-                    </h7>
-                <% end %>
-          <% end %>
-        </div>
-        <div class="buttons-container"><%= render :partial => 'users/follow_form', :object => @user if signed_in? %>  </div>
-      </div>
+  <div class="large-8 push-4 columns">
+    <%= render "show" %>
+  </div>
 
-      <div class="large-8 pull-4 columns">
-        <h2><%= @sermon.title %></h2>
-        <% if @sermon.subtitle %>
-            <h4><%= @sermon.subtitle %></h4>
-        <% end %>
+  <div class="large-4 pull-8 columns">
+    <%= render 'users/most_active' %>
+    <%= render 'shared/tag_cloud' %>
+    <%= render 'sermons/top_sermons' %>
+  </div>
 
-        <% if @sermon.tag_list %>
-            <p>La mia omelia parla
-              di:<%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %></p>
-        <% end %>
+</div>
 
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="large-4 columns">
-        <% if @sermon.type_of_liturgy %>
-            <h6>Tipo di liturgia: <%= @sermon.type_of_liturgy %></h6>
-        <% end %>
-      </div>
-
-
-      <div class="large-8 columns">
-        <% if @sermon.day %>
-            <h6>Giorno di celebrazione: <%= l @sermon.day.to_date(), :format => :long %></h6>
-        <% end %>
-      </div>
-
-    </div>
-
-
-    <% if @sermon.video %>
-        <div class="row">
-          <div class="large-12 columns large-offset-3 video">
-            <video class="video-js vjs-default-skin"
-                   controls preload="auto" width="470" height="266"
-                   poster="../assets/video_omelie_poster.png"
-                   data-setup='{"example_option":true}'>
-              <source src="<%= @sermon.video %>" type='video/mp4'/>
-              <source src="<%= @sermon.video %>" type='video/webm'/>
-              <source src="<%= @sermon.video %>" type='video/ogg'/>
-            </video>
-    <% end %>
-    <% if @sermon.audio %>
-
-        <div class="row">
-          <div class="large-12 columns large-offset-3 video">
-
-            <audio class="audio_player audio_skin"
-                   controls preload="auto" width="470">
-              <source src="<%= @sermon.audio %>" type="audio/ogg">
-              <source src="<%= @sermon.audio %>" type="audio/mpeg">
-              <source src="<%= @sermon.audio %>" type="audio/wav">
-            </audio>
-
-            <%= render "shared/player" %>
-          </div>
-        </div>
-        </div>
-    <% end %>
-
-    <p><%= @sermon.content %></p>
-
-
-
-
-
-    <%= render :partial => 'likes/like_form', :object => @sermon %>
-    <%= render 'comments/comment_form' %>
-    <ul class="comments no-bullet" id="comments">
-      <% logger.debug('num commenti') %>
-      <% logger.debug(@comments.count) %>
-
-      <%= render @comments %>
-    </ul>
-    </div>
-
-</section>
