@@ -6,7 +6,7 @@
       <div class="panel">
 
         <div class="row">
-          <div class="panel author-panel large-4 push-8 columns">
+          <div class="panel author-panel large-6 push-6 columns">
             <div class="image"><%= gravatar_for @user, size: 50 %></div>
             <div class="text">
               <h5 class="name"><%= link_to "#{@user.full_name}", @user %></h5>
@@ -21,7 +21,7 @@
             </div>
             <div class="buttons-container"><%= render :partial => 'users/follow_form', :object => @user if signed_in? %>  </div>
           </div>
-          <div class="large-8 pull-4 columns">
+          <div class="large-6 pull-6 columns">
             <h2><%= @sermon.title %></h2>
             <% if @sermon.subtitle %>
                 <h4><%= @sermon.subtitle %></h4>
@@ -61,15 +61,15 @@
         <% elsif @sermon.multimedia == "a" %>
             <div class="row">
               <div class="large-10 columns large-offset-1 multimedia">
-               <div class="audio_player">
-              <audio preload="auto" width="470">
-                  <source src="<%= @sermon.multimedia_url %>" type="audio/ogg">
-                  <source src="<%= @sermon.multimedia_url %>" type="audio/mpeg">
-                  <source src="<%= @sermon.multimedia_url %>" type="audio/wav">
-                </audio>
+                <div class="audio_player">
+                  <audio preload="auto" width="470">
+                    <source src="<%= @sermon.multimedia_url %>" type="audio/ogg">
+                    <source src="<%= @sermon.multimedia_url %>" type="audio/mpeg">
+                    <source src="<%= @sermon.multimedia_url %>" type="audio/wav">
+                  </audio>
 
-                <%= render "shared/player" %>
-                 </div>
+                  <%= render "shared/player" %>
+                </div>
               </div>
             </div>
         <% end %>

@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     @posts = @user.posts.paginate(page: params[:page])
 
     @post = current_user.posts.build if signed_in? && current_user?(@user)
+
+    @last_sermons = @user.sermons.unscoped.order("#{Sermon.table_name}.created_at DESC").limit(3)
   end
 
   def new
@@ -91,6 +93,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  def sermons
+    @user = User.find(params[:id])
+    @title = "Omelie di #{@user.full_name}"
+    @sermons = @user.sermons.unscoped.order("#{Sermon.table_name}.created_at DESC").paginate(page: params[:page], per_page: 10)
+
+    @available_type = Sermon.where("type_of_liturgy IS NOT NULL").select(:type_of_liturgy).uniq
+
+    render 'sermons/index'
   end
 
   private

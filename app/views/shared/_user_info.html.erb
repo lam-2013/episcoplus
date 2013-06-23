@@ -1,15 +1,11 @@
 <div class="panel user-info">
-  <% # current user gravatar      %>
   <a href="<%= user_path(current_user) %>" class="row">
 
-    <div class="columns small-2 large-2 gravatar_padding">
+    <div class="gravatar-cont">
       <%= gravatar_for current_user, size: 52 %>
     </div>
 
-    <div class="columns small-10 large-10" style="padding-right: 0;">
-      <h4><%= current_user.honorific %> <%= current_user.name %></h4>
-    </div>
-
+    <h4 class="user-name"><%= current_user.honorific %> <%= current_user.name %></h4>
   </a>
 
   <%= render 'shared/stats' %>

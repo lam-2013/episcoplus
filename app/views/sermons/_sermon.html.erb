@@ -10,12 +10,6 @@
     <div class="content"><%= truncate(sermon.content, :length => 100, :separator => ' ') %></div>
     <div class="tag_list"><%= raw sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %></div>
 
-  <span class="timestamp">
-    <%= time_ago_in_words(sermon.created_at) %> fa
-  </span>
-    <%# TODO se c'è tempo... il delete rimuove l'omelia dal feed, ma non la cancella %>
-    <% if false %> <%# current_user?(sermon.user) %>
-        | <%= link_to image_tag("icon/remove.png"), post, method: :delete, data: {confirm: 'Are you sure?'}, title: sermon.content %>
-    <% end %>
+
   </div>
 </li>

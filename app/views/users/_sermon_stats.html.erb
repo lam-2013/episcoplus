@@ -1,0 +1,36 @@
+<% # we are going to use this partial in the home and in the user profile;
+   # in the home @user is nil and needs to be filled             %>
+
+<% @user ||= current_user %>
+<div class="stats sermon-stats row">
+
+  <span class="large-5 small-5 columns">
+    <strong><%= @user.sermons.count %></strong>
+    omelie pubblicate</span>
+
+  <span class="large-2 small-2 columns">
+    <%= image_tag "icon/arrow-down.png" %>
+  </span>
+
+  <span class="large-5 small-5 columns">
+    <strong><%= @user.sermons.where("created_at >= '#{(Time.now - 30.days).utc.iso8601}'").count %></strong>
+    nell'ultimo mese</span>
+</div>
+<% if @user.sermons.count > 0 %>
+    <div class="last-sermons row">
+      <h5><%= link_to "Ultime omelie pubblicate", sermons_user_path(@user) %></h5>
+      <ul class="sermons no-bullet">
+        <% @last_sermons.each do |sermon| %>
+            <li class="post row sermon">
+              <%= link_to sermon.title, sermon, :class => 'title' %>
+              <% if sermon.taggings.count >0 %>
+                  <div>
+                    <%= raw sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %>
+                  </div>
+              <% end %>
+              <span class="timestamp"><%= time_ago_in_words(sermon.created_at) %> fa</span>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

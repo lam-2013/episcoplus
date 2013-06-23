@@ -40,14 +40,10 @@ gem 'faker', '1.0.1'
 # To add pagination capabilities
 gem 'will_paginate', '3.0.3'
 gem 'foundation-will_paginate'
-# TODO Sostituire will_paginate con foundation_paginate
 gem 'ajax_pagination', '~> 0.6.5'
 
 # To use tag
 gem 'acts-as-taggable-on'
-
-#To stream audio files
-gem 'ruby-audio'
 
 
 # To use private messaging
