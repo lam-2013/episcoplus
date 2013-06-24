@@ -4,15 +4,16 @@
 <% @user ||= current_user %>
 <div class="stats row">
 
-  <span class="large-2 large-offset-1 columns">
+  <span class="large-2 push-2 columns">
     <strong><%= @user.sermons.count %></strong>
-    omelie pubblicate</span>
+    omelie pubblicate
+  </span>
 
-  <span class="large-2 large-offset-2 columns">
+  <span class="large-4 push-3 columns">
     <%= image_tag "icon/arrow-down.png"%>
   </span>
 
-  <span class="large-4 large-offset-1 columns">
+  <span class="large-2 pull-2 columns">
     <strong><%= @user.sermons.where("created_at >= '#{(Time.now - 30.days).utc.iso8601}'").count %></strong>
     nell'ultimo mese</span>
 </div>
