@@ -15,9 +15,9 @@
           <!-- Left Nav Section -->
           <ul class="left">
             <li class="divider"></li>
-            <li><%= link_to "omelie", sermons_path %></li>
+            <li><%= link_to "Omelie", sermons_path %></li>
             <li class="divider"></li>
-            <li><%= link_to 'breviario', root_path %></li>
+            <li><%= link_to 'Breviario', root_path %></li>
             <li class="divider"></li>
 
           </ul>
@@ -25,12 +25,20 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li class="divider hide-for-small "></li>
-            <li><%= link_to image_tag("icon/bell.png"), root_path %></li>
+            <li>
+              <%= link_to root_path do %>
+                  <%= image_tag("icon/bell.png") %>
+                  <span class="hide-for-large-up">Notifiche</span>
+              <% end %>
+            </li>
             <li class="divider"></li>
             <li class="with-notify">
-              <%= link_to image_tag("icon/mail2.png"), messages_path %>
-              <% if current_user.unread_messages? %>
-                  <span class="notify"><%= current_user.unread_message_count %></span>
+              <%= link_to messages_path do %>
+                  <%= image_tag("icon/mail2.png") %>
+                  <span class="hide-for-large-up">Messaggi</span>
+                  <% if current_user.unread_messages? %>
+                      <span class="notify" id="messages-notify"><%= current_user.unread_message_count %></span>
+                  <% end %>
               <% end %>
             </li>
             <li class="divider"></li>

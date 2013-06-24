@@ -7,9 +7,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user_id = current_user.id
 
-    # TODO create news
-    #@comment.create_feed_item(user_id: current_user.id)
-
     if @comment.save
       @sermon = Comment.find(@comment.id).doc
       # without javascript: redirect_to home

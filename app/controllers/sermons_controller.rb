@@ -12,7 +12,6 @@ class SermonsController < ApplicationController
 
     @sermon.subtitle = nil if @sermon.subtitle.strip.empty?
 
-
     if @sermon.multimedia_url.strip.empty?
       @sermon.multimedia = nil
       @sermon.multimedia_url = nil
@@ -65,12 +64,17 @@ class SermonsController < ApplicationController
         where_condition << ' AND '
       end
       where_condition << "date(day) = date('#{params[:day].to_date}')"
+    else
+      params[:day] = nil
     end
     if params[:type_of_liturgy] && !params[:type_of_liturgy].empty?
       if !where_condition.empty?
         where_condition << ' AND '
       end
       where_condition << "type_of_liturgy = '#{params[:type_of_liturgy]}'"
+    else
+      params[:type_of_liturgy] = nil
+
     end
 
     isArgumentPresent = params[:argument] && !params[:argument].strip.empty?
@@ -106,10 +110,12 @@ class SermonsController < ApplicationController
         @sermons = Sermon.where(where_condition).paginate(page: params[:page], per_page: 10)
       end
     else
-      redirect_to sermons_path
+      @sermons = Sermon.paginate(page: params[:page], per_page: 10)
     end
 
     @available_type = Sermon.where("type_of_liturgy IS NOT NULL").select(:type_of_liturgy).uniq
+
+    render 'sermons/index'
   end
 
   private

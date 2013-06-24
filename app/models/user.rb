@@ -68,7 +68,6 @@ class User < ActiveRecord::Base
   end
 
   # get the searched user(s) by (part of her) name, surname, diocese
-  # TODO mettere prima i match sul nome, poi sulla città
   def self.search(text)
     if text
       # remove blank space
@@ -76,7 +75,7 @@ class User < ActiveRecord::Base
       #tranform in regex, i.e. word1|word2
       text = text.gsub(' ', '|')
 
-      where('name || surname || (case when diocese is null then "" else diocese end) REGEXP ?', "#{text}")
+      where('name || surname REGEXP ?', "#{text}") && where('(case when diocese is null then "" else diocese end) REGEXP ?', "#{text}")
     else
       scoped # return an empty result set
     end
@@ -91,7 +90,18 @@ class User < ActiveRecord::Base
     my_diocese_ids = "SELECT id FROM users WHERE diocese = \"#{user.diocese}\" ORDER BY RANDOM()" if user.diocese
     my_study_ids = "SELECT id FROM users WHERE study = \"#{user.study}\" ORDER BY RANDOM()" if user.study
 
-    where("id <> :user_id AND id NOT IN (#{followed_user_ids}) AND(id IN (#{their_followed_ids}) OR id IN (#{my_diocese_ids}) OR id IN (#{my_study_ids}))", user_id: user.id).order('RANDOM()').limit(4)
+    suggested_user = where("id <> :user_id AND id NOT IN (#{followed_user_ids}) AND(id IN (#{their_followed_ids}) OR
+                                id IN (#{my_diocese_ids}) OR id IN (#{my_study_ids}))", user_id: user.id).order('RANDOM()').limit(4)
+
+    if suggested_user.count < 1
+      #utenti con più follower
+      followed_user_ids = 'SELECT followed_id, COUNT(follower_id) AS num_follower FROM relationships GROUP BY followed_id'
+      suggested_user = joins("LEFT OUTER JOIN (#{followed_user_ids}) ON followed_id")
+      .where("#{User.table_name}.id <> :user_id", user_id: user.id).order('num_follower DESC').limit(4);
+    else
+      suggested_user
+    end
+
   end
 
   # private methods

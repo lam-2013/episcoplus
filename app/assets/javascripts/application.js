@@ -44,7 +44,7 @@ $(function () {
         if (!is_mobile) {
             $('.datepicker').datepicker({
                 showOn: "button",
-                buttonImage: ('../assets/icon/calendar.png'),
+                buttonImage: ('../../assets/icon/calendar.png'),
                 buttonImageOnly: true,
                 slideDown: "slow"
             }).attr("type", "text");

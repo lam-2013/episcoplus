@@ -8,6 +8,14 @@
     <span class="title-presentation">A
       <%= link_to "#{user.honorific} #{user.name} #{user.surname}", user, class: 'user-name' %>
       <% if nDocLike > 1 %>e ad altri <%= doc.likes.count - 1 %><% end %> piace un elemento</span>
-    <ul class="no-bullet like-inner"><%= render doc %></ul>
+
+    <ul class="no-bullet like-inner">
+      <% if doc.is_a?(Sermon) %>
+          <%= render :partial => 'sermons/sermon_preview', :object => doc %>
+      <% else %>
+          <%= render doc %>
+      <% end %>
+    </ul>
+
   </div>
 </li>

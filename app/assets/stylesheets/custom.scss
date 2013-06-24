@@ -110,6 +110,13 @@ header {
           }
 
         }
+        .hide-for-large-up {
+          display: inline !important;
+          vertical-align: middle;
+          @media only screen and (min-width: 58.75em) {
+            display: none !important;
+          }
+        }
         .settings {
           @media only screen and (min-width: 58.75em) {
             a.icon-anchor {
@@ -160,6 +167,9 @@ header {
               right: 0.3em;
               margin: 0;
               font-weight: normal;
+              line-height: 1em;
+              font-size: 1em;
+              padding: 0.3em 0.2em;
             }
           }
         }
@@ -200,7 +210,7 @@ div.alert-box.error {
   }
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 
-  li{
+  li {
     margin-left: 20px;
   }
 
@@ -210,7 +220,8 @@ div.alert-box.error {
   border: 5px solid #eee;
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 }
-div.gravatar_padding{
+
+div.gravatar_padding {
   padding: 0;
 }
 span.sermon_stats{
@@ -241,8 +252,11 @@ span.sermon_stats{
   border-left: $lightBorder;
 }
 
-div.multimedia{
+div.multimedia {
   margin: 20px;
+  @media #{$small} {
+    padding: 10px 50px 10px 40px;
+  }
 }
 
 a {
@@ -314,7 +328,6 @@ section.sermon {
     }
   }
 
-
 }
 
 .row.relative {
@@ -352,8 +365,7 @@ div.tagsdiv {
 
 }
 
-
-.row.border{
+.row.border {
   border-bottom: $lightBorder;
   margin: 0 10px 20px 1px;
 }
@@ -417,7 +429,7 @@ div.comments {
   -moz-box-shadow: 4px 4px 15px $darkerergrey;
   -webkit-box-shadow: 4px 4px 15px $darkerergrey;
   box-shadow: 4px 4px 15px $darkerergrey;
-
+  margin-bottom: 20px;
 }
 
 div.sermon_content {
@@ -564,15 +576,18 @@ footer.row {
 }
 
 /* home page pre-login */
+.container.pre-login {
+  @media #{$small} {
+    background: url('home/home_02.jpg') bottom left no-repeat;
+    background-size: cover;
+  }
+}
+
 #pre-login-home {
   max-width: none;
   padding-top: 20px;
   padding: 0;
   position: relative;
-  @media #{$small} {
-    background: url('home/home_02.jpg') bottom left no-repeat;
-    background-size: cover;
-  }
   #sign-area {
     @media #{$small} {
       margin-top: 1.6em;
@@ -708,17 +723,19 @@ footer.row {
   line-height: 1.2em;
 }
 
+.gravatar-cont {
+  float: left;
+  margin-right: 0.5em;
+  img {
+    vertical-align: middle;
+  }
+}
+
 .user {
   padding: 5px 0 10px;
   border-bottom: $lightBorder;
   &.row {
     margin: 0;
-  }
-  .gravatar-cont {
-    float: left;
-    img {
-      vertical-align: middle;
-    }
   }
   .user-name {
     margin-left: 5px;
@@ -776,6 +793,7 @@ footer.row {
     }
   }
   .user-name {
+    display: block;
     float: none;
     margin-top: 0.5em;
     margin-left: 0.5em;
@@ -810,24 +828,57 @@ footer.row {
     &:first-child {
       border-top: 0;
     }
-  }
-  .stats {
-    border-top: $lightBorder;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
-    a, span {
-      display: inline-block;
-      padding: 0.3em;
-      text-align: center;
-      font-size: 0.8em;
-      strong {
-        display: block;
-        font-size: 1.4em;
-      }
+    .image {
+      margin-left: 0.5px;
+    }
+    .user-name {
+      line-height: 50px;
     }
   }
   h4 {
     color: inherit;
+  }
+}
+
+.stats {
+  border-top: $lightBorder;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+  a, span {
+    display: inline-block;
+    padding: 0.3em;
+    text-align: center;
+    font-size: 0.8em;
+    strong {
+      display: block;
+      font-size: 1.4em;
+    }
+  }
+}
+
+.sermon-stats {
+  border: none;
+  margin: 0;
+  .columns {
+    text-align: center;
+    strong {
+      display: block;
+    }
+  }
+}
+
+.last-sermons.row {
+  padding: 0.5em;
+  margin: 0.5em 0 0;
+  border-top: $lightBorder;
+  h5 {
+    margin-bottom: 0.5em;
+  }
+  .sermons {
+    margin-bottom: 0;
+    .sermon {
+      padding: 0.5em 0;
+    }
   }
 }
 
@@ -836,9 +887,18 @@ footer.row {
   display: inline-block;
 }
 
+.like-count {
+  font-size: 0.9em;
+  color: $grey;
+}
+
 /* Sermons */
 .more {
   display: none;
+}
+
+.sermon .title {
+  font-weight: bold;
 }
 
 .sermon.preview {

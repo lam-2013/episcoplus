@@ -1,3 +1,9 @@
+if RUBY_VERSION =~ /1.9/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
+
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
@@ -40,14 +46,10 @@ gem 'faker', '1.0.1'
 # To add pagination capabilities
 gem 'will_paginate', '3.0.3'
 gem 'foundation-will_paginate'
-# TODO Sostituire will_paginate con foundation_paginate
 gem 'ajax_pagination', '~> 0.6.5'
 
 # To use tag
 gem 'acts-as-taggable-on'
-
-#To stream audio files
-gem 'ruby-audio'
 
 
 # To use private messaging
