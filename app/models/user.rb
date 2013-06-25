@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
 
   #get suggested user - my followed's followeds, people with my diocese and study
   def self.getSuggestedUsers(user)
-    followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
+    followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id' #seguiti da me
     their_followed_ids = "SELECT followed_id FROM relationships WHERE follower_id IN (#{followed_user_ids})
                             GROUP BY followed_id ORDER BY count(follower_id)"
 
@@ -95,9 +95,10 @@ class User < ActiveRecord::Base
 
     if suggested_user.count < 1
       #utenti con più follower
-      followed_user_ids = 'SELECT followed_id, COUNT(follower_id) AS num_follower FROM relationships GROUP BY followed_id'
-      suggested_user = joins("LEFT OUTER JOIN (#{followed_user_ids}) ON followed_id")
-      .where("#{User.table_name}.id <> :user_id", user_id: user.id).order('num_follower DESC').limit(4);
+      followed_user_ids2 = "SELECT followed_id, COUNT(follower_id) AS num_follower FROM relationships
+WHERE followed_id NOT IN (#{followed_user_ids}) GROUP BY followed_id"
+      suggested_user = joins("inner JOIN (#{followed_user_ids2}) ON followed_id")
+      .where("#{User.table_name}.id <> :user_id AND id NOT IN (#{followed_user_ids})", user_id: user.id).order('num_follower DESC').limit(4);
     else
       suggested_user
     end

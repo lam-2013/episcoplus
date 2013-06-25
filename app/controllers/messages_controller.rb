@@ -31,17 +31,26 @@ class MessagesController < ApplicationController
     if !subject.empty?
       @message.subject = params[:message][:subject]
     end
+
+
     @message.body = params[:message][:body]
     @message.sender = User.find(params[:message][:sender])
     recipient = User.find(params[:message][:recipient])
     @message.recipient = recipient
 
+    if @message.body.nil? || @message.body.empty?
+      flash[:error] = "Messaggio non inviato a #{recipient.name}: testo del messaggio vuoto!"
+      redirect_to :back and return
+    end
+
+
+
     if @message.save
       flash[:success] = "Messaggio inviato a #{recipient.name}!"
-      redirect_to @message.recipient
+      redirect_to :back
     else
       flash[:error] = "Messaggio non inviato a #{recipient.name}!"
-      render @message.recipient
+      render :back
     end
   end
 

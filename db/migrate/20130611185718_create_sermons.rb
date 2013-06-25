@@ -1,9 +1,9 @@
 class CreateSermons < ActiveRecord::Migration
   def change
     create_table :sermons do |t|
-      t.string :title
+      t.string :title, :null=>false
       t.string :subtitle
-      t.string :content
+      t.string :content, :null=>false
       t.string :user_id
       t.datetime :day
       t.string :type_of_liturgy
