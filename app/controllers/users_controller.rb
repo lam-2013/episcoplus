@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 
     @post = current_user.posts.build if signed_in? && current_user?(@user)
 
-
-    @last_sermons = @user.sermons.unscoped.order("#{Sermon.table_name}.created_at DESC").limit(3)
+    #rimosso .unscoped perchè metteva le omelie di altri - TODO cercare di farle apparire in ordine cronologico
+    @last_sermons = @user.sermons.reorder("#{Sermon.table_name}.created_at DESC").limit(3)
 
     @display_followers = @user.followers.paginate :page => params[:followers_page], :per_page => 5, :order => 'TRIM(LOWER(name))'
     @display_followed = @user.followed_users.paginate :page => params[:followed_page], :per_page => 5, :order => 'TRIM(LOWER(name))'
@@ -100,7 +100,9 @@ class UsersController < ApplicationController
   def sermons
     @user = User.find(params[:id])
     @title = "Omelie di #{@user.full_name}"
-    @sermons = @user.sermons.unscoped.order("#{Sermon.table_name}.created_at DESC").paginate(page: params[:page], per_page: 10)
+
+    #rimosso .unscoped perchè metteva le omelie di altri - TODO cercare di farle apparire in ordine cronologico
+    @sermons = @user.sermons.reorder("#{Sermon.table_name}.created_at DESC").paginate(page: params[:page], per_page: 10)
 
     @available_type = Sermon.where("type_of_liturgy IS NOT NULL").select(:type_of_liturgy).uniq
 

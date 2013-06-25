@@ -1,15 +1,11 @@
 <%= ajax_loadzone do %>
     <ul class="users no-bullet">
-      <% if !@display_followers.nil? %>
-          <%= render @display_followers %>
-      <% end %>
+      <%= render @display_followers %>
     </ul>
 <% end %>
 
 <%= ajax_links :section_id => 'followers_popup' do %>
-    <% if !@display_followers.nil? %>
-        <%= foundation_paginate @display_followers %>
-    <% end %>
+    <%= foundation_paginate @display_followers %>
 <% end %>
 
 <script>

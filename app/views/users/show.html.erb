@@ -61,7 +61,7 @@
         <%= render 'users/sermon_stats' %>
       </div>
     </div>
-    <% #TODO aggiungere mieomelie   %>
+    <% #TODO aggiungere mieomelie    %>
     <div class="large-7 pull-5 columns">
       <div class="panel">
 
@@ -72,11 +72,11 @@
 
         <% if @user.posts.any? %>
             <div id="post_section">
-            <ul class="posts no-bullet">
-              <%= render @posts %>
-            </ul>
-            <% # since we are in a Users view, we need to specify that the pagination is for the posts                       %>
-            <%= foundation_paginate @posts %>
+              <ul class="posts no-bullet">
+                <%= render @posts %>
+              </ul>
+              <% # since we are in a Users view, we need to specify that the pagination is for the posts                        %>
+              <%= foundation_paginate @posts %>
             </div>
             <script>
 
@@ -109,7 +109,6 @@
                         }
 
 
-
                         $(this).attr('href', href);
                     });
 
@@ -131,28 +130,41 @@
   </div>
 
   <!--popup following-->
-  <% @user = current_user %>
   <div id="fd_modal" class="reveal-modal medium f_modal">
-    <h2>Sta seguendo</h2>
+
+    <% if @user==current_user %>
+        <h2>Sto seguendo</h2>
+    <% else %>
+        <h2>Sta seguendo</h2>
+    <% end %>
+
     <% if @user.followed_users.count > 0 && !@user.followed_users.count.nil? %>
         <div id="followed_popup">
           <%= render 'followed_popup' %>
         </div>
+
     <% else %>
-        <h4> non segue ancora nessuno</h4>
+
+        <h7 class="nobody">nessuno</h7>
+
     <% end %>
     <a class="close-reveal-modal">&#215;</a>
   </div>
 
   <!--popup followers-->
   <div id="fw_modal" class="reveal-modal medium f_modal">
-    <h2>È seguito da</h2>
+    <% if @user==current_user %>
+        <h2>Mi seguono</h2>
+    <% else %>
+        <h2>&Eacute; seguito da</h2>
+    <% end %>
+
     <% if @user.followers.count > 0 && !@user.followers.count.nil? %>
         <div id="followers_popup">
           <%= render 'followers_popup' %>
         </div>
     <% else %>
-        <h4> non è seguito ancora da nessuno</h4>
+        <h7 class="nobody">nessuno</h7>
     <% end %>
     <a class="close-reveal-modal">&#215;</a>
   </div>

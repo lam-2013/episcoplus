@@ -55,6 +55,7 @@ class SermonsController < ApplicationController
 
     #collections for left boxes
     @available_type = Sermon.where("type_of_liturgy IS NOT NULL").select(:type_of_liturgy).uniq
+
   end
 
   def search
