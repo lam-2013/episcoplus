@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post created!'
-      redirect_to root_url
+      redirect_to :back
     else
       @feed_items = []
       render 'pages/home'
