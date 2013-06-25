@@ -8,9 +8,11 @@
 <% end %>
 
 <script>
+
     $(document).ready(function () {
 
-        //fix on wrong parameter page for foundation
+        //workaround per bug di foundation paginate
+//        che non setta il parametro page corretto
         var $cont = $('#sermon_search');
         var currentPage = $('.pagination .current a', $cont).text();
         var page;

@@ -61,13 +61,10 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
 
   create_table "posts", :force => true do |t|
     t.string   "content"
-    t.integer  "feed_item_id"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "posts", ["feed_item_id"], :name => "index_posts_on_feed_item_id", :unique => true
 
   create_table "relationships", :force => true do |t|
     t.string   "follower_id"
@@ -91,8 +88,6 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
-
-  add_index "sermons", ["feed_item_id"], :name => "index_sermons_on_feed_item_id", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

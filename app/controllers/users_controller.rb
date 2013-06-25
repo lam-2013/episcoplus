@@ -11,11 +11,27 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     # get and paginate the posts associated to the specified user
-    @posts = @user.posts.paginate(page: params[:page])
+    @posts = @user.posts.paginate(page: params[:post_page])
 
     @post = current_user.posts.build if signed_in? && current_user?(@user)
 
+
     @last_sermons = @user.sermons.unscoped.order("#{Sermon.table_name}.created_at DESC").limit(3)
+
+    @display_followers = @user.followers.paginate :page => params[:followers_page], :per_page => 5, :order => 'TRIM(LOWER(name))'
+    @display_followed = @user.followed_users.paginate :page => params[:followed_page], :per_page => 5, :order => 'TRIM(LOWER(name))'
+
+    if (params[:change]=1)
+      respond_to do |format|
+        format.html # index.html.erb
+        ajax_respond format, :section_id => 'followers_popup', :render => {:file => 'users/_followers_popup'}
+      end
+    elsif (params[:change]=2)
+      respond_to do |format|
+        format.html # index.html.erb
+        ajax_respond format, :section_id => 'followed_popup', :render => {:file => 'users/_followed_popup'}
+      end
+    end
   end
 
   def new
@@ -80,20 +96,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  # Actions to list the followed users and the followers of a user
-  def following
-    @title = 'Following'
-    @user = User.find(params[:id])
-    @users = @user.followed_users.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
-  def followers
-    @title = 'Followers'
-    @user = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
-  end
 
   def sermons
     @user = User.find(params[:id])

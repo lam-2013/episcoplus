@@ -41,7 +41,11 @@ $(function () {
             $(".more", $advSearchSermon).slideToggle();
         });
 
+        $audioDiv = $('.audio_player');
+
         if (!is_mobile) {
+            $audioDiv.audioplayer();
+
             $('.datepicker').datepicker({
                 showOn: "button",
                 buttonImage: ('../../assets/icon/calendar.png'),
@@ -49,9 +53,14 @@ $(function () {
                 slideDown: "slow"
             }).attr("type", "text");
 
+        }else{
+            $audioDiv.css('background','transparent').each(function(){
+                $this = $(this);
+                $('.audio_skin', $this).hide();
+                $('audio', $this).attr('controls','controls');
+            });
         }
 
-        $('.audio_player').audioplayer();
 
     });
 });

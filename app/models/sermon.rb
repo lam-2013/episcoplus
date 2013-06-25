@@ -47,7 +47,7 @@ class Sermon < ActiveRecord::Base
         where_condition << " OR tag_name = '#{word}'"
       end
 
-      joins(join_condition).where(where_condition, "#{text}")
+      joins(join_condition).select("DISTINCT #{Sermon.table_name}.*").where(where_condition, "#{text}")
     else
       scoped # return an empty result set
     end

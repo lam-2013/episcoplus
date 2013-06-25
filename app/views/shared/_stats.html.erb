@@ -1,26 +1,56 @@
 <% # we are going to use this partial in the home and in the user profile;
-   # in the home @user is nil and needs to be filled        %>
+   # in the home @user is nil and needs to be filled          %>
 <% @user ||= current_user %>
 <div class="stats row" xmlns="http://www.w3.org/1999/html">
 
-  <% fdHref = "href=#{following_user_path(@user)}" if @user.followed_users.count > 0 %>
-  <a <%= fdHref %> class="large-4 small-4 columns">
+  <!--  OLD
+<%# fdHref = "href=#{following_user_path(@user)}" if @user.followed_users.count > 0 %>
+  <a <%#= fdHref %> class="large-4 small-4 columns">
     <strong id="following" class="stat">
-      <%= @user.followed_users.count %>
+      <%#= @user.followed_users.count %>
     </strong>
     utenti seguiti
   </a>
+  -->
 
-  <% fwHref = "href=#{followers_user_path(@user)}" if @user.followers.count >0 %>
-  <a <%= fwHref %> class="large-4 small-4 columns">
-    <strong id="followers_of_<%= @user.id %>" class="stat">
-      <%= @user.followers.count %>
+  <!------prova full_stats followed----->
+  <a href="#" data-reveal-id="fd_modal" class="large-4 small-4 columns">
+      <span>
+          <strong id="following">
+            <%= @user.followed_users.count %>
+          </strong>
+    utenti seguiti
+      </span>
+
+  </a>
+  <!-----end prova full_stats followed------>
+
+
+  <!-- OLD
+<%# fwHref = "href=#{followers_user_path(@user)}" if @user.followers.count >0 %>
+  <a <%#= fwHref %> class="large-4 small-4 columns">
+    <strong id="followers_of_<%#= @user.id %>" class="stat">
+      <%#= @user.followers.count %>
     </strong>
     utenti che mi seguono
   </a>
+  -->
 
-  <a href=<%= sermons_user_path(@user) if @user.sermons.count >0 %> class="large-3 large-offset-1 small-4 columns
+  <!------prova full_stats followers----->
+  <a href="#" data-reveal-id="fw_modal" class="large-4 small-4 columns">
+      <span>
+          <strong id="followers_of_<%= @user.id %>">
+            <%= @user.followers.count %>
+          </strong>
+    utenti che mi seguono
+      </span>
+
+  </a>
+  <!-----end prova full_stats followers------>
+
+
+  <a href="<%= sermons_user_path(@user) if @user.sermons.count >0 %>" class="large-3 large-offset-1 small-4 columns
   left-border">
-  <strong><%= @user.sermons.count %></strong>
-  omelie pubblicate</a>
+    <strong><%= @user.sermons.count %></strong>
+    omelie pubblicate</a>
 </div>

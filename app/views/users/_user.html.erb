@@ -16,10 +16,10 @@
           <% if friends.count > 1 %> e altri<% end %></span>
 
         <% end %>
-        <% if user.diocese == current_user.diocese %>
+        <% if user.diocese && user.diocese == current_user.diocese %>
             <span class="my-diocese">dalla tua diocesi</span>
         <% end %>
-        <% if user.study == current_user.study %>
+        <% if user.study && user.study == current_user.study %>
             <span class="my-diocese">ha studiato con te</span>
         <% end %>
       </div>

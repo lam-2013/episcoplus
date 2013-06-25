@@ -1,10 +1,15 @@
 class PagesController < ApplicationController
   def home
+
     if signed_in?
       @post = current_user.posts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
+      @display_followers = current_user.followers.paginate :page => params[:followers_page], :per_page => 5, :order => 'TRIM(LOWER(name))'
+      @display_followed = current_user.followed_users.paginate :page => params[:followed_page], :per_page => 5, :order => 'TRIM(LOWER(name))'
     else
       redirect_to welcome_url
+
+
     end
 
   end

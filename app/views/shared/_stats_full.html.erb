@@ -1,13 +1,16 @@
 <% # we are going to use this partial in the home and in the user profile;
-   # in the home @user is nil and needs to be filled                           %>
+   # in the home @user is nil and needs to be filled                                 %>
 <% @user ||= current_user %>
 <div class="stats-full">
 
   <%# Followed %>
-  <% fdHref = "href=#{following_user_path(@user)}" if @user.followed_users.count > 0 %>
   <h4>
-    <a <%= fdHref %> >
-      Sta seguendo
+    <a href="#" data-reveal-id="fd_modal">
+      <% if @user==current_user %>
+          Sto seguendo
+      <% else %>
+          Sta seguendo
+      <% end %>
       <span class="num-follow">
           <strong id="following" class="stat">
             <%= @user.followed_users.count %>
@@ -17,6 +20,8 @@
     </a>
   </h4>
 
+
+
   <% @this_followed = @user.followed_users.paginate :page => 1, :per_page => 3, :order => 'RANDOM()' %>
 
   <ul class="users no-bullet small">
@@ -25,11 +30,16 @@
     <% end %>
   </ul>
 
+
   <%# Followers %>
-  <% fwHref = "href=#{followers_user_path(@user)}" if @user.followers.count >0 %>
   <h5>
-    <a <%= fwHref %>>
-      &Eacute; seguito da
+    <a href="#" data-reveal-id="fw_modal">
+      <% if @user==current_user %>
+          Mi seguono
+      <% else %>
+          &Eacute; seguito da
+      <% end %>
+
       <span class="num-follow">
           <strong id="followers_of_<%= @user.id %>" class="stat">
             <%= @user.followers.count %>
@@ -38,6 +48,8 @@
       </span>
     </a>
   </h5>
+
+
 
   <% @this_followers = @user.followers.paginate :page => 1, :per_page => 9, :order => 'RANDOM()' %>
 
@@ -48,3 +60,4 @@
   </div>
 
 </div>
+

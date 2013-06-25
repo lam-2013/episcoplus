@@ -22,5 +22,33 @@
           </section>
         </aside>
       </div>
+
+      <!--popup following-->
+      <div id="fd_modal" class="reveal-modal medium f_modal">
+        <h2>Sta seguendo</h2>
+        <% if @user.followed_users.count > 0 && !@user.followed_users.count.nil? %>
+            <div id="followed_popup">
+              <%= render 'users/followed_popup' %>
+            </div>
+        <% else %>
+            <h4> non segue ancora nessuno</h4>
+        <% end %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+
+      <!--popup followers-->
+      <div id="fw_modal" class="reveal-modal medium f_modal">
+        <h2>È seguito da</h2>
+        <% if @user.followers.count > 0 && !@user.followers.count.nil? %>
+            <div id="followers_popup">
+              <%= render 'users/followers_popup' %>
+            </div>
+        <% else %>
+            <h4> non è seguito ancora da nessuno</h4>
+        <% end %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+
     </div>
+
 <% end %>

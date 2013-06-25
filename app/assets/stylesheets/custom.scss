@@ -195,6 +195,9 @@ textarea {
 
 .pagination li.current a {
   background-color: $darkred;
+  &:hover{
+    background-color: $mediumred;
+  }
 }
 
 .timestamp {
@@ -224,9 +227,7 @@ div.alert-box.error {
 div.gravatar_padding {
   padding: 0;
 }
-span.sermon_stats{
-  text-align: center;
-}
+
 .small.button {
   $padding: $button-sml;
   $bg: $mediumred;
@@ -712,6 +713,11 @@ footer.row {
   }
 }
 
+div.f_modal{
+  max-height: 50em;
+  position: fixed;
+}
+
 .no-post {
   margin: 10px 0;
 }
@@ -859,6 +865,7 @@ footer.row {
 .sermon-stats {
   border: none;
   margin: 0;
+    text-align: center;
   .columns {
     text-align: center;
     strong {
