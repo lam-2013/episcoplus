@@ -41,6 +41,7 @@ $(function () {
             $(".more", $advSearchSermon).slideToggle();
         });
 
+
         $audioDiv = $('.audio_player');
 
         if (!is_mobile) {

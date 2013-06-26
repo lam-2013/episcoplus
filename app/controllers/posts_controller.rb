@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to current_user
+    redirect_to :back
   end
 
   private

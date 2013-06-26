@@ -1,12 +1,12 @@
 <div class="row">
 
-  <div class="large-8 push-4 columns">
+  <div class="large-7 push-5 columns">
     <section class="sermon">
 
       <div class="panel">
 
         <div class="row">
-          <div class="panel author-panel large-6 push-6 columns">
+          <div class="panel author-panel large-7 push-5 columns">
             <div class="image"><%= gravatar_for @user, size: 50 %></div>
             <div class="text">
               <h5 class="name"><%= link_to "#{@user.full_name}", @user %></h5>
@@ -21,7 +21,23 @@
             </div>
             <div class="buttons-container"><%= render :partial => 'users/follow_form', :object => @user if signed_in? %>  </div>
           </div>
-          <div class="large-6 pull-6 columns">
+
+          <div class="large-5 pull-7 columns">
+          <% if @sermon.taggings.count >0 %>
+              <div class="row">
+                <div class="tagsdiv large-9 large-offset-1 columns">
+                  <%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %>
+                </div>
+              </div>
+                </div>
+
+          <% end %>
+
+
+          </div>
+
+        <div class="row">
+          <div class="large-12 columns">
             <h2><%= @sermon.title %></h2>
             <% if @sermon.subtitle %>
                 <h4><%= @sermon.subtitle %></h4>
@@ -32,14 +48,7 @@
 
 
 
-        <% if @sermon.taggings.count >0 %>
-            <div class="row">
-              <div class="tagsdiv large-10 large-offset-1 columns">
-                <%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %>
-              </div>
-            </div>
 
-        <% end %>
 
 
 
@@ -71,7 +80,7 @@
         <% end %>
 
         <div class="row">
-          <div class="column large-12 sermon_content">
+          <div class="column large-10 large-offset-1 sermon_content">
             <p><%= @sermon.content %></p>
           </div>
         </div>
@@ -80,20 +89,20 @@
         <div class="row border">
           <% if @sermon.type_of_liturgy && @sermon.day %>
               <div class="large-6 columns">
-                <h6>Tipo di liturgia: <%= @sermon.type_of_liturgy %></h6>
+                <h7>Tipo di liturgia: <span  class="bold"><%= @sermon.type_of_liturgy %></span></h7>
               </div>
 
               <div class="large-6 columns">
-                <h6>Da celebrare il: <%= l @sermon.day.to_date(), :format => :long %></h6>
+                <h7>Da celebrare il: <span  class="bold"><%= l @sermon.day.to_date(), :format => :long %></span></h7>
               </div>
 
           <% elsif @sermon.type_of_liturgy && !@sermon.day %>
               <div class="large-12 columns">
-                <h6>Tipo di liturgia: <%= @sermon.type_of_liturgy %></h6>
+                <h7>Tipo di liturgia: <span  class="bold"><%= @sermon.type_of_liturgy %></span></h7>
               </div>
           <% elsif !@sermon.type_of_liturgy && @sermon.day %>
               <div class="large-12 columns">
-                <h6>Giorno di celebrazione: <%= l @sermon.day.to_date(), :format => :long %></h6>
+                <h7>Da celebrare il: <span  class="bold"><%= l @sermon.day.to_date(), :format => :long %></span></h7>
               </div>
 
 
@@ -123,7 +132,7 @@
     </section>
   </div>
 
-  <div class="large-4 pull-8 columns">
+  <div class="large-5 pull-7 columns">
     <%= render 'users/most_active' %>
     <%= render 'shared/tag_cloud' %>
     <%= render 'sermons/top_sermons' %>
