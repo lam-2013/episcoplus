@@ -1,8 +1,9 @@
-<% #Provide the page title in a symbol to application.html.erb to avoid duplication   %>
+<% #Provide the page title in a symbol to application.html.erb to avoid duplication    %>
 <% provide :title, 'Search results' %>
 
 <div class="panel">
   <div class="user-search">
+
     <%= ajax_section :id => "user_search", :render => "users/search_page" %>
   </div>
   <div class="sermon-search">

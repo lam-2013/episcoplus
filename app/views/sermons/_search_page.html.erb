@@ -1,7 +1,10 @@
 <%= ajax_loadzone do %>
-    <ul class="sermons no-bullet">
-      <%= render :partial => 'sermons/sermon_preview', :collection => @sermons %>
-    </ul>
+    <% if @sermons.count > 0 %>
+        <h3>Omelie</h3>
+        <ul class="sermons no-bullet">
+          <%= render :partial => 'sermons/sermon_preview', :collection => @sermons %>
+        </ul>
+    <% end %>
 <% end %>
 <%= ajax_links :section_id => 'sermon_search' do %>
     <%= foundation_paginate @sermons %>

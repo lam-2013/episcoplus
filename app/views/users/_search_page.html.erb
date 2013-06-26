@@ -1,7 +1,10 @@
 <%= ajax_loadzone do %>
-    <ul class="users no-bullet">
-      <%= render @users %>
-    </ul>
+    <% if @users.count > 0 %>
+        <h3>Utenti</h3>
+        <ul class="users no-bullet">
+          <%= render @users %>
+        </ul>
+    <% end %>
 <% end %>
 <%= ajax_links :section_id => "user_search" do %>
     <%= foundation_paginate @users %>

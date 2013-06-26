@@ -36,7 +36,7 @@ class Sermon < ActiveRecord::Base
       where_condition = '(title || (case when subtitle is null then "" else subtitle end) REGEXP ?)'
 
       join_condition = "LEFT OUTER JOIN
-                            (SELECT taggings.taggable_id AS taggable_id, tags.name AS tag_name
+                            (SELECT DISTINCT taggings.taggable_id AS taggable_id, tags.name AS tag_name
                               FROM taggings LEFT OUTER JOIN tags ON taggings.tag_id = tags.id
                               WHERE taggable_type='Sermon') AS tagsTable
                     ON tagsTable.taggable_id = sermons.id"
@@ -47,7 +47,9 @@ class Sermon < ActiveRecord::Base
         where_condition << " OR tag_name = '#{word}'"
       end
 
-      joins(join_condition).select("DISTINCT #{Sermon.table_name}.*").where(where_condition, "#{text}")
+      result_id = "SELECT DISTINCT #{Sermon.table_name}.id FROM  #{Sermon.table_name} #{join_condition} WHERE #{where_condition}"
+
+      where("id in (#{result_id})",  "#{text}")
     else
       scoped # return an empty result set
     end

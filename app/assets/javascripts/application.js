@@ -31,6 +31,10 @@ $(function () {
 
     $(document).ready(function () {
 
+        alert=function(){
+            //do nothing
+        }
+
         $(document).foundation();
         $('textarea').autosize();
         $('#tags').tagsInput();

@@ -106,7 +106,8 @@ class SermonsController < ApplicationController
 
     if !where_condition.empty?
       if join_condition
-        @sermons = Sermon.joins(join_condition).where(where_condition).paginate(page: params[:page], per_page: 10)
+        result_id = "SELECT #{Sermon.table_name}.id FROM #{Sermon.table_name} #{join_condition} WHERE #{where_condition}"
+        @sermons = Sermon.where("id IN (#{result_id})").paginate(page: params[:page], per_page: 10)
       else
         @sermons = Sermon.where(where_condition).paginate(page: params[:page], per_page: 10)
       end

@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
     t.boolean  "sender_deleted",    :default => false
     t.boolean  "recipient_deleted", :default => false
     t.string   "subject"
-    t.text     "body"
+    t.text     "body",                                 :null => false
     t.datetime "read_at"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
 
   create_table "sermons", :force => true do |t|
-    t.string   "title"
+    t.string   "title",           :null => false
     t.string   "subtitle"
-    t.string   "content"
+    t.string   "content",         :null => false
     t.string   "user_id"
     t.datetime "day"
     t.string   "type_of_liturgy"
@@ -107,10 +107,10 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "surname"
+    t.string   "name",                               :null => false
+    t.string   "surname",                            :null => false
     t.string   "honorific"
-    t.string   "email"
+    t.string   "email",                              :null => false
     t.date     "birth"
     t.date     "orderDay"
     t.string   "study"
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20130618175956) do
     t.string   "aboutMe"
     t.boolean  "confirmed"
     t.string   "remember_token"
-    t.string   "password_digest"
+    t.string   "password_digest",                    :null => false
     t.boolean  "admin",           :default => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
