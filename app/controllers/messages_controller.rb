@@ -44,7 +44,6 @@ class MessagesController < ApplicationController
     end
 
 
-
     if @message.save
       flash[:success] = "Messaggio inviato a #{recipient.name}!"
       redirect_to :back

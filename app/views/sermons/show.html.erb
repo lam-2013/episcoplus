@@ -23,18 +23,18 @@
           </div>
 
           <div class="large-5 pull-7 columns">
-          <% if @sermon.taggings.count >0 %>
-              <div class="row">
-                <div class="tagsdiv large-9 large-offset-1 columns">
-                  <%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %>
+            <% if @sermon.taggings.count >0 %>
+                <div class="row">
+                  <div class="tagsdiv large-9 large-offset-1 columns">
+                    <%= raw @sermon.tag_list.map { |t| link_to t, tag_path(t), :class => "round alert label" }.join(' ') %>
+                  </div>
                 </div>
-              </div>
                 </div>
 
-          <% end %>
+            <% end %>
 
 
-          </div>
+            </div>
 
         <div class="row">
           <div class="large-12 columns">
@@ -89,20 +89,20 @@
         <div class="row border">
           <% if @sermon.type_of_liturgy && @sermon.day %>
               <div class="large-6 columns">
-                <h7>Tipo di liturgia: <span  class="bold"><%= @sermon.type_of_liturgy %></span></h7>
+                <h7>Tipo di liturgia: <span class="bold"><%= @sermon.type_of_liturgy %></span></h7>
               </div>
 
               <div class="large-6 columns">
-                <h7>Da celebrare il: <span  class="bold"><%= l @sermon.day.to_date(), :format => :long %></span></h7>
+                <h7>Da celebrare il: <span class="bold"><%= l @sermon.day.to_date(), :format => :long %></span></h7>
               </div>
 
           <% elsif @sermon.type_of_liturgy && !@sermon.day %>
               <div class="large-12 columns">
-                <h7>Tipo di liturgia: <span  class="bold"><%= @sermon.type_of_liturgy %></span></h7>
+                <h7>Tipo di liturgia: <span class="bold"><%= @sermon.type_of_liturgy %></span></h7>
               </div>
           <% elsif !@sermon.type_of_liturgy && @sermon.day %>
               <div class="large-12 columns">
-                <h7>Da celebrare il: <span  class="bold"><%= l @sermon.day.to_date(), :format => :long %></span></h7>
+                <h7>Da celebrare il: <span class="bold"><%= l @sermon.day.to_date(), :format => :long %></span></h7>
               </div>
 
 

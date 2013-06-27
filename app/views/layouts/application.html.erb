@@ -30,7 +30,7 @@
   <% end %>
 
   <div class="flashes">
-    <% # the flash message; it supports different type of communication   %>
+    <% # the flash message; it supports different type of communication    %>
     <% flash.each do |key, value| %>
         <div data-alert class="alert-box <%= key %>"><%= value %><%= link_to image_tag("icon/close.png"), "#", :class => "close" %></div>
     <% end %>

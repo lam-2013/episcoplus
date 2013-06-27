@@ -31,7 +31,7 @@ $(function () {
 
     $(document).ready(function () {
 
-        alert=function(){
+        alert = function () {
             //do nothing
         }
 
@@ -58,11 +58,11 @@ $(function () {
                 slideDown: "slow"
             }).attr("type", "text");
 
-        }else{
-            $audioDiv.css('background','transparent').each(function(){
+        } else {
+            $audioDiv.css('background', 'transparent').each(function () {
                 $this = $(this);
                 $('.audio_skin', $this).hide();
-                $('audio', $this).attr('controls','controls');
+                $('audio', $this).attr('controls', 'controls');
             });
         }
 

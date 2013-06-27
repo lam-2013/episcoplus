@@ -1,10 +1,9 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
 
-  <%= form_for(:session, url: sessions_path) do |f| %>
+    <%= f.email_field :email, :placeholder => 'Email', :required => 'required' %>
 
-      <%= f.email_field :email, :placeholder => 'Email', :required => 'required' %>
+    <%= f.password_field :password, :placeholder => 'Password', :required => 'required' %>
 
-      <%= f.password_field :password, :placeholder => 'Password', :required => 'required' %>
-
-      <%= f.submit 'Accedi', :class => 'button small' %>
-  <% end %>
+    <%= f.submit 'Accedi', :class => 'button small' %>
+<% end %>
 

@@ -4,7 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :sender_id, :recipient_id
       t.boolean :sender_deleted, :recipient_deleted, :default => false
       t.string :subject
-      t.text :body, :null=>false
+      t.text :body, :null => false
       t.datetime :read_at
       t.timestamps
     end

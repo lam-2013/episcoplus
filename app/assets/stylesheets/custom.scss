@@ -195,7 +195,7 @@ textarea {
 
 .pagination li.current a {
   background-color: $darkred;
-  &:hover{
+  &:hover {
     background-color: $mediumred;
   }
 }
@@ -713,12 +713,12 @@ footer.row {
   }
 }
 
-h7.nobody{
-text-align: center;
+h7.nobody {
+  text-align: center;
   color: $lightgrey;
 }
 
-div.f_modal{
+div.f_modal {
   max-height: 50em;
   position: fixed;
 }
@@ -870,7 +870,7 @@ div.f_modal{
 .sermon-stats {
   border: none;
   margin: 0;
-    text-align: center;
+  text-align: center;
   .columns {
     text-align: center;
     strong {
@@ -909,7 +909,7 @@ div.f_modal{
   display: none;
 }
 
-.sermon .title, .bold{
+.sermon .title, .bold {
   font-weight: bold;
 }
 
@@ -1010,7 +1010,7 @@ div.f_modal{
   }
 }
 
-#newMessage{
+#newMessage {
   position: fixed;
 }
 

@@ -48,18 +48,18 @@ $.fn.audioplayer = function () {
 
         $audio.on("progress", updateBuffered);
         function updateBuffered() {
-            if (!audio.buffered.start(0)){
+            if (!audio.buffered.start(0)) {
                 return;
             }
-                var start = audio.buffered.start(0);
-                var end = audio.buffered.end(0);
+            var start = audio.buffered.start(0);
+            var end = audio.buffered.end(0);
 
-                var delta = end - start;
+            var delta = end - start;
 
-                var startPercent = start * 100 / audio.duration;
-                var deltaPercent = delta * 100 / audio.duration;
+            var startPercent = start * 100 / audio.duration;
+            var deltaPercent = delta * 100 / audio.duration;
 
-                loadBar.css('left', startPercent + '%').width(deltaPercent + '%');
+            loadBar.css('left', startPercent + '%').width(deltaPercent + '%');
         }
 
 

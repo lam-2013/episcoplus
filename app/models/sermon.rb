@@ -49,7 +49,7 @@ class Sermon < ActiveRecord::Base
 
       result_id = "SELECT DISTINCT #{Sermon.table_name}.id FROM  #{Sermon.table_name} #{join_condition} WHERE #{where_condition}"
 
-      where("id in (#{result_id})",  "#{text}")
+      where("id in (#{result_id})", "#{text}")
     else
       scoped # return an empty result set
     end
